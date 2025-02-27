@@ -26,7 +26,7 @@ mixin _$OrganizationRating {
   String get donationRequestId => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
   int get rating => throw _privateConstructorUsedError;
-  String get review => throw _privateConstructorUsedError;
+  String? get review => throw _privateConstructorUsedError;
   int get createdAt => throw _privateConstructorUsedError;
 
   /// Serializes this OrganizationRating to a JSON map.
@@ -52,7 +52,7 @@ abstract class $OrganizationRatingCopyWith<$Res> {
     String donationRequestId,
     String userId,
     int rating,
-    String review,
+    String? review,
     int createdAt,
   });
 }
@@ -77,7 +77,7 @@ class _$OrganizationRatingCopyWithImpl<$Res, $Val extends OrganizationRating>
     Object? donationRequestId = null,
     Object? userId = null,
     Object? rating = null,
-    Object? review = null,
+    Object? review = freezed,
     Object? createdAt = null,
   }) {
     return _then(
@@ -108,10 +108,10 @@ class _$OrganizationRatingCopyWithImpl<$Res, $Val extends OrganizationRating>
                     : rating // ignore: cast_nullable_to_non_nullable
                         as int,
             review:
-                null == review
+                freezed == review
                     ? _value.review
                     : review // ignore: cast_nullable_to_non_nullable
-                        as String,
+                        as String?,
             createdAt:
                 null == createdAt
                     ? _value.createdAt
@@ -138,7 +138,7 @@ abstract class _$$OrganizationRatingImplCopyWith<$Res>
     String donationRequestId,
     String userId,
     int rating,
-    String review,
+    String? review,
     int createdAt,
   });
 }
@@ -162,7 +162,7 @@ class __$$OrganizationRatingImplCopyWithImpl<$Res>
     Object? donationRequestId = null,
     Object? userId = null,
     Object? rating = null,
-    Object? review = null,
+    Object? review = freezed,
     Object? createdAt = null,
   }) {
     return _then(
@@ -193,10 +193,10 @@ class __$$OrganizationRatingImplCopyWithImpl<$Res>
                 : rating // ignore: cast_nullable_to_non_nullable
                     as int,
         review:
-            null == review
+            freezed == review
                 ? _value.review
                 : review // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         createdAt:
             null == createdAt
                 ? _value.createdAt
@@ -234,7 +234,7 @@ class _$OrganizationRatingImpl implements _OrganizationRating {
   @override
   final int rating;
   @override
-  final String review;
+  final String? review;
   @override
   final int createdAt;
 
@@ -297,7 +297,7 @@ abstract class _OrganizationRating implements OrganizationRating {
     required final String donationRequestId,
     required final String userId,
     required final int rating,
-    required final String review,
+    required final String? review,
     required final int createdAt,
   }) = _$OrganizationRatingImpl;
 
@@ -315,7 +315,7 @@ abstract class _OrganizationRating implements OrganizationRating {
   @override
   int get rating;
   @override
-  String get review;
+  String? get review;
   @override
   int get createdAt;
 

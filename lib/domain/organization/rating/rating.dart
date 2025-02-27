@@ -10,7 +10,7 @@ abstract class OrganizationRating with _$OrganizationRating {
     required String donationRequestId,
     required String userId,
     required int rating,
-    required String review,
+    required String? review,
     required int createdAt,
   }) = _OrganizationRating;
   factory OrganizationRating.fromJson(Map<String, Object?> json) =>

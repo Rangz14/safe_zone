@@ -13,4 +13,19 @@ abstract class SafeZoneUserAddress with _$SafeZoneUserAddress {
   }) = _SafeZoneUserAddress;
   factory SafeZoneUserAddress.fromJson(Map<String, Object?> json) =>
       _$SafeZoneUserAddressFromJson(json);
+
+  factory SafeZoneUserAddress.init(
+    String uid,
+    String province,
+    String city,
+    String address,
+  ) {
+    return SafeZoneUserAddress(
+      userId: uid,
+      province: province,
+      city: city,
+      address: address,
+      createdAt: DateTime.now().millisecondsSinceEpoch,
+    );
+  }
 }

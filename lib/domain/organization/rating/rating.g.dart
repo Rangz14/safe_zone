@@ -14,7 +14,7 @@ _$OrganizationRatingImpl _$$OrganizationRatingImplFromJson(
   donationRequestId: json['donationRequestId'] as String,
   userId: json['userId'] as String,
   rating: (json['rating'] as num).toInt(),
-  review: json['review'] as String,
+  review: json['review'] as String?,
   createdAt: (json['createdAt'] as num).toInt(),
 );
 

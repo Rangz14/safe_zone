@@ -8,9 +8,10 @@ abstract class DonationRequest with _$DonationRequest {
     required String id,
     required String donationServiceId,
     required String userId,
-    required int longitude,
-    required int latitude,
-    required String status, // PENDING, ACCEPTED, REJECTED_BY_ADMIN, DONATED
+    required double longitude,
+    required double latitude,
+    required String
+    status, // PENDING, ACCEPTED, REJECTED_BY_ADMIN, FUND_RAISED, DONATED
     required String? acceptedOrganizationId,
     required int createdAt,
     required int updatedAt,

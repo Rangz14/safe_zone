@@ -24,10 +24,10 @@ mixin _$DonationRequest {
   String get id => throw _privateConstructorUsedError;
   String get donationServiceId => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
-  int get longitude => throw _privateConstructorUsedError;
-  int get latitude => throw _privateConstructorUsedError;
+  double get longitude => throw _privateConstructorUsedError;
+  double get latitude => throw _privateConstructorUsedError;
   String get status =>
-      throw _privateConstructorUsedError; // PENDING, ACCEPTED, REJECTED_BY_ADMIN, DONATED
+      throw _privateConstructorUsedError; // PENDING, ACCEPTED, REJECTED_BY_ADMIN, FUND_RAISED, DONATED
   String? get acceptedOrganizationId => throw _privateConstructorUsedError;
   int get createdAt => throw _privateConstructorUsedError;
   int get updatedAt => throw _privateConstructorUsedError;
@@ -53,8 +53,8 @@ abstract class $DonationRequestCopyWith<$Res> {
     String id,
     String donationServiceId,
     String userId,
-    int longitude,
-    int latitude,
+    double longitude,
+    double latitude,
     String status,
     String? acceptedOrganizationId,
     int createdAt,
@@ -108,12 +108,12 @@ class _$DonationRequestCopyWithImpl<$Res, $Val extends DonationRequest>
                 null == longitude
                     ? _value.longitude
                     : longitude // ignore: cast_nullable_to_non_nullable
-                        as int,
+                        as double,
             latitude:
                 null == latitude
                     ? _value.latitude
                     : latitude // ignore: cast_nullable_to_non_nullable
-                        as int,
+                        as double,
             status:
                 null == status
                     ? _value.status
@@ -153,8 +153,8 @@ abstract class _$$DonationRequestImplCopyWith<$Res>
     String id,
     String donationServiceId,
     String userId,
-    int longitude,
-    int latitude,
+    double longitude,
+    double latitude,
     String status,
     String? acceptedOrganizationId,
     int createdAt,
@@ -207,12 +207,12 @@ class __$$DonationRequestImplCopyWithImpl<$Res>
             null == longitude
                 ? _value.longitude
                 : longitude // ignore: cast_nullable_to_non_nullable
-                    as int,
+                    as double,
         latitude:
             null == latitude
                 ? _value.latitude
                 : latitude // ignore: cast_nullable_to_non_nullable
-                    as int,
+                    as double,
         status:
             null == status
                 ? _value.status
@@ -263,12 +263,12 @@ class _$DonationRequestImpl implements _DonationRequest {
   @override
   final String userId;
   @override
-  final int longitude;
+  final double longitude;
   @override
-  final int latitude;
+  final double latitude;
   @override
   final String status;
-  // PENDING, ACCEPTED, REJECTED_BY_ADMIN, DONATED
+  // PENDING, ACCEPTED, REJECTED_BY_ADMIN, FUND_RAISED, DONATED
   @override
   final String? acceptedOrganizationId;
   @override
@@ -340,8 +340,8 @@ abstract class _DonationRequest implements DonationRequest {
     required final String id,
     required final String donationServiceId,
     required final String userId,
-    required final int longitude,
-    required final int latitude,
+    required final double longitude,
+    required final double latitude,
     required final String status,
     required final String? acceptedOrganizationId,
     required final int createdAt,
@@ -358,11 +358,11 @@ abstract class _DonationRequest implements DonationRequest {
   @override
   String get userId;
   @override
-  int get longitude;
+  double get longitude;
   @override
-  int get latitude;
+  double get latitude;
   @override
-  String get status; // PENDING, ACCEPTED, REJECTED_BY_ADMIN, DONATED
+  String get status; // PENDING, ACCEPTED, REJECTED_BY_ADMIN, FUND_RAISED, DONATED
   @override
   String? get acceptedOrganizationId;
   @override

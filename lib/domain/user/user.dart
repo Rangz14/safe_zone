@@ -13,4 +13,14 @@ abstract class SafeZoneUser with _$SafeZoneUser {
   }) = _SafeZoneUser;
   factory SafeZoneUser.fromJson(Map<String, Object?> json) =>
       _$SafeZoneUserFromJson(json);
+
+  factory SafeZoneUser.init(uid, name, phone) {
+    return SafeZoneUser(
+      id: uid,
+      name: name,
+      phone: phone,
+      image: '',
+      createdAt: DateTime.now().millisecondsSinceEpoch,
+    );
+  }
 }
