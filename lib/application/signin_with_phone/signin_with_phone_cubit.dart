@@ -1,10 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:safe_zone/domain/auth/i_auth_repo.dart';
 
 part 'signin_with_phone_state.dart';
 part 'signin_with_phone_cubit.freezed.dart';
 
+@injectable
 class SigninWithPhoneCubit extends Cubit<SigninWithPhoneState> {
   final IAuthRepo _authRepo;
   SigninWithPhoneCubit(this._authRepo) : super(SigninWithPhoneState.initial());
