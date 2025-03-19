@@ -1,1 +1,1 @@
-AuthCubit Added
+Working on auth connectivity

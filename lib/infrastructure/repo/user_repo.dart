@@ -1,0 +1,44 @@
+import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
+import 'package:safe_zone/core/extensions/dartz_x.dart';
+import 'package:safe_zone/domain/failure/failure.dart';
+import 'package:safe_zone/domain/user/address/address.dart';
+import 'package:safe_zone/domain/user/i_user_repo.dart';
+import 'package:safe_zone/domain/user/user.dart';
+import 'package:safe_zone/infrastructure/services/auth_service.dart';
+import 'package:safe_zone/infrastructure/services/user_service.dart';
+
+@LazySingleton(as: IUserRepo)
+class UserRepo implements IUserRepo {
+  final UserService _userService;
+  final AuthService _authService;
+
+  UserRepo(this._userService, this._authService);
+
+  @override
+  Future<Either<Failure, SafeZoneUserAddress>> updateAddress(
+    SafeZoneUserAddress address,
+  ) => _userService.createAddress(address);
+
+  @override
+  Future<Either<Failure, SafeZoneUser>> updateUser(SafeZoneUser user) =>
+      _userService.createUser(user);
+
+  @override
+  Future<Either<Failure, SafeZoneUserAddress>> getAddress(String id) =>
+      _userService.getAddress(id);
+
+  @override
+  Future<Either<Failure, SafeZoneUser>> getCurrent() async {
+    final unitOrUid = _authService.getUid();
+    if (unitOrUid.isLeft()) {
+      return left(const Failure('User not signed in'));
+    }
+    final failureOrUser = await _userService.getUser(unitOrUid.getOrCrash());
+    return failureOrUser;
+  }
+
+  @override
+  Future<Either<Failure, SafeZoneUser>> getUser(String id) =>
+      _userService.getUser(id);
+}

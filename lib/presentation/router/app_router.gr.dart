@@ -53,7 +53,7 @@ class SigninRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const SigninPage();
+      return WrappedRoute(child: const SigninPage());
     },
   );
 }

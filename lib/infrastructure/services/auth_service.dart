@@ -19,6 +19,12 @@ class AuthService {
       phoneNumber: phone,
       verificationCompleted: (PhoneAuthCredential credential) async {
         await _firebaseAuth.signInWithCredential(credential);
+        final user = _firebaseAuth.currentUser;
+        if (user == null) {
+          onError('Failed retrieving user');
+          return;
+        }
+        onSuccess(user.uid);
       },
       verificationFailed: (FirebaseAuthException e) {
         onError(e.message ?? 'An error occurred');
@@ -52,6 +58,38 @@ class AuthService {
     } on FirebaseAuthException catch (e) {
       return left(Failure(e.message ?? 'Failed to sign in'));
     }
+  }
+
+  Future<void> resendOTP({
+    required String phone,
+    required int? resendToken,
+    required Function(String uid) onSuccess,
+    required Function(String message) onError,
+    required Function(String verificationId, int? resendToken) onCodeSent,
+    required Function(String verificationId) onCodeAutoRetrievalTimeout,
+  }) async {
+    await _firebaseAuth.verifyPhoneNumber(
+      phoneNumber: phone,
+      forceResendingToken: resendToken,
+      verificationCompleted: (PhoneAuthCredential credential) async {
+        await _firebaseAuth.signInWithCredential(credential);
+        final user = _firebaseAuth.currentUser;
+        if (user == null) {
+          onError('Failed retrieving user');
+          return;
+        }
+        onSuccess(user.uid);
+      },
+      verificationFailed: (FirebaseAuthException e) {
+        onError(e.message ?? 'An error occurred');
+      },
+      codeSent: (String verificationId, int? resendToken) {
+        onCodeSent(verificationId, resendToken);
+      },
+      codeAutoRetrievalTimeout: (String verificationId) {
+        onCodeAutoRetrievalTimeout(verificationId);
+      },
+    );
   }
 
   Future<void> signOut() async {

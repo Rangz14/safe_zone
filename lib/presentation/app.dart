@@ -14,13 +14,13 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<AuthCubit>(),
+      create: (context) => getIt<AuthCubit>()..checkAuthStatus(),
       child: MaterialApp.router(
         title: "Safe Zone",
         debugShowCheckedModeBanner: false,
         theme: FlexThemeData.light(scheme: FlexScheme.wasabi),
         darkTheme: FlexThemeData.dark(scheme: FlexScheme.wasabi),
-        themeMode: ThemeMode.system,
+        themeMode: ThemeMode.dark,
         routerConfig: _router.config(),
       ),
     );

@@ -15,6 +15,15 @@ abstract class IAuthRepo {
     required String smsCode,
   });
 
+  Future<void> resendOTP({
+    required String phone,
+    required int? resendToken,
+    required Function(String uid) onSuccess,
+    required Function(String message) onError,
+    required Function(String verificationId, int? resendToken) onCodeSent,
+    required Function(String verificationId) onCodeAutoRetrievalTimeout,
+  });
+
   bool isSignedIn();
 
   Either<Unit, String> getUid();

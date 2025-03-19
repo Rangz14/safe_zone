@@ -22,8 +22,8 @@ mixin _$SigninWithPhoneState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() succeed,
-    required TResult Function(String verificationId, int? resendToken) codeSent,
-    required TResult Function(String verificationId) timeout,
+    required TResult Function() codeSent,
+    required TResult Function() timeout,
     required TResult Function(String message) failed,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,8 +31,8 @@ mixin _$SigninWithPhoneState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? succeed,
-    TResult? Function(String verificationId, int? resendToken)? codeSent,
-    TResult? Function(String verificationId)? timeout,
+    TResult? Function()? codeSent,
+    TResult? Function()? timeout,
     TResult? Function(String message)? failed,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,8 +40,8 @@ mixin _$SigninWithPhoneState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? succeed,
-    TResult Function(String verificationId, int? resendToken)? codeSent,
-    TResult Function(String verificationId)? timeout,
+    TResult Function()? codeSent,
+    TResult Function()? timeout,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
@@ -146,8 +146,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() succeed,
-    required TResult Function(String verificationId, int? resendToken) codeSent,
-    required TResult Function(String verificationId) timeout,
+    required TResult Function() codeSent,
+    required TResult Function() timeout,
     required TResult Function(String message) failed,
   }) {
     return initial();
@@ -159,8 +159,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? succeed,
-    TResult? Function(String verificationId, int? resendToken)? codeSent,
-    TResult? Function(String verificationId)? timeout,
+    TResult? Function()? codeSent,
+    TResult? Function()? timeout,
     TResult? Function(String message)? failed,
   }) {
     return initial?.call();
@@ -172,8 +172,8 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? succeed,
-    TResult Function(String verificationId, int? resendToken)? codeSent,
-    TResult Function(String verificationId)? timeout,
+    TResult Function()? codeSent,
+    TResult Function()? timeout,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
@@ -277,8 +277,8 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() succeed,
-    required TResult Function(String verificationId, int? resendToken) codeSent,
-    required TResult Function(String verificationId) timeout,
+    required TResult Function() codeSent,
+    required TResult Function() timeout,
     required TResult Function(String message) failed,
   }) {
     return loading();
@@ -290,8 +290,8 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? succeed,
-    TResult? Function(String verificationId, int? resendToken)? codeSent,
-    TResult? Function(String verificationId)? timeout,
+    TResult? Function()? codeSent,
+    TResult? Function()? timeout,
     TResult? Function(String message)? failed,
   }) {
     return loading?.call();
@@ -303,8 +303,8 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? succeed,
-    TResult Function(String verificationId, int? resendToken)? codeSent,
-    TResult Function(String verificationId)? timeout,
+    TResult Function()? codeSent,
+    TResult Function()? timeout,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
@@ -408,8 +408,8 @@ class _$SucceedImpl implements _Succeed {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() succeed,
-    required TResult Function(String verificationId, int? resendToken) codeSent,
-    required TResult Function(String verificationId) timeout,
+    required TResult Function() codeSent,
+    required TResult Function() timeout,
     required TResult Function(String message) failed,
   }) {
     return succeed();
@@ -421,8 +421,8 @@ class _$SucceedImpl implements _Succeed {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? succeed,
-    TResult? Function(String verificationId, int? resendToken)? codeSent,
-    TResult? Function(String verificationId)? timeout,
+    TResult? Function()? codeSent,
+    TResult? Function()? timeout,
     TResult? Function(String message)? failed,
   }) {
     return succeed?.call();
@@ -434,8 +434,8 @@ class _$SucceedImpl implements _Succeed {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? succeed,
-    TResult Function(String verificationId, int? resendToken)? codeSent,
-    TResult Function(String verificationId)? timeout,
+    TResult Function()? codeSent,
+    TResult Function()? timeout,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
@@ -499,8 +499,6 @@ abstract class _$$CodeSentImplCopyWith<$Res> {
     _$CodeSentImpl value,
     $Res Function(_$CodeSentImpl) then,
   ) = __$$CodeSentImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String verificationId, int? resendToken});
 }
 
 /// @nodoc
@@ -514,65 +512,26 @@ class __$$CodeSentImplCopyWithImpl<$Res>
 
   /// Create a copy of SigninWithPhoneState
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? verificationId = null, Object? resendToken = freezed}) {
-    return _then(
-      _$CodeSentImpl(
-        verificationId:
-            null == verificationId
-                ? _value.verificationId
-                : verificationId // ignore: cast_nullable_to_non_nullable
-                    as String,
-        resendToken:
-            freezed == resendToken
-                ? _value.resendToken
-                : resendToken // ignore: cast_nullable_to_non_nullable
-                    as int?,
-      ),
-    );
-  }
 }
 
 /// @nodoc
 
 class _$CodeSentImpl implements _CodeSent {
-  const _$CodeSentImpl({
-    required this.verificationId,
-    required this.resendToken,
-  });
-
-  @override
-  final String verificationId;
-  @override
-  final int? resendToken;
+  const _$CodeSentImpl();
 
   @override
   String toString() {
-    return 'SigninWithPhoneState.codeSent(verificationId: $verificationId, resendToken: $resendToken)';
+    return 'SigninWithPhoneState.codeSent()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CodeSentImpl &&
-            (identical(other.verificationId, verificationId) ||
-                other.verificationId == verificationId) &&
-            (identical(other.resendToken, resendToken) ||
-                other.resendToken == resendToken));
+        (other.runtimeType == runtimeType && other is _$CodeSentImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, verificationId, resendToken);
-
-  /// Create a copy of SigninWithPhoneState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CodeSentImplCopyWith<_$CodeSentImpl> get copyWith =>
-      __$$CodeSentImplCopyWithImpl<_$CodeSentImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -580,11 +539,11 @@ class _$CodeSentImpl implements _CodeSent {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() succeed,
-    required TResult Function(String verificationId, int? resendToken) codeSent,
-    required TResult Function(String verificationId) timeout,
+    required TResult Function() codeSent,
+    required TResult Function() timeout,
     required TResult Function(String message) failed,
   }) {
-    return codeSent(verificationId, resendToken);
+    return codeSent();
   }
 
   @override
@@ -593,11 +552,11 @@ class _$CodeSentImpl implements _CodeSent {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? succeed,
-    TResult? Function(String verificationId, int? resendToken)? codeSent,
-    TResult? Function(String verificationId)? timeout,
+    TResult? Function()? codeSent,
+    TResult? Function()? timeout,
     TResult? Function(String message)? failed,
   }) {
-    return codeSent?.call(verificationId, resendToken);
+    return codeSent?.call();
   }
 
   @override
@@ -606,13 +565,13 @@ class _$CodeSentImpl implements _CodeSent {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? succeed,
-    TResult Function(String verificationId, int? resendToken)? codeSent,
-    TResult Function(String verificationId)? timeout,
+    TResult Function()? codeSent,
+    TResult Function()? timeout,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
     if (codeSent != null) {
-      return codeSent(verificationId, resendToken);
+      return codeSent();
     }
     return orElse();
   }
@@ -662,19 +621,7 @@ class _$CodeSentImpl implements _CodeSent {
 }
 
 abstract class _CodeSent implements SigninWithPhoneState {
-  const factory _CodeSent({
-    required final String verificationId,
-    required final int? resendToken,
-  }) = _$CodeSentImpl;
-
-  String get verificationId;
-  int? get resendToken;
-
-  /// Create a copy of SigninWithPhoneState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CodeSentImplCopyWith<_$CodeSentImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _CodeSent() = _$CodeSentImpl;
 }
 
 /// @nodoc
@@ -683,8 +630,6 @@ abstract class _$$TimeoutImplCopyWith<$Res> {
     _$TimeoutImpl value,
     $Res Function(_$TimeoutImpl) then,
   ) = __$$TimeoutImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String verificationId});
 }
 
 /// @nodoc
@@ -698,53 +643,26 @@ class __$$TimeoutImplCopyWithImpl<$Res>
 
   /// Create a copy of SigninWithPhoneState
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? verificationId = null}) {
-    return _then(
-      _$TimeoutImpl(
-        verificationId:
-            null == verificationId
-                ? _value.verificationId
-                : verificationId // ignore: cast_nullable_to_non_nullable
-                    as String,
-      ),
-    );
-  }
 }
 
 /// @nodoc
 
 class _$TimeoutImpl implements _Timeout {
-  const _$TimeoutImpl({required this.verificationId});
-
-  @override
-  final String verificationId;
+  const _$TimeoutImpl();
 
   @override
   String toString() {
-    return 'SigninWithPhoneState.timeout(verificationId: $verificationId)';
+    return 'SigninWithPhoneState.timeout()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TimeoutImpl &&
-            (identical(other.verificationId, verificationId) ||
-                other.verificationId == verificationId));
+        (other.runtimeType == runtimeType && other is _$TimeoutImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, verificationId);
-
-  /// Create a copy of SigninWithPhoneState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$TimeoutImplCopyWith<_$TimeoutImpl> get copyWith =>
-      __$$TimeoutImplCopyWithImpl<_$TimeoutImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -752,11 +670,11 @@ class _$TimeoutImpl implements _Timeout {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() succeed,
-    required TResult Function(String verificationId, int? resendToken) codeSent,
-    required TResult Function(String verificationId) timeout,
+    required TResult Function() codeSent,
+    required TResult Function() timeout,
     required TResult Function(String message) failed,
   }) {
-    return timeout(verificationId);
+    return timeout();
   }
 
   @override
@@ -765,11 +683,11 @@ class _$TimeoutImpl implements _Timeout {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? succeed,
-    TResult? Function(String verificationId, int? resendToken)? codeSent,
-    TResult? Function(String verificationId)? timeout,
+    TResult? Function()? codeSent,
+    TResult? Function()? timeout,
     TResult? Function(String message)? failed,
   }) {
-    return timeout?.call(verificationId);
+    return timeout?.call();
   }
 
   @override
@@ -778,13 +696,13 @@ class _$TimeoutImpl implements _Timeout {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? succeed,
-    TResult Function(String verificationId, int? resendToken)? codeSent,
-    TResult Function(String verificationId)? timeout,
+    TResult Function()? codeSent,
+    TResult Function()? timeout,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
     if (timeout != null) {
-      return timeout(verificationId);
+      return timeout();
     }
     return orElse();
   }
@@ -834,16 +752,7 @@ class _$TimeoutImpl implements _Timeout {
 }
 
 abstract class _Timeout implements SigninWithPhoneState {
-  const factory _Timeout({required final String verificationId}) =
-      _$TimeoutImpl;
-
-  String get verificationId;
-
-  /// Create a copy of SigninWithPhoneState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TimeoutImplCopyWith<_$TimeoutImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _Timeout() = _$TimeoutImpl;
 }
 
 /// @nodoc
@@ -920,8 +829,8 @@ class _$FailedImpl implements _Failed {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() succeed,
-    required TResult Function(String verificationId, int? resendToken) codeSent,
-    required TResult Function(String verificationId) timeout,
+    required TResult Function() codeSent,
+    required TResult Function() timeout,
     required TResult Function(String message) failed,
   }) {
     return failed(message);
@@ -933,8 +842,8 @@ class _$FailedImpl implements _Failed {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? succeed,
-    TResult? Function(String verificationId, int? resendToken)? codeSent,
-    TResult? Function(String verificationId)? timeout,
+    TResult? Function()? codeSent,
+    TResult? Function()? timeout,
     TResult? Function(String message)? failed,
   }) {
     return failed?.call(message);
@@ -946,8 +855,8 @@ class _$FailedImpl implements _Failed {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? succeed,
-    TResult Function(String verificationId, int? resendToken)? codeSent,
-    TResult Function(String verificationId)? timeout,
+    TResult Function()? codeSent,
+    TResult Function()? timeout,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
