@@ -19,58 +19,34 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SigninWithPhoneState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() succeed,
-    required TResult Function() codeSent,
-    required TResult Function() timeout,
-    required TResult Function(String message) failed,
+    required TResult Function(InputPhoneState inputPhoneState) inputPhone,
+    required TResult Function(InputOtpState inputOtpState) inputOTP,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? succeed,
-    TResult? Function()? codeSent,
-    TResult? Function()? timeout,
-    TResult? Function(String message)? failed,
+    TResult? Function(InputPhoneState inputPhoneState)? inputPhone,
+    TResult? Function(InputOtpState inputOtpState)? inputOTP,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? succeed,
-    TResult Function()? codeSent,
-    TResult Function()? timeout,
-    TResult Function(String message)? failed,
+    TResult Function(InputPhoneState inputPhoneState)? inputPhone,
+    TResult Function(InputOtpState inputOtpState)? inputOTP,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Succeed value) succeed,
-    required TResult Function(_CodeSent value) codeSent,
-    required TResult Function(_Timeout value) timeout,
-    required TResult Function(_Failed value) failed,
+    required TResult Function(_InputPhone value) inputPhone,
+    required TResult Function(_InputOTP value) inputOTP,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Succeed value)? succeed,
-    TResult? Function(_CodeSent value)? codeSent,
-    TResult? Function(_Timeout value)? timeout,
-    TResult? Function(_Failed value)? failed,
+    TResult? Function(_InputPhone value)? inputPhone,
+    TResult? Function(_InputOTP value)? inputOTP,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Succeed value)? succeed,
-    TResult Function(_CodeSent value)? codeSent,
-    TResult Function(_Timeout value)? timeout,
-    TResult Function(_Failed value)? failed,
+    TResult Function(_InputPhone value)? inputPhone,
+    TResult Function(_InputOTP value)? inputOTP,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -101,767 +77,112 @@ class _$SigninWithPhoneStateCopyWithImpl<
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-    _$InitialImpl value,
-    $Res Function(_$InitialImpl) then,
-  ) = __$$InitialImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$SigninWithPhoneStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-    _$InitialImpl _value,
-    $Res Function(_$InitialImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of SigninWithPhoneState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
-
-  @override
-  String toString() {
-    return 'SigninWithPhoneState.initial()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() succeed,
-    required TResult Function() codeSent,
-    required TResult Function() timeout,
-    required TResult Function(String message) failed,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? succeed,
-    TResult? Function()? codeSent,
-    TResult? Function()? timeout,
-    TResult? Function(String message)? failed,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? succeed,
-    TResult Function()? codeSent,
-    TResult Function()? timeout,
-    TResult Function(String message)? failed,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Succeed value) succeed,
-    required TResult Function(_CodeSent value) codeSent,
-    required TResult Function(_Timeout value) timeout,
-    required TResult Function(_Failed value) failed,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Succeed value)? succeed,
-    TResult? Function(_CodeSent value)? codeSent,
-    TResult? Function(_Timeout value)? timeout,
-    TResult? Function(_Failed value)? failed,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Succeed value)? succeed,
-    TResult Function(_CodeSent value)? codeSent,
-    TResult Function(_Timeout value)? timeout,
-    TResult Function(_Failed value)? failed,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initial implements SigninWithPhoneState {
-  const factory _Initial() = _$InitialImpl;
-}
-
-/// @nodoc
-abstract class _$$LoadingImplCopyWith<$Res> {
-  factory _$$LoadingImplCopyWith(
-    _$LoadingImpl value,
-    $Res Function(_$LoadingImpl) then,
-  ) = __$$LoadingImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$SigninWithPhoneStateCopyWithImpl<$Res, _$LoadingImpl>
-    implements _$$LoadingImplCopyWith<$Res> {
-  __$$LoadingImplCopyWithImpl(
-    _$LoadingImpl _value,
-    $Res Function(_$LoadingImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of SigninWithPhoneState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$LoadingImpl implements _Loading {
-  const _$LoadingImpl();
-
-  @override
-  String toString() {
-    return 'SigninWithPhoneState.loading()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() succeed,
-    required TResult Function() codeSent,
-    required TResult Function() timeout,
-    required TResult Function(String message) failed,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? succeed,
-    TResult? Function()? codeSent,
-    TResult? Function()? timeout,
-    TResult? Function(String message)? failed,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? succeed,
-    TResult Function()? codeSent,
-    TResult Function()? timeout,
-    TResult Function(String message)? failed,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Succeed value) succeed,
-    required TResult Function(_CodeSent value) codeSent,
-    required TResult Function(_Timeout value) timeout,
-    required TResult Function(_Failed value) failed,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Succeed value)? succeed,
-    TResult? Function(_CodeSent value)? codeSent,
-    TResult? Function(_Timeout value)? timeout,
-    TResult? Function(_Failed value)? failed,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Succeed value)? succeed,
-    TResult Function(_CodeSent value)? codeSent,
-    TResult Function(_Timeout value)? timeout,
-    TResult Function(_Failed value)? failed,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Loading implements SigninWithPhoneState {
-  const factory _Loading() = _$LoadingImpl;
-}
-
-/// @nodoc
-abstract class _$$SucceedImplCopyWith<$Res> {
-  factory _$$SucceedImplCopyWith(
-    _$SucceedImpl value,
-    $Res Function(_$SucceedImpl) then,
-  ) = __$$SucceedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$SucceedImplCopyWithImpl<$Res>
-    extends _$SigninWithPhoneStateCopyWithImpl<$Res, _$SucceedImpl>
-    implements _$$SucceedImplCopyWith<$Res> {
-  __$$SucceedImplCopyWithImpl(
-    _$SucceedImpl _value,
-    $Res Function(_$SucceedImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of SigninWithPhoneState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$SucceedImpl implements _Succeed {
-  const _$SucceedImpl();
-
-  @override
-  String toString() {
-    return 'SigninWithPhoneState.succeed()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SucceedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() succeed,
-    required TResult Function() codeSent,
-    required TResult Function() timeout,
-    required TResult Function(String message) failed,
-  }) {
-    return succeed();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? succeed,
-    TResult? Function()? codeSent,
-    TResult? Function()? timeout,
-    TResult? Function(String message)? failed,
-  }) {
-    return succeed?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? succeed,
-    TResult Function()? codeSent,
-    TResult Function()? timeout,
-    TResult Function(String message)? failed,
-    required TResult orElse(),
-  }) {
-    if (succeed != null) {
-      return succeed();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Succeed value) succeed,
-    required TResult Function(_CodeSent value) codeSent,
-    required TResult Function(_Timeout value) timeout,
-    required TResult Function(_Failed value) failed,
-  }) {
-    return succeed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Succeed value)? succeed,
-    TResult? Function(_CodeSent value)? codeSent,
-    TResult? Function(_Timeout value)? timeout,
-    TResult? Function(_Failed value)? failed,
-  }) {
-    return succeed?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Succeed value)? succeed,
-    TResult Function(_CodeSent value)? codeSent,
-    TResult Function(_Timeout value)? timeout,
-    TResult Function(_Failed value)? failed,
-    required TResult orElse(),
-  }) {
-    if (succeed != null) {
-      return succeed(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Succeed implements SigninWithPhoneState {
-  const factory _Succeed() = _$SucceedImpl;
-}
-
-/// @nodoc
-abstract class _$$CodeSentImplCopyWith<$Res> {
-  factory _$$CodeSentImplCopyWith(
-    _$CodeSentImpl value,
-    $Res Function(_$CodeSentImpl) then,
-  ) = __$$CodeSentImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$CodeSentImplCopyWithImpl<$Res>
-    extends _$SigninWithPhoneStateCopyWithImpl<$Res, _$CodeSentImpl>
-    implements _$$CodeSentImplCopyWith<$Res> {
-  __$$CodeSentImplCopyWithImpl(
-    _$CodeSentImpl _value,
-    $Res Function(_$CodeSentImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of SigninWithPhoneState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$CodeSentImpl implements _CodeSent {
-  const _$CodeSentImpl();
-
-  @override
-  String toString() {
-    return 'SigninWithPhoneState.codeSent()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CodeSentImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() succeed,
-    required TResult Function() codeSent,
-    required TResult Function() timeout,
-    required TResult Function(String message) failed,
-  }) {
-    return codeSent();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? succeed,
-    TResult? Function()? codeSent,
-    TResult? Function()? timeout,
-    TResult? Function(String message)? failed,
-  }) {
-    return codeSent?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? succeed,
-    TResult Function()? codeSent,
-    TResult Function()? timeout,
-    TResult Function(String message)? failed,
-    required TResult orElse(),
-  }) {
-    if (codeSent != null) {
-      return codeSent();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Succeed value) succeed,
-    required TResult Function(_CodeSent value) codeSent,
-    required TResult Function(_Timeout value) timeout,
-    required TResult Function(_Failed value) failed,
-  }) {
-    return codeSent(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Succeed value)? succeed,
-    TResult? Function(_CodeSent value)? codeSent,
-    TResult? Function(_Timeout value)? timeout,
-    TResult? Function(_Failed value)? failed,
-  }) {
-    return codeSent?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Succeed value)? succeed,
-    TResult Function(_CodeSent value)? codeSent,
-    TResult Function(_Timeout value)? timeout,
-    TResult Function(_Failed value)? failed,
-    required TResult orElse(),
-  }) {
-    if (codeSent != null) {
-      return codeSent(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _CodeSent implements SigninWithPhoneState {
-  const factory _CodeSent() = _$CodeSentImpl;
-}
-
-/// @nodoc
-abstract class _$$TimeoutImplCopyWith<$Res> {
-  factory _$$TimeoutImplCopyWith(
-    _$TimeoutImpl value,
-    $Res Function(_$TimeoutImpl) then,
-  ) = __$$TimeoutImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$TimeoutImplCopyWithImpl<$Res>
-    extends _$SigninWithPhoneStateCopyWithImpl<$Res, _$TimeoutImpl>
-    implements _$$TimeoutImplCopyWith<$Res> {
-  __$$TimeoutImplCopyWithImpl(
-    _$TimeoutImpl _value,
-    $Res Function(_$TimeoutImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of SigninWithPhoneState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$TimeoutImpl implements _Timeout {
-  const _$TimeoutImpl();
-
-  @override
-  String toString() {
-    return 'SigninWithPhoneState.timeout()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$TimeoutImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() succeed,
-    required TResult Function() codeSent,
-    required TResult Function() timeout,
-    required TResult Function(String message) failed,
-  }) {
-    return timeout();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? succeed,
-    TResult? Function()? codeSent,
-    TResult? Function()? timeout,
-    TResult? Function(String message)? failed,
-  }) {
-    return timeout?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? succeed,
-    TResult Function()? codeSent,
-    TResult Function()? timeout,
-    TResult Function(String message)? failed,
-    required TResult orElse(),
-  }) {
-    if (timeout != null) {
-      return timeout();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Succeed value) succeed,
-    required TResult Function(_CodeSent value) codeSent,
-    required TResult Function(_Timeout value) timeout,
-    required TResult Function(_Failed value) failed,
-  }) {
-    return timeout(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Succeed value)? succeed,
-    TResult? Function(_CodeSent value)? codeSent,
-    TResult? Function(_Timeout value)? timeout,
-    TResult? Function(_Failed value)? failed,
-  }) {
-    return timeout?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Succeed value)? succeed,
-    TResult Function(_CodeSent value)? codeSent,
-    TResult Function(_Timeout value)? timeout,
-    TResult Function(_Failed value)? failed,
-    required TResult orElse(),
-  }) {
-    if (timeout != null) {
-      return timeout(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Timeout implements SigninWithPhoneState {
-  const factory _Timeout() = _$TimeoutImpl;
-}
-
-/// @nodoc
-abstract class _$$FailedImplCopyWith<$Res> {
-  factory _$$FailedImplCopyWith(
-    _$FailedImpl value,
-    $Res Function(_$FailedImpl) then,
-  ) = __$$FailedImplCopyWithImpl<$Res>;
+abstract class _$$InputPhoneImplCopyWith<$Res> {
+  factory _$$InputPhoneImplCopyWith(
+    _$InputPhoneImpl value,
+    $Res Function(_$InputPhoneImpl) then,
+  ) = __$$InputPhoneImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String message});
+  $Res call({InputPhoneState inputPhoneState});
+
+  $InputPhoneStateCopyWith<$Res> get inputPhoneState;
 }
 
 /// @nodoc
-class __$$FailedImplCopyWithImpl<$Res>
-    extends _$SigninWithPhoneStateCopyWithImpl<$Res, _$FailedImpl>
-    implements _$$FailedImplCopyWith<$Res> {
-  __$$FailedImplCopyWithImpl(
-    _$FailedImpl _value,
-    $Res Function(_$FailedImpl) _then,
+class __$$InputPhoneImplCopyWithImpl<$Res>
+    extends _$SigninWithPhoneStateCopyWithImpl<$Res, _$InputPhoneImpl>
+    implements _$$InputPhoneImplCopyWith<$Res> {
+  __$$InputPhoneImplCopyWithImpl(
+    _$InputPhoneImpl _value,
+    $Res Function(_$InputPhoneImpl) _then,
   ) : super(_value, _then);
 
   /// Create a copy of SigninWithPhoneState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? message = null}) {
+  $Res call({Object? inputPhoneState = null}) {
     return _then(
-      _$FailedImpl(
-        message:
-            null == message
-                ? _value.message
-                : message // ignore: cast_nullable_to_non_nullable
-                    as String,
+      _$InputPhoneImpl(
+        null == inputPhoneState
+            ? _value.inputPhoneState
+            : inputPhoneState // ignore: cast_nullable_to_non_nullable
+                as InputPhoneState,
       ),
     );
+  }
+
+  /// Create a copy of SigninWithPhoneState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $InputPhoneStateCopyWith<$Res> get inputPhoneState {
+    return $InputPhoneStateCopyWith<$Res>(_value.inputPhoneState, (value) {
+      return _then(_value.copyWith(inputPhoneState: value));
+    });
   }
 }
 
 /// @nodoc
 
-class _$FailedImpl implements _Failed {
-  const _$FailedImpl({required this.message});
+class _$InputPhoneImpl implements _InputPhone {
+  const _$InputPhoneImpl(this.inputPhoneState);
 
   @override
-  final String message;
+  final InputPhoneState inputPhoneState;
 
   @override
   String toString() {
-    return 'SigninWithPhoneState.failed(message: $message)';
+    return 'SigninWithPhoneState.inputPhone(inputPhoneState: $inputPhoneState)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FailedImpl &&
-            (identical(other.message, message) || other.message == message));
+            other is _$InputPhoneImpl &&
+            (identical(other.inputPhoneState, inputPhoneState) ||
+                other.inputPhoneState == inputPhoneState));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, message);
+  int get hashCode => Object.hash(runtimeType, inputPhoneState);
 
   /// Create a copy of SigninWithPhoneState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$FailedImplCopyWith<_$FailedImpl> get copyWith =>
-      __$$FailedImplCopyWithImpl<_$FailedImpl>(this, _$identity);
+  _$$InputPhoneImplCopyWith<_$InputPhoneImpl> get copyWith =>
+      __$$InputPhoneImplCopyWithImpl<_$InputPhoneImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() succeed,
-    required TResult Function() codeSent,
-    required TResult Function() timeout,
-    required TResult Function(String message) failed,
+    required TResult Function(InputPhoneState inputPhoneState) inputPhone,
+    required TResult Function(InputOtpState inputOtpState) inputOTP,
   }) {
-    return failed(message);
+    return inputPhone(inputPhoneState);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? succeed,
-    TResult? Function()? codeSent,
-    TResult? Function()? timeout,
-    TResult? Function(String message)? failed,
+    TResult? Function(InputPhoneState inputPhoneState)? inputPhone,
+    TResult? Function(InputOtpState inputOtpState)? inputOTP,
   }) {
-    return failed?.call(message);
+    return inputPhone?.call(inputPhoneState);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? succeed,
-    TResult Function()? codeSent,
-    TResult Function()? timeout,
-    TResult Function(String message)? failed,
+    TResult Function(InputPhoneState inputPhoneState)? inputPhone,
+    TResult Function(InputOtpState inputOtpState)? inputOTP,
     required TResult orElse(),
   }) {
-    if (failed != null) {
-      return failed(message);
+    if (inputPhone != null) {
+      return inputPhone(inputPhoneState);
     }
     return orElse();
   }
@@ -869,55 +190,199 @@ class _$FailedImpl implements _Failed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Succeed value) succeed,
-    required TResult Function(_CodeSent value) codeSent,
-    required TResult Function(_Timeout value) timeout,
-    required TResult Function(_Failed value) failed,
+    required TResult Function(_InputPhone value) inputPhone,
+    required TResult Function(_InputOTP value) inputOTP,
   }) {
-    return failed(this);
+    return inputPhone(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Succeed value)? succeed,
-    TResult? Function(_CodeSent value)? codeSent,
-    TResult? Function(_Timeout value)? timeout,
-    TResult? Function(_Failed value)? failed,
+    TResult? Function(_InputPhone value)? inputPhone,
+    TResult? Function(_InputOTP value)? inputOTP,
   }) {
-    return failed?.call(this);
+    return inputPhone?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Succeed value)? succeed,
-    TResult Function(_CodeSent value)? codeSent,
-    TResult Function(_Timeout value)? timeout,
-    TResult Function(_Failed value)? failed,
+    TResult Function(_InputPhone value)? inputPhone,
+    TResult Function(_InputOTP value)? inputOTP,
     required TResult orElse(),
   }) {
-    if (failed != null) {
-      return failed(this);
+    if (inputPhone != null) {
+      return inputPhone(this);
     }
     return orElse();
   }
 }
 
-abstract class _Failed implements SigninWithPhoneState {
-  const factory _Failed({required final String message}) = _$FailedImpl;
+abstract class _InputPhone implements SigninWithPhoneState {
+  const factory _InputPhone(final InputPhoneState inputPhoneState) =
+      _$InputPhoneImpl;
 
-  String get message;
+  InputPhoneState get inputPhoneState;
 
   /// Create a copy of SigninWithPhoneState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FailedImplCopyWith<_$FailedImpl> get copyWith =>
+  _$$InputPhoneImplCopyWith<_$InputPhoneImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$InputOTPImplCopyWith<$Res> {
+  factory _$$InputOTPImplCopyWith(
+    _$InputOTPImpl value,
+    $Res Function(_$InputOTPImpl) then,
+  ) = __$$InputOTPImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({InputOtpState inputOtpState});
+
+  $InputOtpStateCopyWith<$Res> get inputOtpState;
+}
+
+/// @nodoc
+class __$$InputOTPImplCopyWithImpl<$Res>
+    extends _$SigninWithPhoneStateCopyWithImpl<$Res, _$InputOTPImpl>
+    implements _$$InputOTPImplCopyWith<$Res> {
+  __$$InputOTPImplCopyWithImpl(
+    _$InputOTPImpl _value,
+    $Res Function(_$InputOTPImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of SigninWithPhoneState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? inputOtpState = null}) {
+    return _then(
+      _$InputOTPImpl(
+        null == inputOtpState
+            ? _value.inputOtpState
+            : inputOtpState // ignore: cast_nullable_to_non_nullable
+                as InputOtpState,
+      ),
+    );
+  }
+
+  /// Create a copy of SigninWithPhoneState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $InputOtpStateCopyWith<$Res> get inputOtpState {
+    return $InputOtpStateCopyWith<$Res>(_value.inputOtpState, (value) {
+      return _then(_value.copyWith(inputOtpState: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$InputOTPImpl implements _InputOTP {
+  const _$InputOTPImpl(this.inputOtpState);
+
+  @override
+  final InputOtpState inputOtpState;
+
+  @override
+  String toString() {
+    return 'SigninWithPhoneState.inputOTP(inputOtpState: $inputOtpState)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InputOTPImpl &&
+            (identical(other.inputOtpState, inputOtpState) ||
+                other.inputOtpState == inputOtpState));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, inputOtpState);
+
+  /// Create a copy of SigninWithPhoneState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InputOTPImplCopyWith<_$InputOTPImpl> get copyWith =>
+      __$$InputOTPImplCopyWithImpl<_$InputOTPImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(InputPhoneState inputPhoneState) inputPhone,
+    required TResult Function(InputOtpState inputOtpState) inputOTP,
+  }) {
+    return inputOTP(inputOtpState);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(InputPhoneState inputPhoneState)? inputPhone,
+    TResult? Function(InputOtpState inputOtpState)? inputOTP,
+  }) {
+    return inputOTP?.call(inputOtpState);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(InputPhoneState inputPhoneState)? inputPhone,
+    TResult Function(InputOtpState inputOtpState)? inputOTP,
+    required TResult orElse(),
+  }) {
+    if (inputOTP != null) {
+      return inputOTP(inputOtpState);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InputPhone value) inputPhone,
+    required TResult Function(_InputOTP value) inputOTP,
+  }) {
+    return inputOTP(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InputPhone value)? inputPhone,
+    TResult? Function(_InputOTP value)? inputOTP,
+  }) {
+    return inputOTP?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InputPhone value)? inputPhone,
+    TResult Function(_InputOTP value)? inputOTP,
+    required TResult orElse(),
+  }) {
+    if (inputOTP != null) {
+      return inputOTP(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InputOTP implements SigninWithPhoneState {
+  const factory _InputOTP(final InputOtpState inputOtpState) = _$InputOTPImpl;
+
+  InputOtpState get inputOtpState;
+
+  /// Create a copy of SigninWithPhoneState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$InputOTPImplCopyWith<_$InputOTPImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

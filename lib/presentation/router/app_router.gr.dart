@@ -57,3 +57,35 @@ class SigninRoute extends PageRouteInfo<void> {
     },
   );
 }
+
+/// generated route for
+/// [UpdateAddressPage]
+class UpdateAddressRoute extends PageRouteInfo<void> {
+  const UpdateAddressRoute({List<PageRouteInfo>? children})
+    : super(UpdateAddressRoute.name, initialChildren: children);
+
+  static const String name = 'UpdateAddressRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const UpdateAddressPage();
+    },
+  );
+}
+
+/// generated route for
+/// [UpdateUserPage]
+class UpdateUserRoute extends PageRouteInfo<void> {
+  const UpdateUserRoute({List<PageRouteInfo>? children})
+    : super(UpdateUserRoute.name, initialChildren: children);
+
+  static const String name = 'UpdateUserRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const UpdateUserPage();
+    },
+  );
+}

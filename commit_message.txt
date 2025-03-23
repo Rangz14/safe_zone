@@ -1,1 +1,1 @@
-Working on auth connectivity
+Authentication completed

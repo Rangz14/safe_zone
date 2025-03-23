@@ -15,6 +15,8 @@ class LandingPage extends StatelessWidget {
         state.maybeWhen(
           authenticated: (user) => context.router.replaceAll([HomeRoute()]),
           unAuthenticated: () => context.router.replaceAll([SigninRoute()]),
+          requireRegistration:
+              () => context.router.replaceAll([UpdateUserRoute()]),
           orElse: () {},
         );
       },

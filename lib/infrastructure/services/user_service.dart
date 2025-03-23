@@ -61,4 +61,16 @@ class UserService {
       return left(Failure(e.toString()));
     }
   }
+
+  Future<Either<Failure, bool>> isExist(String id) async {
+    try {
+      final doc = await _firestore.collection(_usersCollection).doc(id).get();
+      if (doc.exists) {
+        return right(true);
+      }
+      return right(false);
+    } catch (e) {
+      return left(Failure(e.toString()));
+    }
+  }
 }

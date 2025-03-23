@@ -3,8 +3,9 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:safe_zone/application/auth/auth_cubit.dart';
+import 'package:safe_zone/application/signin_with_phone/input_otp_state/input_otp_state.dart';
+import 'package:safe_zone/application/signin_with_phone/input_phone_state/input_phone_state.dart';
 import 'package:safe_zone/application/signin_with_phone/signin_with_phone_cubit.dart';
 import 'package:safe_zone/core/extensions/dartz_x.dart';
 import 'package:safe_zone/core/mutable_object.dart';
@@ -31,25 +32,46 @@ class SigninPage extends StatelessWidget implements AutoRouteWrapper {
     return BlocListener<AuthCubit, AuthState>(
       listener:
           (context, state) => state.maybeWhen(
-            authenticated: (user) => context.router.replaceAll([HomeRoute()]),
+            authenticated:
+                (user) => context.router.replaceAll([LandingRoute()]),
             orElse: () => Unit,
           ),
       child: BlocConsumer<SigninWithPhoneCubit, SigninWithPhoneState>(
         listener: (context, state) {
           state.maybeWhen(
-            succeed:
-                () => showSuccessToast(context, 'Authentication successful'),
-            failed: (message) => showFailedToast(context, message),
-            orElse: () => Unit,
+            inputPhone: (inputPhoneState) {
+              if (inputPhoneState.failureMessage.isSome()) {
+                showFailedToast(
+                  context,
+                  inputPhoneState.failureMessage.getOrCrash(),
+                );
+              }
+              if (inputPhoneState.isSuccessful) {
+                context.router.replaceAll([LandingRoute()]);
+              }
+            },
+
+            inputOTP: (inputOtpState) {
+              if (inputOtpState.failureMessage.isSome()) {
+                showFailedToast(
+                  context,
+                  inputOtpState.failureMessage.getOrCrash(),
+                );
+              }
+              if (inputOtpState.isSuccessful) {
+                context.router.replaceAll([LandingRoute()]);
+              }
+            },
+            orElse: () {},
           );
         },
         builder: (context, state) {
           return Scaffold(
             body: SafeArea(
               child: state.maybeWhen(
-                initial: () => PhoneInputForm(),
-                codeSent: () => OtpVerificationForm(),
-                orElse: () => PhoneInputForm(),
+                inputPhone: (s) => PhoneInputForm(s),
+                inputOTP: (s) => OtpVerificationForm(s),
+                orElse: () => Center(child: CircularProgressIndicator()),
               ),
             ),
           );
@@ -59,15 +81,16 @@ class SigninPage extends StatelessWidget implements AutoRouteWrapper {
   }
 }
 
-class PhoneInputForm extends HookWidget {
-  PhoneInputForm({super.key});
+class PhoneInputForm extends StatelessWidget {
+  final InputPhoneState state;
 
   final phone = MutableObject("");
+  PhoneInputForm(this.state, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -82,10 +105,27 @@ class PhoneInputForm extends HookWidget {
           const SizedBox(height: 32),
           FilledButton(
             onPressed:
-                () => context.read<SigninWithPhoneCubit>().signInWithPhone(
-                  "+94${phone.value}",
-                ),
-            child: const Text('Send Code', style: TextStyle(fontSize: 16)),
+                state.isLoading
+                    ? null
+                    : () => context
+                        .read<SigninWithPhoneCubit>()
+                        .signInWithPhone("+94${phone.value}"),
+            child:
+                state.isLoading
+                    ? Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Sending...'),
+                        const HGap(),
+                        SizedBox(
+                          width: 16,
+                          height: 16,
+                          child: CircularProgressIndicator(),
+                        ),
+                      ],
+                    )
+                    : Text('Send Code'),
           ),
         ],
       ),
@@ -102,7 +142,7 @@ class PhoneInputField extends StatelessWidget {
     return Row(
       children: [
         TextRegular("🇱🇰 +94"),
-        const HGap(),
+        const HGap(gap: 20),
         Expanded(
           child: TextFormField(
             onChanged: onChanged,
@@ -128,11 +168,14 @@ class PhoneInputField extends StatelessWidget {
 }
 
 class OtpVerificationForm extends StatelessWidget {
-  const OtpVerificationForm({super.key});
+  final InputOtpState state;
+  final otp = MutableObject<List<String>>([]);
+  OtpVerificationForm(this.state, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      padding: EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -143,20 +186,52 @@ class OtpVerificationForm extends StatelessWidget {
             "Enter the 6-digit code sent to ${context.read<SigninWithPhoneCubit>().phone.getOrCrash()}",
           ),
           const VGap(gap: 48),
-          OtpInputRow(
-            onOtpChanged: (otp) {
-              if (otp.contains("")) {
-                return;
-              }
-
-              final otpString = otp.map((e) => e.toString()).join();
-              context.read<SigninWithPhoneCubit>().signInWithOTP(otpString);
-            },
-          ),
+          OtpInputRow(onOtpChanged: (otpList) => otp.value = otpList),
           const VGap(gap: 20),
-          FilledButton(onPressed: () {}, child: const Text('Verify Code')),
+          FilledButton(
+            onPressed:
+                state.isLoading
+                    ? null
+                    : () {
+                      if (otp.value.contains("")) return;
+                      final otpStr = otp.value.join();
+                      context.read<SigninWithPhoneCubit>().signInWithOTP(
+                        otpStr,
+                      );
+                    },
+            child:
+                state.isLoading
+                    ? Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text('Verifying...'),
+                        const HGap(),
+                        SizedBox(
+                          width: 16,
+                          height: 16,
+                          child: CircularProgressIndicator(),
+                        ),
+                      ],
+                    )
+                    : Text('Verify Code'),
+          ),
           const VGap(gap: 48),
-          ResendTimerWidget(),
+          if (state.isResendActive)
+            Column(
+              children: [
+                TextRegular('Didn\'t receive the code?'),
+                TextButton(
+                  onPressed:
+                      () => context.read<SigninWithPhoneCubit>().resendOTP(),
+                  child: const Text('Resend Code'),
+                ),
+              ],
+            ),
+          if (!state.isResendActive)
+            TextSmall(
+              'Didn\'t receive the code? try again in ${state.timeLeft} seconds',
+            ),
           const VGap(),
         ],
       ),
@@ -218,91 +293,6 @@ class OtpInputRow extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class VerifyOtpButton extends StatelessWidget {
-  final List<TextEditingController> controllers;
-  final GlobalKey<FormState> formKey;
-  final String verificationId;
-
-  const VerifyOtpButton({
-    Key? key,
-    required this.controllers,
-    required this.formKey,
-    required this.verificationId,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        if (formKey.currentState?.validate() ?? false) {
-          final otp = controllers.map((c) => c.text).join();
-          context.read<SigninWithPhoneCubit>().signInWithOTP(
-            verificationId,
-            otp,
-          );
-        }
-      },
-      style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(vertical: 16),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      ),
-      child: const Text('Verify Code', style: TextStyle(fontSize: 16)),
-    );
-  }
-}
-
-class ResendTimerWidget extends StatelessWidget {
-  final bool isTimerActive;
-  final int timeLeft;
-  final String phoneNumber;
-  final int? resendToken;
-
-  const ResendTimerWidget({
-    Key? key,
-    required this.isTimerActive,
-    required this.timeLeft,
-    required this.phoneNumber,
-    this.resendToken,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          'Didn\'t receive the code? ',
-          style: Theme.of(context).textTheme.bodyMedium,
-        ),
-        if (isTimerActive)
-          Text(
-            'Resend in ${timeLeft}s',
-            style: TextStyle(
-              color: Theme.of(context).colorScheme.primary,
-              fontWeight: FontWeight.bold,
-            ),
-          )
-        else
-          TextButton(
-            onPressed: () {
-              context.read<SigninWithPhoneCubit>().resendOTP(
-                phoneNumber,
-                resendToken,
-              );
-            },
-            child: Text(
-              'Resend',
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.primary,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-      ],
     );
   }
 }

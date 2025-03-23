@@ -23,12 +23,23 @@ class AuthCubit extends Cubit<AuthState> {
       emit(AuthState.unAuthenticated());
       return;
     }
-    final uidOrUnit = _authRepo.getUid();
-    final failureOrUser = await _userRepo.getUser(uidOrUnit.getOrCrash());
-    if (failureOrUser.isLeft()) {
-      emit(AuthState.failed(message: failureOrUser.getLeft().message));
+    final failureOrExist = await _userRepo.isExist();
+    if (failureOrExist.isLeft()) {
+      emit(AuthState.failed(message: failureOrExist.getLeft().message));
       return;
     }
-    emit(AuthState.authenticated(user: failureOrUser.getOrCrash()));
+
+    if (!failureOrExist.getOrCrash()) {
+      emit(AuthState.requireRegistration());
+      return;
+    }
+
+    final failureOrCurrent = await _userRepo.getCurrent();
+
+    if (failureOrCurrent.isLeft()) {
+      emit(AuthState.failed(message: failureOrCurrent.getLeft().message));
+      return;
+    }
+    emit(AuthState.authenticated(user: failureOrCurrent.getOrCrash()));
   }
 }

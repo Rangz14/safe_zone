@@ -6,5 +6,6 @@ class AuthState with _$AuthState {
       _Authenticated;
   const factory AuthState.loading() = _Loading;
   const factory AuthState.unAuthenticated() = _Unauthenticated;
+  const factory AuthState.requireRegistration() = _RequireRegistration;
   const factory AuthState.failed({required String message}) = _Failed;
 }

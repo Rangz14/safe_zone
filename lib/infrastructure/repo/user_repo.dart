@@ -41,4 +41,13 @@ class UserRepo implements IUserRepo {
   @override
   Future<Either<Failure, SafeZoneUser>> getUser(String id) =>
       _userService.getUser(id);
+
+  @override
+  Future<Either<Failure, bool>> isExist() async {
+    final unitOrUid = _authService.getUid();
+    if (unitOrUid.isLeft()) {
+      return left(const Failure('User not signed in'));
+    }
+    return _userService.isExist(unitOrUid.getOrCrash());
+  }
 }

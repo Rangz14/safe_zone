@@ -22,6 +22,7 @@ mixin _$AuthState {
     required TResult Function(SafeZoneUser user) authenticated,
     required TResult Function() loading,
     required TResult Function() unAuthenticated,
+    required TResult Function() requireRegistration,
     required TResult Function(String message) failed,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,6 +30,7 @@ mixin _$AuthState {
     TResult? Function(SafeZoneUser user)? authenticated,
     TResult? Function()? loading,
     TResult? Function()? unAuthenticated,
+    TResult? Function()? requireRegistration,
     TResult? Function(String message)? failed,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +38,7 @@ mixin _$AuthState {
     TResult Function(SafeZoneUser user)? authenticated,
     TResult Function()? loading,
     TResult Function()? unAuthenticated,
+    TResult Function()? requireRegistration,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
@@ -44,6 +47,7 @@ mixin _$AuthState {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Unauthenticated value) unAuthenticated,
+    required TResult Function(_RequireRegistration value) requireRegistration,
     required TResult Function(_Failed value) failed,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +55,7 @@ mixin _$AuthState {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Unauthenticated value)? unAuthenticated,
+    TResult? Function(_RequireRegistration value)? requireRegistration,
     TResult? Function(_Failed value)? failed,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +63,7 @@ mixin _$AuthState {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Loading value)? loading,
     TResult Function(_Unauthenticated value)? unAuthenticated,
+    TResult Function(_RequireRegistration value)? requireRegistration,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
@@ -169,6 +175,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     required TResult Function(SafeZoneUser user) authenticated,
     required TResult Function() loading,
     required TResult Function() unAuthenticated,
+    required TResult Function() requireRegistration,
     required TResult Function(String message) failed,
   }) {
     return authenticated(user);
@@ -180,6 +187,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     TResult? Function(SafeZoneUser user)? authenticated,
     TResult? Function()? loading,
     TResult? Function()? unAuthenticated,
+    TResult? Function()? requireRegistration,
     TResult? Function(String message)? failed,
   }) {
     return authenticated?.call(user);
@@ -191,6 +199,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     TResult Function(SafeZoneUser user)? authenticated,
     TResult Function()? loading,
     TResult Function()? unAuthenticated,
+    TResult Function()? requireRegistration,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
@@ -206,6 +215,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Unauthenticated value) unAuthenticated,
+    required TResult Function(_RequireRegistration value) requireRegistration,
     required TResult Function(_Failed value) failed,
   }) {
     return authenticated(this);
@@ -217,6 +227,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Unauthenticated value)? unAuthenticated,
+    TResult? Function(_RequireRegistration value)? requireRegistration,
     TResult? Function(_Failed value)? failed,
   }) {
     return authenticated?.call(this);
@@ -228,6 +239,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Loading value)? loading,
     TResult Function(_Unauthenticated value)? unAuthenticated,
+    TResult Function(_RequireRegistration value)? requireRegistration,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
@@ -297,6 +309,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(SafeZoneUser user) authenticated,
     required TResult Function() loading,
     required TResult Function() unAuthenticated,
+    required TResult Function() requireRegistration,
     required TResult Function(String message) failed,
   }) {
     return loading();
@@ -308,6 +321,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(SafeZoneUser user)? authenticated,
     TResult? Function()? loading,
     TResult? Function()? unAuthenticated,
+    TResult? Function()? requireRegistration,
     TResult? Function(String message)? failed,
   }) {
     return loading?.call();
@@ -319,6 +333,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(SafeZoneUser user)? authenticated,
     TResult Function()? loading,
     TResult Function()? unAuthenticated,
+    TResult Function()? requireRegistration,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
@@ -334,6 +349,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Unauthenticated value) unAuthenticated,
+    required TResult Function(_RequireRegistration value) requireRegistration,
     required TResult Function(_Failed value) failed,
   }) {
     return loading(this);
@@ -345,6 +361,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Unauthenticated value)? unAuthenticated,
+    TResult? Function(_RequireRegistration value)? requireRegistration,
     TResult? Function(_Failed value)? failed,
   }) {
     return loading?.call(this);
@@ -356,6 +373,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Loading value)? loading,
     TResult Function(_Unauthenticated value)? unAuthenticated,
+    TResult Function(_RequireRegistration value)? requireRegistration,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
@@ -416,6 +434,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     required TResult Function(SafeZoneUser user) authenticated,
     required TResult Function() loading,
     required TResult Function() unAuthenticated,
+    required TResult Function() requireRegistration,
     required TResult Function(String message) failed,
   }) {
     return unAuthenticated();
@@ -427,6 +446,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     TResult? Function(SafeZoneUser user)? authenticated,
     TResult? Function()? loading,
     TResult? Function()? unAuthenticated,
+    TResult? Function()? requireRegistration,
     TResult? Function(String message)? failed,
   }) {
     return unAuthenticated?.call();
@@ -438,6 +458,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     TResult Function(SafeZoneUser user)? authenticated,
     TResult Function()? loading,
     TResult Function()? unAuthenticated,
+    TResult Function()? requireRegistration,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
@@ -453,6 +474,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Unauthenticated value) unAuthenticated,
+    required TResult Function(_RequireRegistration value) requireRegistration,
     required TResult Function(_Failed value) failed,
   }) {
     return unAuthenticated(this);
@@ -464,6 +486,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Unauthenticated value)? unAuthenticated,
+    TResult? Function(_RequireRegistration value)? requireRegistration,
     TResult? Function(_Failed value)? failed,
   }) {
     return unAuthenticated?.call(this);
@@ -475,6 +498,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Loading value)? loading,
     TResult Function(_Unauthenticated value)? unAuthenticated,
+    TResult Function(_RequireRegistration value)? requireRegistration,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
@@ -487,6 +511,132 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
 
 abstract class _Unauthenticated implements AuthState {
   const factory _Unauthenticated() = _$UnauthenticatedImpl;
+}
+
+/// @nodoc
+abstract class _$$RequireRegistrationImplCopyWith<$Res> {
+  factory _$$RequireRegistrationImplCopyWith(
+    _$RequireRegistrationImpl value,
+    $Res Function(_$RequireRegistrationImpl) then,
+  ) = __$$RequireRegistrationImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RequireRegistrationImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$RequireRegistrationImpl>
+    implements _$$RequireRegistrationImplCopyWith<$Res> {
+  __$$RequireRegistrationImplCopyWithImpl(
+    _$RequireRegistrationImpl _value,
+    $Res Function(_$RequireRegistrationImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$RequireRegistrationImpl implements _RequireRegistration {
+  const _$RequireRegistrationImpl();
+
+  @override
+  String toString() {
+    return 'AuthState.requireRegistration()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RequireRegistrationImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(SafeZoneUser user) authenticated,
+    required TResult Function() loading,
+    required TResult Function() unAuthenticated,
+    required TResult Function() requireRegistration,
+    required TResult Function(String message) failed,
+  }) {
+    return requireRegistration();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(SafeZoneUser user)? authenticated,
+    TResult? Function()? loading,
+    TResult? Function()? unAuthenticated,
+    TResult? Function()? requireRegistration,
+    TResult? Function(String message)? failed,
+  }) {
+    return requireRegistration?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SafeZoneUser user)? authenticated,
+    TResult Function()? loading,
+    TResult Function()? unAuthenticated,
+    TResult Function()? requireRegistration,
+    TResult Function(String message)? failed,
+    required TResult orElse(),
+  }) {
+    if (requireRegistration != null) {
+      return requireRegistration();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Authenticated value) authenticated,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Unauthenticated value) unAuthenticated,
+    required TResult Function(_RequireRegistration value) requireRegistration,
+    required TResult Function(_Failed value) failed,
+  }) {
+    return requireRegistration(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Authenticated value)? authenticated,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Unauthenticated value)? unAuthenticated,
+    TResult? Function(_RequireRegistration value)? requireRegistration,
+    TResult? Function(_Failed value)? failed,
+  }) {
+    return requireRegistration?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Authenticated value)? authenticated,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Unauthenticated value)? unAuthenticated,
+    TResult Function(_RequireRegistration value)? requireRegistration,
+    TResult Function(_Failed value)? failed,
+    required TResult orElse(),
+  }) {
+    if (requireRegistration != null) {
+      return requireRegistration(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RequireRegistration implements AuthState {
+  const factory _RequireRegistration() = _$RequireRegistrationImpl;
 }
 
 /// @nodoc
@@ -563,6 +713,7 @@ class _$FailedImpl implements _Failed {
     required TResult Function(SafeZoneUser user) authenticated,
     required TResult Function() loading,
     required TResult Function() unAuthenticated,
+    required TResult Function() requireRegistration,
     required TResult Function(String message) failed,
   }) {
     return failed(message);
@@ -574,6 +725,7 @@ class _$FailedImpl implements _Failed {
     TResult? Function(SafeZoneUser user)? authenticated,
     TResult? Function()? loading,
     TResult? Function()? unAuthenticated,
+    TResult? Function()? requireRegistration,
     TResult? Function(String message)? failed,
   }) {
     return failed?.call(message);
@@ -585,6 +737,7 @@ class _$FailedImpl implements _Failed {
     TResult Function(SafeZoneUser user)? authenticated,
     TResult Function()? loading,
     TResult Function()? unAuthenticated,
+    TResult Function()? requireRegistration,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
@@ -600,6 +753,7 @@ class _$FailedImpl implements _Failed {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Unauthenticated value) unAuthenticated,
+    required TResult Function(_RequireRegistration value) requireRegistration,
     required TResult Function(_Failed value) failed,
   }) {
     return failed(this);
@@ -611,6 +765,7 @@ class _$FailedImpl implements _Failed {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Unauthenticated value)? unAuthenticated,
+    TResult? Function(_RequireRegistration value)? requireRegistration,
     TResult? Function(_Failed value)? failed,
   }) {
     return failed?.call(this);
@@ -622,6 +777,7 @@ class _$FailedImpl implements _Failed {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Loading value)? loading,
     TResult Function(_Unauthenticated value)? unAuthenticated,
+    TResult Function(_RequireRegistration value)? requireRegistration,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {

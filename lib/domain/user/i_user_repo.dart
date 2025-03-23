@@ -4,6 +4,7 @@ import 'package:safe_zone/domain/user/address/address.dart';
 import 'package:safe_zone/domain/user/user.dart';
 
 abstract class IUserRepo {
+  Future<Either<Failure, bool>> isExist();
   Future<Either<Failure, SafeZoneUser>> getUser(String id);
   Future<Either<Failure, SafeZoneUser>> getCurrent();
   Future<Either<Failure, SafeZoneUser>> updateUser(SafeZoneUser user);
