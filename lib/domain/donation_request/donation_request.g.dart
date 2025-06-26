@@ -12,10 +12,13 @@ _$DonationRequestImpl _$$DonationRequestImplFromJson(
   id: json['id'] as String,
   donationServiceId: json['donationServiceId'] as String,
   userId: json['userId'] as String,
+  threatId: json['threatId'] as String,
   longitude: (json['longitude'] as num).toDouble(),
   latitude: (json['latitude'] as num).toDouble(),
-  status: json['status'] as String,
-  acceptedOrganizationId: json['acceptedOrganizationId'] as String?,
+  state: $enumDecode(_$DonationRequestStateEnumMap, json['state']),
+  acceptedOrgId: const OptionStringConverter().fromJson(
+    json['acceptedOrgId'] as String?,
+  ),
   createdAt: (json['createdAt'] as num).toInt(),
   updatedAt: (json['updatedAt'] as num).toInt(),
 );
@@ -26,10 +29,19 @@ Map<String, dynamic> _$$DonationRequestImplToJson(
   'id': instance.id,
   'donationServiceId': instance.donationServiceId,
   'userId': instance.userId,
+  'threatId': instance.threatId,
   'longitude': instance.longitude,
   'latitude': instance.latitude,
-  'status': instance.status,
-  'acceptedOrganizationId': instance.acceptedOrganizationId,
+  'state': _$DonationRequestStateEnumMap[instance.state]!,
+  'acceptedOrgId': const OptionStringConverter().toJson(instance.acceptedOrgId),
   'createdAt': instance.createdAt,
   'updatedAt': instance.updatedAt,
+};
+
+const _$DonationRequestStateEnumMap = {
+  DonationRequestState.pending: 'pending',
+  DonationRequestState.accepted: 'accepted',
+  DonationRequestState.rejectedByAdmin: 'rejectedByAdmin',
+  DonationRequestState.fundRaised: 'fundRaised',
+  DonationRequestState.donated: 'donated',
 };

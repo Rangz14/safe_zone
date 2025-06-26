@@ -17,8 +17,21 @@ class UserRepo implements IUserRepo {
 
   @override
   Future<Either<Failure, SafeZoneUserAddress>> updateAddress(
-    SafeZoneUserAddress address,
-  ) => _userService.createAddress(address);
+    String townId,
+    String address,
+  ) async {
+    final unitOrUid = _authService.getUid();
+    if (unitOrUid.isLeft()) {
+      return left(const Failure('User not signed in'));
+    }
+    final userId = unitOrUid.getOrCrash();
+    final safeZoneAddress = SafeZoneUserAddress.empty().copyWith(
+      userId: userId,
+      townId: townId,
+      address: address,
+    );
+    return _userService.createAddress(safeZoneAddress);
+  }
 
   @override
   Future<Either<Failure, SafeZoneUser>> updateUser(SafeZoneUser user) =>
@@ -50,4 +63,8 @@ class UserRepo implements IUserRepo {
     }
     return _userService.isExist(unitOrUid.getOrCrash());
   }
+
+  @override
+  Future<Either<Failure, String>> uploadProfileImage(String id) =>
+      _userService.uploadProfileImage(id);
 }

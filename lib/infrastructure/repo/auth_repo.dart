@@ -13,6 +13,9 @@ class AuthRepo implements IAuthRepo {
   Either<Unit, String> getUid() => _authService.getUid();
 
   @override
+  Either<Unit, String> getPhone() => _authService.getPhone();
+
+  @override
   bool isSignedIn() => _authService.isSignedIn();
 
   @override

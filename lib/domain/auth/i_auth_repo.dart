@@ -26,6 +26,8 @@ abstract class IAuthRepo {
 
   bool isSignedIn();
 
+  Either<Unit, String> getPhone();
+
   Either<Unit, String> getUid();
 
   Future<void> signOut();

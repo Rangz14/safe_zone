@@ -19,51 +19,63 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AuthState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(SafeZoneUser user) authenticated,
+    required TResult Function(SafeZoneUser user) authenticatedUser,
+    required TResult Function(Organization org) authenticatedOrg,
+    required TResult Function() authenticatedAdmin,
     required TResult Function() loading,
     required TResult Function() unAuthenticated,
-    required TResult Function() requireRegistration,
+    required TResult Function(String uid, String phone) requireRegUser,
     required TResult Function(String message) failed,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SafeZoneUser user)? authenticated,
+    TResult? Function(SafeZoneUser user)? authenticatedUser,
+    TResult? Function(Organization org)? authenticatedOrg,
+    TResult? Function()? authenticatedAdmin,
     TResult? Function()? loading,
     TResult? Function()? unAuthenticated,
-    TResult? Function()? requireRegistration,
+    TResult? Function(String uid, String phone)? requireRegUser,
     TResult? Function(String message)? failed,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SafeZoneUser user)? authenticated,
+    TResult Function(SafeZoneUser user)? authenticatedUser,
+    TResult Function(Organization org)? authenticatedOrg,
+    TResult Function()? authenticatedAdmin,
     TResult Function()? loading,
     TResult Function()? unAuthenticated,
-    TResult Function()? requireRegistration,
+    TResult Function(String uid, String phone)? requireRegUser,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Authenticated value) authenticated,
+    required TResult Function(_AuthenticatedUser value) authenticatedUser,
+    required TResult Function(_AuthenticatedOrg value) authenticatedOrg,
+    required TResult Function(_AuthenticatedAdmin value) authenticatedAdmin,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Unauthenticated value) unAuthenticated,
-    required TResult Function(_RequireRegistration value) requireRegistration,
+    required TResult Function(_RequireRegUser value) requireRegUser,
     required TResult Function(_Failed value) failed,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Authenticated value)? authenticated,
+    TResult? Function(_AuthenticatedUser value)? authenticatedUser,
+    TResult? Function(_AuthenticatedOrg value)? authenticatedOrg,
+    TResult? Function(_AuthenticatedAdmin value)? authenticatedAdmin,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Unauthenticated value)? unAuthenticated,
-    TResult? Function(_RequireRegistration value)? requireRegistration,
+    TResult? Function(_RequireRegUser value)? requireRegUser,
     TResult? Function(_Failed value)? failed,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Authenticated value)? authenticated,
+    TResult Function(_AuthenticatedUser value)? authenticatedUser,
+    TResult Function(_AuthenticatedOrg value)? authenticatedOrg,
+    TResult Function(_AuthenticatedAdmin value)? authenticatedAdmin,
     TResult Function(_Loading value)? loading,
     TResult Function(_Unauthenticated value)? unAuthenticated,
-    TResult Function(_RequireRegistration value)? requireRegistration,
+    TResult Function(_RequireRegUser value)? requireRegUser,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
@@ -90,11 +102,11 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
 }
 
 /// @nodoc
-abstract class _$$AuthenticatedImplCopyWith<$Res> {
-  factory _$$AuthenticatedImplCopyWith(
-    _$AuthenticatedImpl value,
-    $Res Function(_$AuthenticatedImpl) then,
-  ) = __$$AuthenticatedImplCopyWithImpl<$Res>;
+abstract class _$$AuthenticatedUserImplCopyWith<$Res> {
+  factory _$$AuthenticatedUserImplCopyWith(
+    _$AuthenticatedUserImpl value,
+    $Res Function(_$AuthenticatedUserImpl) then,
+  ) = __$$AuthenticatedUserImplCopyWithImpl<$Res>;
   @useResult
   $Res call({SafeZoneUser user});
 
@@ -102,12 +114,12 @@ abstract class _$$AuthenticatedImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$AuthenticatedImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$AuthenticatedImpl>
-    implements _$$AuthenticatedImplCopyWith<$Res> {
-  __$$AuthenticatedImplCopyWithImpl(
-    _$AuthenticatedImpl _value,
-    $Res Function(_$AuthenticatedImpl) _then,
+class __$$AuthenticatedUserImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthenticatedUserImpl>
+    implements _$$AuthenticatedUserImplCopyWith<$Res> {
+  __$$AuthenticatedUserImplCopyWithImpl(
+    _$AuthenticatedUserImpl _value,
+    $Res Function(_$AuthenticatedUserImpl) _then,
   ) : super(_value, _then);
 
   /// Create a copy of AuthState
@@ -116,7 +128,7 @@ class __$$AuthenticatedImplCopyWithImpl<$Res>
   @override
   $Res call({Object? user = null}) {
     return _then(
-      _$AuthenticatedImpl(
+      _$AuthenticatedUserImpl(
         user:
             null == user
                 ? _value.user
@@ -139,22 +151,22 @@ class __$$AuthenticatedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AuthenticatedImpl implements _Authenticated {
-  const _$AuthenticatedImpl({required this.user});
+class _$AuthenticatedUserImpl implements _AuthenticatedUser {
+  const _$AuthenticatedUserImpl({required this.user});
 
   @override
   final SafeZoneUser user;
 
   @override
   String toString() {
-    return 'AuthState.authenticated(user: $user)';
+    return 'AuthState.authenticatedUser(user: $user)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AuthenticatedImpl &&
+            other is _$AuthenticatedUserImpl &&
             (identical(other.user, user) || other.user == user));
   }
 
@@ -166,45 +178,54 @@ class _$AuthenticatedImpl implements _Authenticated {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$AuthenticatedImplCopyWith<_$AuthenticatedImpl> get copyWith =>
-      __$$AuthenticatedImplCopyWithImpl<_$AuthenticatedImpl>(this, _$identity);
+  _$$AuthenticatedUserImplCopyWith<_$AuthenticatedUserImpl> get copyWith =>
+      __$$AuthenticatedUserImplCopyWithImpl<_$AuthenticatedUserImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(SafeZoneUser user) authenticated,
+    required TResult Function(SafeZoneUser user) authenticatedUser,
+    required TResult Function(Organization org) authenticatedOrg,
+    required TResult Function() authenticatedAdmin,
     required TResult Function() loading,
     required TResult Function() unAuthenticated,
-    required TResult Function() requireRegistration,
+    required TResult Function(String uid, String phone) requireRegUser,
     required TResult Function(String message) failed,
   }) {
-    return authenticated(user);
+    return authenticatedUser(user);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SafeZoneUser user)? authenticated,
+    TResult? Function(SafeZoneUser user)? authenticatedUser,
+    TResult? Function(Organization org)? authenticatedOrg,
+    TResult? Function()? authenticatedAdmin,
     TResult? Function()? loading,
     TResult? Function()? unAuthenticated,
-    TResult? Function()? requireRegistration,
+    TResult? Function(String uid, String phone)? requireRegUser,
     TResult? Function(String message)? failed,
   }) {
-    return authenticated?.call(user);
+    return authenticatedUser?.call(user);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SafeZoneUser user)? authenticated,
+    TResult Function(SafeZoneUser user)? authenticatedUser,
+    TResult Function(Organization org)? authenticatedOrg,
+    TResult Function()? authenticatedAdmin,
     TResult Function()? loading,
     TResult Function()? unAuthenticated,
-    TResult Function()? requireRegistration,
+    TResult Function(String uid, String phone)? requireRegUser,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
-    if (authenticated != null) {
-      return authenticated(user);
+    if (authenticatedUser != null) {
+      return authenticatedUser(user);
     }
     return orElse();
   }
@@ -212,55 +233,387 @@ class _$AuthenticatedImpl implements _Authenticated {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Authenticated value) authenticated,
+    required TResult Function(_AuthenticatedUser value) authenticatedUser,
+    required TResult Function(_AuthenticatedOrg value) authenticatedOrg,
+    required TResult Function(_AuthenticatedAdmin value) authenticatedAdmin,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Unauthenticated value) unAuthenticated,
-    required TResult Function(_RequireRegistration value) requireRegistration,
+    required TResult Function(_RequireRegUser value) requireRegUser,
     required TResult Function(_Failed value) failed,
   }) {
-    return authenticated(this);
+    return authenticatedUser(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Authenticated value)? authenticated,
+    TResult? Function(_AuthenticatedUser value)? authenticatedUser,
+    TResult? Function(_AuthenticatedOrg value)? authenticatedOrg,
+    TResult? Function(_AuthenticatedAdmin value)? authenticatedAdmin,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Unauthenticated value)? unAuthenticated,
-    TResult? Function(_RequireRegistration value)? requireRegistration,
+    TResult? Function(_RequireRegUser value)? requireRegUser,
     TResult? Function(_Failed value)? failed,
   }) {
-    return authenticated?.call(this);
+    return authenticatedUser?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Authenticated value)? authenticated,
+    TResult Function(_AuthenticatedUser value)? authenticatedUser,
+    TResult Function(_AuthenticatedOrg value)? authenticatedOrg,
+    TResult Function(_AuthenticatedAdmin value)? authenticatedAdmin,
     TResult Function(_Loading value)? loading,
     TResult Function(_Unauthenticated value)? unAuthenticated,
-    TResult Function(_RequireRegistration value)? requireRegistration,
+    TResult Function(_RequireRegUser value)? requireRegUser,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
-    if (authenticated != null) {
-      return authenticated(this);
+    if (authenticatedUser != null) {
+      return authenticatedUser(this);
     }
     return orElse();
   }
 }
 
-abstract class _Authenticated implements AuthState {
-  const factory _Authenticated({required final SafeZoneUser user}) =
-      _$AuthenticatedImpl;
+abstract class _AuthenticatedUser implements AuthState {
+  const factory _AuthenticatedUser({required final SafeZoneUser user}) =
+      _$AuthenticatedUserImpl;
 
   SafeZoneUser get user;
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AuthenticatedImplCopyWith<_$AuthenticatedImpl> get copyWith =>
+  _$$AuthenticatedUserImplCopyWith<_$AuthenticatedUserImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AuthenticatedOrgImplCopyWith<$Res> {
+  factory _$$AuthenticatedOrgImplCopyWith(
+    _$AuthenticatedOrgImpl value,
+    $Res Function(_$AuthenticatedOrgImpl) then,
+  ) = __$$AuthenticatedOrgImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Organization org});
+
+  $OrganizationCopyWith<$Res> get org;
+}
+
+/// @nodoc
+class __$$AuthenticatedOrgImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthenticatedOrgImpl>
+    implements _$$AuthenticatedOrgImplCopyWith<$Res> {
+  __$$AuthenticatedOrgImplCopyWithImpl(
+    _$AuthenticatedOrgImpl _value,
+    $Res Function(_$AuthenticatedOrgImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? org = null}) {
+    return _then(
+      _$AuthenticatedOrgImpl(
+        org:
+            null == org
+                ? _value.org
+                : org // ignore: cast_nullable_to_non_nullable
+                    as Organization,
+      ),
+    );
+  }
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $OrganizationCopyWith<$Res> get org {
+    return $OrganizationCopyWith<$Res>(_value.org, (value) {
+      return _then(_value.copyWith(org: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$AuthenticatedOrgImpl implements _AuthenticatedOrg {
+  const _$AuthenticatedOrgImpl({required this.org});
+
+  @override
+  final Organization org;
+
+  @override
+  String toString() {
+    return 'AuthState.authenticatedOrg(org: $org)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AuthenticatedOrgImpl &&
+            (identical(other.org, org) || other.org == org));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, org);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AuthenticatedOrgImplCopyWith<_$AuthenticatedOrgImpl> get copyWith =>
+      __$$AuthenticatedOrgImplCopyWithImpl<_$AuthenticatedOrgImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(SafeZoneUser user) authenticatedUser,
+    required TResult Function(Organization org) authenticatedOrg,
+    required TResult Function() authenticatedAdmin,
+    required TResult Function() loading,
+    required TResult Function() unAuthenticated,
+    required TResult Function(String uid, String phone) requireRegUser,
+    required TResult Function(String message) failed,
+  }) {
+    return authenticatedOrg(org);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(SafeZoneUser user)? authenticatedUser,
+    TResult? Function(Organization org)? authenticatedOrg,
+    TResult? Function()? authenticatedAdmin,
+    TResult? Function()? loading,
+    TResult? Function()? unAuthenticated,
+    TResult? Function(String uid, String phone)? requireRegUser,
+    TResult? Function(String message)? failed,
+  }) {
+    return authenticatedOrg?.call(org);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SafeZoneUser user)? authenticatedUser,
+    TResult Function(Organization org)? authenticatedOrg,
+    TResult Function()? authenticatedAdmin,
+    TResult Function()? loading,
+    TResult Function()? unAuthenticated,
+    TResult Function(String uid, String phone)? requireRegUser,
+    TResult Function(String message)? failed,
+    required TResult orElse(),
+  }) {
+    if (authenticatedOrg != null) {
+      return authenticatedOrg(org);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthenticatedUser value) authenticatedUser,
+    required TResult Function(_AuthenticatedOrg value) authenticatedOrg,
+    required TResult Function(_AuthenticatedAdmin value) authenticatedAdmin,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Unauthenticated value) unAuthenticated,
+    required TResult Function(_RequireRegUser value) requireRegUser,
+    required TResult Function(_Failed value) failed,
+  }) {
+    return authenticatedOrg(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AuthenticatedUser value)? authenticatedUser,
+    TResult? Function(_AuthenticatedOrg value)? authenticatedOrg,
+    TResult? Function(_AuthenticatedAdmin value)? authenticatedAdmin,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Unauthenticated value)? unAuthenticated,
+    TResult? Function(_RequireRegUser value)? requireRegUser,
+    TResult? Function(_Failed value)? failed,
+  }) {
+    return authenticatedOrg?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthenticatedUser value)? authenticatedUser,
+    TResult Function(_AuthenticatedOrg value)? authenticatedOrg,
+    TResult Function(_AuthenticatedAdmin value)? authenticatedAdmin,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Unauthenticated value)? unAuthenticated,
+    TResult Function(_RequireRegUser value)? requireRegUser,
+    TResult Function(_Failed value)? failed,
+    required TResult orElse(),
+  }) {
+    if (authenticatedOrg != null) {
+      return authenticatedOrg(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AuthenticatedOrg implements AuthState {
+  const factory _AuthenticatedOrg({required final Organization org}) =
+      _$AuthenticatedOrgImpl;
+
+  Organization get org;
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AuthenticatedOrgImplCopyWith<_$AuthenticatedOrgImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AuthenticatedAdminImplCopyWith<$Res> {
+  factory _$$AuthenticatedAdminImplCopyWith(
+    _$AuthenticatedAdminImpl value,
+    $Res Function(_$AuthenticatedAdminImpl) then,
+  ) = __$$AuthenticatedAdminImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AuthenticatedAdminImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthenticatedAdminImpl>
+    implements _$$AuthenticatedAdminImplCopyWith<$Res> {
+  __$$AuthenticatedAdminImplCopyWithImpl(
+    _$AuthenticatedAdminImpl _value,
+    $Res Function(_$AuthenticatedAdminImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$AuthenticatedAdminImpl implements _AuthenticatedAdmin {
+  const _$AuthenticatedAdminImpl();
+
+  @override
+  String toString() {
+    return 'AuthState.authenticatedAdmin()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AuthenticatedAdminImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(SafeZoneUser user) authenticatedUser,
+    required TResult Function(Organization org) authenticatedOrg,
+    required TResult Function() authenticatedAdmin,
+    required TResult Function() loading,
+    required TResult Function() unAuthenticated,
+    required TResult Function(String uid, String phone) requireRegUser,
+    required TResult Function(String message) failed,
+  }) {
+    return authenticatedAdmin();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(SafeZoneUser user)? authenticatedUser,
+    TResult? Function(Organization org)? authenticatedOrg,
+    TResult? Function()? authenticatedAdmin,
+    TResult? Function()? loading,
+    TResult? Function()? unAuthenticated,
+    TResult? Function(String uid, String phone)? requireRegUser,
+    TResult? Function(String message)? failed,
+  }) {
+    return authenticatedAdmin?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SafeZoneUser user)? authenticatedUser,
+    TResult Function(Organization org)? authenticatedOrg,
+    TResult Function()? authenticatedAdmin,
+    TResult Function()? loading,
+    TResult Function()? unAuthenticated,
+    TResult Function(String uid, String phone)? requireRegUser,
+    TResult Function(String message)? failed,
+    required TResult orElse(),
+  }) {
+    if (authenticatedAdmin != null) {
+      return authenticatedAdmin();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthenticatedUser value) authenticatedUser,
+    required TResult Function(_AuthenticatedOrg value) authenticatedOrg,
+    required TResult Function(_AuthenticatedAdmin value) authenticatedAdmin,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Unauthenticated value) unAuthenticated,
+    required TResult Function(_RequireRegUser value) requireRegUser,
+    required TResult Function(_Failed value) failed,
+  }) {
+    return authenticatedAdmin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AuthenticatedUser value)? authenticatedUser,
+    TResult? Function(_AuthenticatedOrg value)? authenticatedOrg,
+    TResult? Function(_AuthenticatedAdmin value)? authenticatedAdmin,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Unauthenticated value)? unAuthenticated,
+    TResult? Function(_RequireRegUser value)? requireRegUser,
+    TResult? Function(_Failed value)? failed,
+  }) {
+    return authenticatedAdmin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthenticatedUser value)? authenticatedUser,
+    TResult Function(_AuthenticatedOrg value)? authenticatedOrg,
+    TResult Function(_AuthenticatedAdmin value)? authenticatedAdmin,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Unauthenticated value)? unAuthenticated,
+    TResult Function(_RequireRegUser value)? requireRegUser,
+    TResult Function(_Failed value)? failed,
+    required TResult orElse(),
+  }) {
+    if (authenticatedAdmin != null) {
+      return authenticatedAdmin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AuthenticatedAdmin implements AuthState {
+  const factory _AuthenticatedAdmin() = _$AuthenticatedAdminImpl;
 }
 
 /// @nodoc
@@ -306,10 +659,12 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(SafeZoneUser user) authenticated,
+    required TResult Function(SafeZoneUser user) authenticatedUser,
+    required TResult Function(Organization org) authenticatedOrg,
+    required TResult Function() authenticatedAdmin,
     required TResult Function() loading,
     required TResult Function() unAuthenticated,
-    required TResult Function() requireRegistration,
+    required TResult Function(String uid, String phone) requireRegUser,
     required TResult Function(String message) failed,
   }) {
     return loading();
@@ -318,10 +673,12 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SafeZoneUser user)? authenticated,
+    TResult? Function(SafeZoneUser user)? authenticatedUser,
+    TResult? Function(Organization org)? authenticatedOrg,
+    TResult? Function()? authenticatedAdmin,
     TResult? Function()? loading,
     TResult? Function()? unAuthenticated,
-    TResult? Function()? requireRegistration,
+    TResult? Function(String uid, String phone)? requireRegUser,
     TResult? Function(String message)? failed,
   }) {
     return loading?.call();
@@ -330,10 +687,12 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SafeZoneUser user)? authenticated,
+    TResult Function(SafeZoneUser user)? authenticatedUser,
+    TResult Function(Organization org)? authenticatedOrg,
+    TResult Function()? authenticatedAdmin,
     TResult Function()? loading,
     TResult Function()? unAuthenticated,
-    TResult Function()? requireRegistration,
+    TResult Function(String uid, String phone)? requireRegUser,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
@@ -346,10 +705,12 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Authenticated value) authenticated,
+    required TResult Function(_AuthenticatedUser value) authenticatedUser,
+    required TResult Function(_AuthenticatedOrg value) authenticatedOrg,
+    required TResult Function(_AuthenticatedAdmin value) authenticatedAdmin,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Unauthenticated value) unAuthenticated,
-    required TResult Function(_RequireRegistration value) requireRegistration,
+    required TResult Function(_RequireRegUser value) requireRegUser,
     required TResult Function(_Failed value) failed,
   }) {
     return loading(this);
@@ -358,10 +719,12 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Authenticated value)? authenticated,
+    TResult? Function(_AuthenticatedUser value)? authenticatedUser,
+    TResult? Function(_AuthenticatedOrg value)? authenticatedOrg,
+    TResult? Function(_AuthenticatedAdmin value)? authenticatedAdmin,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Unauthenticated value)? unAuthenticated,
-    TResult? Function(_RequireRegistration value)? requireRegistration,
+    TResult? Function(_RequireRegUser value)? requireRegUser,
     TResult? Function(_Failed value)? failed,
   }) {
     return loading?.call(this);
@@ -370,10 +733,12 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Authenticated value)? authenticated,
+    TResult Function(_AuthenticatedUser value)? authenticatedUser,
+    TResult Function(_AuthenticatedOrg value)? authenticatedOrg,
+    TResult Function(_AuthenticatedAdmin value)? authenticatedAdmin,
     TResult Function(_Loading value)? loading,
     TResult Function(_Unauthenticated value)? unAuthenticated,
-    TResult Function(_RequireRegistration value)? requireRegistration,
+    TResult Function(_RequireRegUser value)? requireRegUser,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
@@ -431,10 +796,12 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(SafeZoneUser user) authenticated,
+    required TResult Function(SafeZoneUser user) authenticatedUser,
+    required TResult Function(Organization org) authenticatedOrg,
+    required TResult Function() authenticatedAdmin,
     required TResult Function() loading,
     required TResult Function() unAuthenticated,
-    required TResult Function() requireRegistration,
+    required TResult Function(String uid, String phone) requireRegUser,
     required TResult Function(String message) failed,
   }) {
     return unAuthenticated();
@@ -443,10 +810,12 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SafeZoneUser user)? authenticated,
+    TResult? Function(SafeZoneUser user)? authenticatedUser,
+    TResult? Function(Organization org)? authenticatedOrg,
+    TResult? Function()? authenticatedAdmin,
     TResult? Function()? loading,
     TResult? Function()? unAuthenticated,
-    TResult? Function()? requireRegistration,
+    TResult? Function(String uid, String phone)? requireRegUser,
     TResult? Function(String message)? failed,
   }) {
     return unAuthenticated?.call();
@@ -455,10 +824,12 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SafeZoneUser user)? authenticated,
+    TResult Function(SafeZoneUser user)? authenticatedUser,
+    TResult Function(Organization org)? authenticatedOrg,
+    TResult Function()? authenticatedAdmin,
     TResult Function()? loading,
     TResult Function()? unAuthenticated,
-    TResult Function()? requireRegistration,
+    TResult Function(String uid, String phone)? requireRegUser,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
@@ -471,10 +842,12 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Authenticated value) authenticated,
+    required TResult Function(_AuthenticatedUser value) authenticatedUser,
+    required TResult Function(_AuthenticatedOrg value) authenticatedOrg,
+    required TResult Function(_AuthenticatedAdmin value) authenticatedAdmin,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Unauthenticated value) unAuthenticated,
-    required TResult Function(_RequireRegistration value) requireRegistration,
+    required TResult Function(_RequireRegUser value) requireRegUser,
     required TResult Function(_Failed value) failed,
   }) {
     return unAuthenticated(this);
@@ -483,10 +856,12 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Authenticated value)? authenticated,
+    TResult? Function(_AuthenticatedUser value)? authenticatedUser,
+    TResult? Function(_AuthenticatedOrg value)? authenticatedOrg,
+    TResult? Function(_AuthenticatedAdmin value)? authenticatedAdmin,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Unauthenticated value)? unAuthenticated,
-    TResult? Function(_RequireRegistration value)? requireRegistration,
+    TResult? Function(_RequireRegUser value)? requireRegUser,
     TResult? Function(_Failed value)? failed,
   }) {
     return unAuthenticated?.call(this);
@@ -495,10 +870,12 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Authenticated value)? authenticated,
+    TResult Function(_AuthenticatedUser value)? authenticatedUser,
+    TResult Function(_AuthenticatedOrg value)? authenticatedOrg,
+    TResult Function(_AuthenticatedAdmin value)? authenticatedAdmin,
     TResult Function(_Loading value)? loading,
     TResult Function(_Unauthenticated value)? unAuthenticated,
-    TResult Function(_RequireRegistration value)? requireRegistration,
+    TResult Function(_RequireRegUser value)? requireRegUser,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
@@ -514,82 +891,124 @@ abstract class _Unauthenticated implements AuthState {
 }
 
 /// @nodoc
-abstract class _$$RequireRegistrationImplCopyWith<$Res> {
-  factory _$$RequireRegistrationImplCopyWith(
-    _$RequireRegistrationImpl value,
-    $Res Function(_$RequireRegistrationImpl) then,
-  ) = __$$RequireRegistrationImplCopyWithImpl<$Res>;
+abstract class _$$RequireRegUserImplCopyWith<$Res> {
+  factory _$$RequireRegUserImplCopyWith(
+    _$RequireRegUserImpl value,
+    $Res Function(_$RequireRegUserImpl) then,
+  ) = __$$RequireRegUserImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String uid, String phone});
 }
 
 /// @nodoc
-class __$$RequireRegistrationImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$RequireRegistrationImpl>
-    implements _$$RequireRegistrationImplCopyWith<$Res> {
-  __$$RequireRegistrationImplCopyWithImpl(
-    _$RequireRegistrationImpl _value,
-    $Res Function(_$RequireRegistrationImpl) _then,
+class __$$RequireRegUserImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$RequireRegUserImpl>
+    implements _$$RequireRegUserImplCopyWith<$Res> {
+  __$$RequireRegUserImplCopyWithImpl(
+    _$RequireRegUserImpl _value,
+    $Res Function(_$RequireRegUserImpl) _then,
   ) : super(_value, _then);
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? uid = null, Object? phone = null}) {
+    return _then(
+      _$RequireRegUserImpl(
+        null == uid
+            ? _value.uid
+            : uid // ignore: cast_nullable_to_non_nullable
+                as String,
+        null == phone
+            ? _value.phone
+            : phone // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
+  }
 }
 
 /// @nodoc
 
-class _$RequireRegistrationImpl implements _RequireRegistration {
-  const _$RequireRegistrationImpl();
+class _$RequireRegUserImpl implements _RequireRegUser {
+  const _$RequireRegUserImpl(this.uid, this.phone);
+
+  @override
+  final String uid;
+  @override
+  final String phone;
 
   @override
   String toString() {
-    return 'AuthState.requireRegistration()';
+    return 'AuthState.requireRegUser(uid: $uid, phone: $phone)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RequireRegistrationImpl);
+            other is _$RequireRegUserImpl &&
+            (identical(other.uid, uid) || other.uid == uid) &&
+            (identical(other.phone, phone) || other.phone == phone));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, uid, phone);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RequireRegUserImplCopyWith<_$RequireRegUserImpl> get copyWith =>
+      __$$RequireRegUserImplCopyWithImpl<_$RequireRegUserImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(SafeZoneUser user) authenticated,
+    required TResult Function(SafeZoneUser user) authenticatedUser,
+    required TResult Function(Organization org) authenticatedOrg,
+    required TResult Function() authenticatedAdmin,
     required TResult Function() loading,
     required TResult Function() unAuthenticated,
-    required TResult Function() requireRegistration,
+    required TResult Function(String uid, String phone) requireRegUser,
     required TResult Function(String message) failed,
   }) {
-    return requireRegistration();
+    return requireRegUser(uid, phone);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SafeZoneUser user)? authenticated,
+    TResult? Function(SafeZoneUser user)? authenticatedUser,
+    TResult? Function(Organization org)? authenticatedOrg,
+    TResult? Function()? authenticatedAdmin,
     TResult? Function()? loading,
     TResult? Function()? unAuthenticated,
-    TResult? Function()? requireRegistration,
+    TResult? Function(String uid, String phone)? requireRegUser,
     TResult? Function(String message)? failed,
   }) {
-    return requireRegistration?.call();
+    return requireRegUser?.call(uid, phone);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SafeZoneUser user)? authenticated,
+    TResult Function(SafeZoneUser user)? authenticatedUser,
+    TResult Function(Organization org)? authenticatedOrg,
+    TResult Function()? authenticatedAdmin,
     TResult Function()? loading,
     TResult Function()? unAuthenticated,
-    TResult Function()? requireRegistration,
+    TResult Function(String uid, String phone)? requireRegUser,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
-    if (requireRegistration != null) {
-      return requireRegistration();
+    if (requireRegUser != null) {
+      return requireRegUser(uid, phone);
     }
     return orElse();
   }
@@ -597,46 +1016,62 @@ class _$RequireRegistrationImpl implements _RequireRegistration {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Authenticated value) authenticated,
+    required TResult Function(_AuthenticatedUser value) authenticatedUser,
+    required TResult Function(_AuthenticatedOrg value) authenticatedOrg,
+    required TResult Function(_AuthenticatedAdmin value) authenticatedAdmin,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Unauthenticated value) unAuthenticated,
-    required TResult Function(_RequireRegistration value) requireRegistration,
+    required TResult Function(_RequireRegUser value) requireRegUser,
     required TResult Function(_Failed value) failed,
   }) {
-    return requireRegistration(this);
+    return requireRegUser(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Authenticated value)? authenticated,
+    TResult? Function(_AuthenticatedUser value)? authenticatedUser,
+    TResult? Function(_AuthenticatedOrg value)? authenticatedOrg,
+    TResult? Function(_AuthenticatedAdmin value)? authenticatedAdmin,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Unauthenticated value)? unAuthenticated,
-    TResult? Function(_RequireRegistration value)? requireRegistration,
+    TResult? Function(_RequireRegUser value)? requireRegUser,
     TResult? Function(_Failed value)? failed,
   }) {
-    return requireRegistration?.call(this);
+    return requireRegUser?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Authenticated value)? authenticated,
+    TResult Function(_AuthenticatedUser value)? authenticatedUser,
+    TResult Function(_AuthenticatedOrg value)? authenticatedOrg,
+    TResult Function(_AuthenticatedAdmin value)? authenticatedAdmin,
     TResult Function(_Loading value)? loading,
     TResult Function(_Unauthenticated value)? unAuthenticated,
-    TResult Function(_RequireRegistration value)? requireRegistration,
+    TResult Function(_RequireRegUser value)? requireRegUser,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
-    if (requireRegistration != null) {
-      return requireRegistration(this);
+    if (requireRegUser != null) {
+      return requireRegUser(this);
     }
     return orElse();
   }
 }
 
-abstract class _RequireRegistration implements AuthState {
-  const factory _RequireRegistration() = _$RequireRegistrationImpl;
+abstract class _RequireRegUser implements AuthState {
+  const factory _RequireRegUser(final String uid, final String phone) =
+      _$RequireRegUserImpl;
+
+  String get uid;
+  String get phone;
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RequireRegUserImplCopyWith<_$RequireRegUserImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -710,10 +1145,12 @@ class _$FailedImpl implements _Failed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(SafeZoneUser user) authenticated,
+    required TResult Function(SafeZoneUser user) authenticatedUser,
+    required TResult Function(Organization org) authenticatedOrg,
+    required TResult Function() authenticatedAdmin,
     required TResult Function() loading,
     required TResult Function() unAuthenticated,
-    required TResult Function() requireRegistration,
+    required TResult Function(String uid, String phone) requireRegUser,
     required TResult Function(String message) failed,
   }) {
     return failed(message);
@@ -722,10 +1159,12 @@ class _$FailedImpl implements _Failed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SafeZoneUser user)? authenticated,
+    TResult? Function(SafeZoneUser user)? authenticatedUser,
+    TResult? Function(Organization org)? authenticatedOrg,
+    TResult? Function()? authenticatedAdmin,
     TResult? Function()? loading,
     TResult? Function()? unAuthenticated,
-    TResult? Function()? requireRegistration,
+    TResult? Function(String uid, String phone)? requireRegUser,
     TResult? Function(String message)? failed,
   }) {
     return failed?.call(message);
@@ -734,10 +1173,12 @@ class _$FailedImpl implements _Failed {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SafeZoneUser user)? authenticated,
+    TResult Function(SafeZoneUser user)? authenticatedUser,
+    TResult Function(Organization org)? authenticatedOrg,
+    TResult Function()? authenticatedAdmin,
     TResult Function()? loading,
     TResult Function()? unAuthenticated,
-    TResult Function()? requireRegistration,
+    TResult Function(String uid, String phone)? requireRegUser,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
@@ -750,10 +1191,12 @@ class _$FailedImpl implements _Failed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Authenticated value) authenticated,
+    required TResult Function(_AuthenticatedUser value) authenticatedUser,
+    required TResult Function(_AuthenticatedOrg value) authenticatedOrg,
+    required TResult Function(_AuthenticatedAdmin value) authenticatedAdmin,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Unauthenticated value) unAuthenticated,
-    required TResult Function(_RequireRegistration value) requireRegistration,
+    required TResult Function(_RequireRegUser value) requireRegUser,
     required TResult Function(_Failed value) failed,
   }) {
     return failed(this);
@@ -762,10 +1205,12 @@ class _$FailedImpl implements _Failed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Authenticated value)? authenticated,
+    TResult? Function(_AuthenticatedUser value)? authenticatedUser,
+    TResult? Function(_AuthenticatedOrg value)? authenticatedOrg,
+    TResult? Function(_AuthenticatedAdmin value)? authenticatedAdmin,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Unauthenticated value)? unAuthenticated,
-    TResult? Function(_RequireRegistration value)? requireRegistration,
+    TResult? Function(_RequireRegUser value)? requireRegUser,
     TResult? Function(_Failed value)? failed,
   }) {
     return failed?.call(this);
@@ -774,10 +1219,12 @@ class _$FailedImpl implements _Failed {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Authenticated value)? authenticated,
+    TResult Function(_AuthenticatedUser value)? authenticatedUser,
+    TResult Function(_AuthenticatedOrg value)? authenticatedOrg,
+    TResult Function(_AuthenticatedAdmin value)? authenticatedAdmin,
     TResult Function(_Loading value)? loading,
     TResult Function(_Unauthenticated value)? unAuthenticated,
-    TResult Function(_RequireRegistration value)? requireRegistration,
+    TResult Function(_RequireRegUser value)? requireRegUser,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {

@@ -5,7 +5,6 @@ part 'bank_details.g.dart';
 @freezed
 abstract class OrganizationBankDetails with _$OrganizationBankDetails {
   const factory OrganizationBankDetails({
-    required String id,
     required String organizationId,
     required String bankName,
     required String bankBranch,
@@ -15,4 +14,13 @@ abstract class OrganizationBankDetails with _$OrganizationBankDetails {
   }) = _OrganizationBankDetails;
   factory OrganizationBankDetails.fromJson(Map<String, Object?> json) =>
       _$OrganizationBankDetailsFromJson(json);
+
+  factory OrganizationBankDetails.empty() => OrganizationBankDetails(
+    organizationId: "",
+    bankName: "",
+    bankBranch: "",
+    accountName: "",
+    accountNumber: "",
+    createdAt: DateTime.now().millisecondsSinceEpoch,
+  );
 }

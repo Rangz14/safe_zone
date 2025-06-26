@@ -7,9 +7,11 @@ abstract class IUserRepo {
   Future<Either<Failure, bool>> isExist();
   Future<Either<Failure, SafeZoneUser>> getUser(String id);
   Future<Either<Failure, SafeZoneUser>> getCurrent();
+  Future<Either<Failure, String>> uploadProfileImage(String id);
   Future<Either<Failure, SafeZoneUser>> updateUser(SafeZoneUser user);
   Future<Either<Failure, SafeZoneUserAddress>> updateAddress(
-    SafeZoneUserAddress address,
+    String townId,
+    String address,
   );
   Future<Either<Failure, SafeZoneUserAddress>> getAddress(String id);
 }

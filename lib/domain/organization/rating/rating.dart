@@ -15,4 +15,16 @@ abstract class OrganizationRating with _$OrganizationRating {
   }) = _OrganizationRating;
   factory OrganizationRating.fromJson(Map<String, Object?> json) =>
       _$OrganizationRatingFromJson(json);
+
+  factory OrganizationRating.empty() {
+    return OrganizationRating(
+      id: "",
+      organizationId: "",
+      donationRequestId: "",
+      userId: "",
+      rating: 0,
+      review: null,
+      createdAt: DateTime.now().millisecondsSinceEpoch,
+    );
+  }
 }

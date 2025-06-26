@@ -22,8 +22,7 @@ OrganizationAddress _$OrganizationAddressFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$OrganizationAddress {
   String get organizationId => throw _privateConstructorUsedError;
-  String get province => throw _privateConstructorUsedError;
-  String get city => throw _privateConstructorUsedError;
+  String get townId => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
   int get createdAt => throw _privateConstructorUsedError;
 
@@ -46,8 +45,7 @@ abstract class $OrganizationAddressCopyWith<$Res> {
   @useResult
   $Res call({
     String organizationId,
-    String province,
-    String city,
+    String townId,
     String address,
     int createdAt,
   });
@@ -69,8 +67,7 @@ class _$OrganizationAddressCopyWithImpl<$Res, $Val extends OrganizationAddress>
   @override
   $Res call({
     Object? organizationId = null,
-    Object? province = null,
-    Object? city = null,
+    Object? townId = null,
     Object? address = null,
     Object? createdAt = null,
   }) {
@@ -81,15 +78,10 @@ class _$OrganizationAddressCopyWithImpl<$Res, $Val extends OrganizationAddress>
                     ? _value.organizationId
                     : organizationId // ignore: cast_nullable_to_non_nullable
                         as String,
-            province:
-                null == province
-                    ? _value.province
-                    : province // ignore: cast_nullable_to_non_nullable
-                        as String,
-            city:
-                null == city
-                    ? _value.city
-                    : city // ignore: cast_nullable_to_non_nullable
+            townId:
+                null == townId
+                    ? _value.townId
+                    : townId // ignore: cast_nullable_to_non_nullable
                         as String,
             address:
                 null == address
@@ -118,8 +110,7 @@ abstract class _$$OrganizationAddressImplCopyWith<$Res>
   @useResult
   $Res call({
     String organizationId,
-    String province,
-    String city,
+    String townId,
     String address,
     int createdAt,
   });
@@ -140,8 +131,7 @@ class __$$OrganizationAddressImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? organizationId = null,
-    Object? province = null,
-    Object? city = null,
+    Object? townId = null,
     Object? address = null,
     Object? createdAt = null,
   }) {
@@ -152,15 +142,10 @@ class __$$OrganizationAddressImplCopyWithImpl<$Res>
                 ? _value.organizationId
                 : organizationId // ignore: cast_nullable_to_non_nullable
                     as String,
-        province:
-            null == province
-                ? _value.province
-                : province // ignore: cast_nullable_to_non_nullable
-                    as String,
-        city:
-            null == city
-                ? _value.city
-                : city // ignore: cast_nullable_to_non_nullable
+        townId:
+            null == townId
+                ? _value.townId
+                : townId // ignore: cast_nullable_to_non_nullable
                     as String,
         address:
             null == address
@@ -179,14 +164,13 @@ class __$$OrganizationAddressImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$OrganizationAddressImpl implements _OrganizationAddress {
+class _$OrganizationAddressImpl extends _OrganizationAddress {
   const _$OrganizationAddressImpl({
     required this.organizationId,
-    required this.province,
-    required this.city,
+    required this.townId,
     required this.address,
     required this.createdAt,
-  });
+  }) : super._();
 
   factory _$OrganizationAddressImpl.fromJson(Map<String, dynamic> json) =>
       _$$OrganizationAddressImplFromJson(json);
@@ -194,9 +178,7 @@ class _$OrganizationAddressImpl implements _OrganizationAddress {
   @override
   final String organizationId;
   @override
-  final String province;
-  @override
-  final String city;
+  final String townId;
   @override
   final String address;
   @override
@@ -204,7 +186,7 @@ class _$OrganizationAddressImpl implements _OrganizationAddress {
 
   @override
   String toString() {
-    return 'OrganizationAddress(organizationId: $organizationId, province: $province, city: $city, address: $address, createdAt: $createdAt)';
+    return 'OrganizationAddress(organizationId: $organizationId, townId: $townId, address: $address, createdAt: $createdAt)';
   }
 
   @override
@@ -214,9 +196,7 @@ class _$OrganizationAddressImpl implements _OrganizationAddress {
             other is _$OrganizationAddressImpl &&
             (identical(other.organizationId, organizationId) ||
                 other.organizationId == organizationId) &&
-            (identical(other.province, province) ||
-                other.province == province) &&
-            (identical(other.city, city) || other.city == city) &&
+            (identical(other.townId, townId) || other.townId == townId) &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
@@ -224,14 +204,8 @@ class _$OrganizationAddressImpl implements _OrganizationAddress {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    organizationId,
-    province,
-    city,
-    address,
-    createdAt,
-  );
+  int get hashCode =>
+      Object.hash(runtimeType, organizationId, townId, address, createdAt);
 
   /// Create a copy of OrganizationAddress
   /// with the given fields replaced by the non-null parameter values.
@@ -250,14 +224,14 @@ class _$OrganizationAddressImpl implements _OrganizationAddress {
   }
 }
 
-abstract class _OrganizationAddress implements OrganizationAddress {
+abstract class _OrganizationAddress extends OrganizationAddress {
   const factory _OrganizationAddress({
     required final String organizationId,
-    required final String province,
-    required final String city,
+    required final String townId,
     required final String address,
     required final int createdAt,
   }) = _$OrganizationAddressImpl;
+  const _OrganizationAddress._() : super._();
 
   factory _OrganizationAddress.fromJson(Map<String, dynamic> json) =
       _$OrganizationAddressImpl.fromJson;
@@ -265,9 +239,7 @@ abstract class _OrganizationAddress implements OrganizationAddress {
   @override
   String get organizationId;
   @override
-  String get province;
-  @override
-  String get city;
+  String get townId;
   @override
   String get address;
   @override

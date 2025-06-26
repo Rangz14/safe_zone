@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'thread_category.dart';
+part of 'threat_category.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-ThreadCategory _$ThreadCategoryFromJson(Map<String, dynamic> json) {
+ThreatCategory _$ThreatCategoryFromJson(Map<String, dynamic> json) {
   return _ThreadCategory.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ThreadCategory {
+mixin _$ThreatCategory {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
@@ -33,16 +33,16 @@ mixin _$ThreadCategory {
   /// Create a copy of ThreadCategory
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ThreadCategoryCopyWith<ThreadCategory> get copyWith =>
+  $ThreadCategoryCopyWith<ThreatCategory> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ThreadCategoryCopyWith<$Res> {
   factory $ThreadCategoryCopyWith(
-    ThreadCategory value,
-    $Res Function(ThreadCategory) then,
-  ) = _$ThreadCategoryCopyWithImpl<$Res, ThreadCategory>;
+    ThreatCategory value,
+    $Res Function(ThreatCategory) then,
+  ) = _$ThreadCategoryCopyWithImpl<$Res, ThreatCategory>;
   @useResult
   $Res call({
     String id,
@@ -54,7 +54,7 @@ abstract class $ThreadCategoryCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ThreadCategoryCopyWithImpl<$Res, $Val extends ThreadCategory>
+class _$ThreadCategoryCopyWithImpl<$Res, $Val extends ThreatCategory>
     implements $ThreadCategoryCopyWith<$Res> {
   _$ThreadCategoryCopyWithImpl(this._value, this._then);
 
@@ -243,7 +243,7 @@ class _$ThreadCategoryImpl implements _ThreadCategory {
   }
 }
 
-abstract class _ThreadCategory implements ThreadCategory {
+abstract class _ThreadCategory implements ThreatCategory {
   const factory _ThreadCategory({
     required final String id,
     required final String name,

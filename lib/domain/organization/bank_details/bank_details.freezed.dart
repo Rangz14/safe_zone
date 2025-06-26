@@ -23,7 +23,6 @@ OrganizationBankDetails _$OrganizationBankDetailsFromJson(
 
 /// @nodoc
 mixin _$OrganizationBankDetails {
-  String get id => throw _privateConstructorUsedError;
   String get organizationId => throw _privateConstructorUsedError;
   String get bankName => throw _privateConstructorUsedError;
   String get bankBranch => throw _privateConstructorUsedError;
@@ -49,7 +48,6 @@ abstract class $OrganizationBankDetailsCopyWith<$Res> {
   ) = _$OrganizationBankDetailsCopyWithImpl<$Res, OrganizationBankDetails>;
   @useResult
   $Res call({
-    String id,
     String organizationId,
     String bankName,
     String bankBranch,
@@ -77,7 +75,6 @@ class _$OrganizationBankDetailsCopyWithImpl<
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
     Object? organizationId = null,
     Object? bankName = null,
     Object? bankBranch = null,
@@ -87,11 +84,6 @@ class _$OrganizationBankDetailsCopyWithImpl<
   }) {
     return _then(
       _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as String,
             organizationId:
                 null == organizationId
                     ? _value.organizationId
@@ -138,7 +130,6 @@ abstract class _$$OrganizationBankDetailsImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    String id,
     String organizationId,
     String bankName,
     String bankBranch,
@@ -166,7 +157,6 @@ class __$$OrganizationBankDetailsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
     Object? organizationId = null,
     Object? bankName = null,
     Object? bankBranch = null,
@@ -176,11 +166,6 @@ class __$$OrganizationBankDetailsImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$OrganizationBankDetailsImpl(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as String,
         organizationId:
             null == organizationId
                 ? _value.organizationId
@@ -220,7 +205,6 @@ class __$$OrganizationBankDetailsImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$OrganizationBankDetailsImpl implements _OrganizationBankDetails {
   const _$OrganizationBankDetailsImpl({
-    required this.id,
     required this.organizationId,
     required this.bankName,
     required this.bankBranch,
@@ -232,8 +216,6 @@ class _$OrganizationBankDetailsImpl implements _OrganizationBankDetails {
   factory _$OrganizationBankDetailsImpl.fromJson(Map<String, dynamic> json) =>
       _$$OrganizationBankDetailsImplFromJson(json);
 
-  @override
-  final String id;
   @override
   final String organizationId;
   @override
@@ -249,7 +231,7 @@ class _$OrganizationBankDetailsImpl implements _OrganizationBankDetails {
 
   @override
   String toString() {
-    return 'OrganizationBankDetails(id: $id, organizationId: $organizationId, bankName: $bankName, bankBranch: $bankBranch, accountName: $accountName, accountNumber: $accountNumber, createdAt: $createdAt)';
+    return 'OrganizationBankDetails(organizationId: $organizationId, bankName: $bankName, bankBranch: $bankBranch, accountName: $accountName, accountNumber: $accountNumber, createdAt: $createdAt)';
   }
 
   @override
@@ -257,7 +239,6 @@ class _$OrganizationBankDetailsImpl implements _OrganizationBankDetails {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$OrganizationBankDetailsImpl &&
-            (identical(other.id, id) || other.id == id) &&
             (identical(other.organizationId, organizationId) ||
                 other.organizationId == organizationId) &&
             (identical(other.bankName, bankName) ||
@@ -276,7 +257,6 @@ class _$OrganizationBankDetailsImpl implements _OrganizationBankDetails {
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    id,
     organizationId,
     bankName,
     bankBranch,
@@ -303,7 +283,6 @@ class _$OrganizationBankDetailsImpl implements _OrganizationBankDetails {
 
 abstract class _OrganizationBankDetails implements OrganizationBankDetails {
   const factory _OrganizationBankDetails({
-    required final String id,
     required final String organizationId,
     required final String bankName,
     required final String bankBranch,
@@ -315,8 +294,6 @@ abstract class _OrganizationBankDetails implements OrganizationBankDetails {
   factory _OrganizationBankDetails.fromJson(Map<String, dynamic> json) =
       _$OrganizationBankDetailsImpl.fromJson;
 
-  @override
-  String get id;
   @override
   String get organizationId;
   @override

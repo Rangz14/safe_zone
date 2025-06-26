@@ -22,8 +22,7 @@ SafeZoneUserAddress _$SafeZoneUserAddressFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SafeZoneUserAddress {
   String get userId => throw _privateConstructorUsedError;
-  String get province => throw _privateConstructorUsedError;
-  String get city => throw _privateConstructorUsedError;
+  String get townId => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
   int get createdAt => throw _privateConstructorUsedError;
 
@@ -44,13 +43,7 @@ abstract class $SafeZoneUserAddressCopyWith<$Res> {
     $Res Function(SafeZoneUserAddress) then,
   ) = _$SafeZoneUserAddressCopyWithImpl<$Res, SafeZoneUserAddress>;
   @useResult
-  $Res call({
-    String userId,
-    String province,
-    String city,
-    String address,
-    int createdAt,
-  });
+  $Res call({String userId, String townId, String address, int createdAt});
 }
 
 /// @nodoc
@@ -69,8 +62,7 @@ class _$SafeZoneUserAddressCopyWithImpl<$Res, $Val extends SafeZoneUserAddress>
   @override
   $Res call({
     Object? userId = null,
-    Object? province = null,
-    Object? city = null,
+    Object? townId = null,
     Object? address = null,
     Object? createdAt = null,
   }) {
@@ -81,15 +73,10 @@ class _$SafeZoneUserAddressCopyWithImpl<$Res, $Val extends SafeZoneUserAddress>
                     ? _value.userId
                     : userId // ignore: cast_nullable_to_non_nullable
                         as String,
-            province:
-                null == province
-                    ? _value.province
-                    : province // ignore: cast_nullable_to_non_nullable
-                        as String,
-            city:
-                null == city
-                    ? _value.city
-                    : city // ignore: cast_nullable_to_non_nullable
+            townId:
+                null == townId
+                    ? _value.townId
+                    : townId // ignore: cast_nullable_to_non_nullable
                         as String,
             address:
                 null == address
@@ -116,13 +103,7 @@ abstract class _$$SafeZoneUserAddressImplCopyWith<$Res>
   ) = __$$SafeZoneUserAddressImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String userId,
-    String province,
-    String city,
-    String address,
-    int createdAt,
-  });
+  $Res call({String userId, String townId, String address, int createdAt});
 }
 
 /// @nodoc
@@ -140,8 +121,7 @@ class __$$SafeZoneUserAddressImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? userId = null,
-    Object? province = null,
-    Object? city = null,
+    Object? townId = null,
     Object? address = null,
     Object? createdAt = null,
   }) {
@@ -152,15 +132,10 @@ class __$$SafeZoneUserAddressImplCopyWithImpl<$Res>
                 ? _value.userId
                 : userId // ignore: cast_nullable_to_non_nullable
                     as String,
-        province:
-            null == province
-                ? _value.province
-                : province // ignore: cast_nullable_to_non_nullable
-                    as String,
-        city:
-            null == city
-                ? _value.city
-                : city // ignore: cast_nullable_to_non_nullable
+        townId:
+            null == townId
+                ? _value.townId
+                : townId // ignore: cast_nullable_to_non_nullable
                     as String,
         address:
             null == address
@@ -179,14 +154,13 @@ class __$$SafeZoneUserAddressImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SafeZoneUserAddressImpl implements _SafeZoneUserAddress {
+class _$SafeZoneUserAddressImpl extends _SafeZoneUserAddress {
   const _$SafeZoneUserAddressImpl({
     required this.userId,
-    required this.province,
-    required this.city,
+    required this.townId,
     required this.address,
     required this.createdAt,
-  });
+  }) : super._();
 
   factory _$SafeZoneUserAddressImpl.fromJson(Map<String, dynamic> json) =>
       _$$SafeZoneUserAddressImplFromJson(json);
@@ -194,9 +168,7 @@ class _$SafeZoneUserAddressImpl implements _SafeZoneUserAddress {
   @override
   final String userId;
   @override
-  final String province;
-  @override
-  final String city;
+  final String townId;
   @override
   final String address;
   @override
@@ -204,7 +176,7 @@ class _$SafeZoneUserAddressImpl implements _SafeZoneUserAddress {
 
   @override
   String toString() {
-    return 'SafeZoneUserAddress(userId: $userId, province: $province, city: $city, address: $address, createdAt: $createdAt)';
+    return 'SafeZoneUserAddress(userId: $userId, townId: $townId, address: $address, createdAt: $createdAt)';
   }
 
   @override
@@ -213,9 +185,7 @@ class _$SafeZoneUserAddressImpl implements _SafeZoneUserAddress {
         (other.runtimeType == runtimeType &&
             other is _$SafeZoneUserAddressImpl &&
             (identical(other.userId, userId) || other.userId == userId) &&
-            (identical(other.province, province) ||
-                other.province == province) &&
-            (identical(other.city, city) || other.city == city) &&
+            (identical(other.townId, townId) || other.townId == townId) &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
@@ -224,7 +194,7 @@ class _$SafeZoneUserAddressImpl implements _SafeZoneUserAddress {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, userId, province, city, address, createdAt);
+      Object.hash(runtimeType, userId, townId, address, createdAt);
 
   /// Create a copy of SafeZoneUserAddress
   /// with the given fields replaced by the non-null parameter values.
@@ -243,14 +213,14 @@ class _$SafeZoneUserAddressImpl implements _SafeZoneUserAddress {
   }
 }
 
-abstract class _SafeZoneUserAddress implements SafeZoneUserAddress {
+abstract class _SafeZoneUserAddress extends SafeZoneUserAddress {
   const factory _SafeZoneUserAddress({
     required final String userId,
-    required final String province,
-    required final String city,
+    required final String townId,
     required final String address,
     required final int createdAt,
   }) = _$SafeZoneUserAddressImpl;
+  const _SafeZoneUserAddress._() : super._();
 
   factory _SafeZoneUserAddress.fromJson(Map<String, dynamic> json) =
       _$SafeZoneUserAddressImpl.fromJson;
@@ -258,9 +228,7 @@ abstract class _SafeZoneUserAddress implements SafeZoneUserAddress {
   @override
   String get userId;
   @override
-  String get province;
-  @override
-  String get city;
+  String get townId;
   @override
   String get address;
   @override

@@ -10,7 +10,6 @@ _$OrganizationImpl _$$OrganizationImplFromJson(Map<String, dynamic> json) =>
     _$OrganizationImpl(
       id: json['id'] as String,
       name: json['name'] as String,
-      address: json['address'] as String,
       phone: json['phone'] as String,
       email: json['email'] as String,
       website: json['website'] as String,
@@ -24,7 +23,6 @@ Map<String, dynamic> _$$OrganizationImplToJson(_$OrganizationImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'address': instance.address,
       'phone': instance.phone,
       'email': instance.email,
       'website': instance.website,

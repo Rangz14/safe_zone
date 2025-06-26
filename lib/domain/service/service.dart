@@ -14,4 +14,13 @@ abstract class DonationService with _$DonationService {
   }) = _DonationService;
   factory DonationService.fromJson(Map<String, Object?> json) =>
       _$DonationServiceFromJson(json);
+
+  factory DonationService.empty() => DonationService(
+    id: "",
+    title: "",
+    description: "",
+    icon: "",
+    approximateUnitPrice: 0,
+    createdAt: DateTime.now().millisecondsSinceEpoch,
+  );
 }

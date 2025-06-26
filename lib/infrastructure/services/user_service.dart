@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
 import 'package:safe_zone/domain/failure/failure.dart';
 import 'package:safe_zone/domain/user/address/address.dart';
@@ -8,10 +12,12 @@ import 'package:safe_zone/domain/user/user.dart';
 @lazySingleton
 class UserService {
   final FirebaseFirestore _firestore;
+  final FirebaseStorage _storage;
+  final ImagePicker _imagePicker;
   static const _usersCollection = 'users';
-  static const _userAddressCollection = 'user_address';
+  static const _userAddressCollection = 'user_addresses';
 
-  UserService(this._firestore);
+  UserService(this._firestore, this._storage, this._imagePicker);
 
   Future<Either<Failure, SafeZoneUserAddress>> createAddress(
     SafeZoneUserAddress address,
@@ -32,6 +38,25 @@ class UserService {
       final doc = _firestore.collection(_usersCollection).doc(user.id);
       await doc.set(user.toJson());
       return right(user);
+    } catch (e) {
+      return left(Failure(e.toString()));
+    }
+  }
+
+  Future<Either<Failure, String>> uploadProfileImage(String id) async {
+    try {
+      final image = await _imagePicker.pickImage(
+        source: ImageSource.gallery,
+        maxWidth: 600,
+      );
+      final ref = _storage.ref().child('profile_images/$id.jpg');
+      if (image == null) {
+        return left(Failure('No image selected'));
+      }
+      final uploadTask = ref.putFile(File(image.path));
+      final snapshot = await uploadTask.whenComplete(() {});
+      final downloadUrl = await snapshot.ref.getDownloadURL();
+      return right(downloadUrl);
     } catch (e) {
       return left(Failure(e.toString()));
     }

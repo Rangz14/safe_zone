@@ -1,28 +1,28 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:safe_zone/application/auth/auth_cubit.dart';
-import 'package:safe_zone/injection.dart';
+import 'package:injectable/injectable.dart';
 
 import 'router/app_router.dart';
 
+@injectable
 class App extends StatelessWidget {
-  App({super.key});
+  final AppRouter _router;
+  const App._(this._router);
 
-  final _router = AppRouter();
+  @factoryMethod
+  static App create(AppRouter router) {
+    return App._(router);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<AuthCubit>()..checkAuthStatus(),
-      child: MaterialApp.router(
-        title: "Safe Zone",
-        debugShowCheckedModeBanner: false,
-        theme: FlexThemeData.light(scheme: FlexScheme.wasabi),
-        darkTheme: FlexThemeData.dark(scheme: FlexScheme.wasabi),
-        themeMode: ThemeMode.dark,
-        routerConfig: _router.config(),
-      ),
+    return MaterialApp.router(
+      title: "Safe Zone",
+      debugShowCheckedModeBanner: false,
+      theme: FlexThemeData.light(scheme: FlexScheme.wasabi),
+      darkTheme: FlexThemeData.dark(scheme: FlexScheme.wasabi),
+      themeMode: ThemeMode.dark,
+      routerConfig: _router.config(),
     );
   }
 }

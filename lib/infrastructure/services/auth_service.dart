@@ -107,4 +107,12 @@ class AuthService {
     }
     return left(unit);
   }
+
+  Either<Unit, String> getPhone() {
+    final user = _firebaseAuth.currentUser;
+    if (user != null && user.phoneNumber != null) {
+      return right(user.phoneNumber!);
+    }
+    return left(unit);
+  }
 }

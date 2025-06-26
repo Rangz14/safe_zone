@@ -4,27 +4,57 @@ import 'package:safe_zone/domain/organization/address/address.dart';
 import 'package:safe_zone/domain/organization/bank_details/bank_details.dart';
 import 'package:safe_zone/domain/organization/organization.dart';
 import 'package:safe_zone/domain/organization/rating/rating.dart';
+import 'package:safe_zone/domain/service/service.dart';
 
 abstract class IOrganizationRepo {
-  Future<Either<Failure, List<Organization>>> getOrganizations();
-  Future<Either<Failure, Organization>> getOrganization(String id);
-  Future<Either<Failure, OrganizationAddress>> getOrganizationAddress(
+  Future<Either<Failure, bool>> isRegistered();
+  Future<Either<Failure, Organization>> getCurrent();
+  Future<Either<Failure, List<Organization>>> getAll();
+  Future<Either<Failure, Organization>> get(String id);
+
+  //Org Address
+  Future<Either<Failure, OrganizationAddress>> updateAddress(
+    OrganizationAddress address,
+  );
+
+  Future<Either<Failure, OrganizationAddress>> getCurrentAddress();
+
+  Future<Either<Failure, OrganizationAddress>> getAddress(String id);
+
+  // Org Bank Details
+
+  Future<Either<Failure, OrganizationBankDetails>> updateBankDetails(
+    OrganizationBankDetails bankDetails,
+  );
+
+  Future<Either<Failure, OrganizationBankDetails>> getCurrentBankDetails();
+
+  Future<Either<Failure, OrganizationBankDetails>> getBankDetails(
     String organizationId,
   );
-  Future<Either<Failure, List<OrganizationBankDetails>>>
-  getOrganizationBankDetails(String organizationId);
 
-  Future<Either<Failure, OrganizationBankDetails>> getOrganizationBankDetail(
-    String id,
-  );
+  // Org Ratings
 
-  Future<Either<Failure, List<OrganizationRating>>> getOrganizationRatings(
+  Future<Either<Failure, List<OrganizationRating>>> getCurrentRatings();
+
+  Future<Either<Failure, List<OrganizationRating>>> getRatings(
     String organizationId,
   );
 
-  Future<Either<Failure, OrganizationRating>> getOrganizationRating(String id);
+  Future<Either<Failure, OrganizationRating>> getRating(String id);
 
-  Future<Either<Failure, OrganizationRating>> createOrganizationRating(
+  Future<Either<Failure, OrganizationRating>> createRating(
     OrganizationRating rating,
+  );
+
+  // Org Service
+  Future<Either<Failure, List<DonationService>>> getServices(
+    String organizationId,
+  );
+
+  Future<Either<Failure, List<DonationService>>> getCurrentServices();
+
+  Future<Either<Failure, List<DonationService>>> updateServices(
+    List<String> serviceIds,
   );
 }

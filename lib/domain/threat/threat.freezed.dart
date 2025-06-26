@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'thread.dart';
+part of 'threat.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,69 +15,66 @@ final _privateConstructorUsedError = UnsupportedError(
   'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
 );
 
-SafeZoneThread _$SafeZoneThreadFromJson(Map<String, dynamic> json) {
-  return _SafeZoneThread.fromJson(json);
+SafeZoneThreat _$SafeZoneThreatFromJson(Map<String, dynamic> json) {
+  return _SafeZoneThreat.fromJson(json);
 }
 
 /// @nodoc
-mixin _$SafeZoneThread {
+mixin _$SafeZoneThreat {
   String get id => throw _privateConstructorUsedError;
-  String get state => throw _privateConstructorUsedError;
-  String get city => throw _privateConstructorUsedError;
+  String get townId => throw _privateConstructorUsedError;
   int get startedAt => throw _privateConstructorUsedError;
   int get endedAt => throw _privateConstructorUsedError;
-  String get threadCategoryId => throw _privateConstructorUsedError;
+  String get categoryId => throw _privateConstructorUsedError;
   int get createdAt => throw _privateConstructorUsedError;
 
-  /// Serializes this SafeZoneThread to a JSON map.
+  /// Serializes this SafeZoneThreat to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of SafeZoneThread
+  /// Create a copy of SafeZoneThreat
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $SafeZoneThreadCopyWith<SafeZoneThread> get copyWith =>
+  $SafeZoneThreatCopyWith<SafeZoneThreat> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SafeZoneThreadCopyWith<$Res> {
-  factory $SafeZoneThreadCopyWith(
-    SafeZoneThread value,
-    $Res Function(SafeZoneThread) then,
-  ) = _$SafeZoneThreadCopyWithImpl<$Res, SafeZoneThread>;
+abstract class $SafeZoneThreatCopyWith<$Res> {
+  factory $SafeZoneThreatCopyWith(
+    SafeZoneThreat value,
+    $Res Function(SafeZoneThreat) then,
+  ) = _$SafeZoneThreatCopyWithImpl<$Res, SafeZoneThreat>;
   @useResult
   $Res call({
     String id,
-    String state,
-    String city,
+    String townId,
     int startedAt,
     int endedAt,
-    String threadCategoryId,
+    String categoryId,
     int createdAt,
   });
 }
 
 /// @nodoc
-class _$SafeZoneThreadCopyWithImpl<$Res, $Val extends SafeZoneThread>
-    implements $SafeZoneThreadCopyWith<$Res> {
-  _$SafeZoneThreadCopyWithImpl(this._value, this._then);
+class _$SafeZoneThreatCopyWithImpl<$Res, $Val extends SafeZoneThreat>
+    implements $SafeZoneThreatCopyWith<$Res> {
+  _$SafeZoneThreatCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of SafeZoneThread
+  /// Create a copy of SafeZoneThreat
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = null,
-    Object? state = null,
-    Object? city = null,
+    Object? townId = null,
     Object? startedAt = null,
     Object? endedAt = null,
-    Object? threadCategoryId = null,
+    Object? categoryId = null,
     Object? createdAt = null,
   }) {
     return _then(
@@ -87,15 +84,10 @@ class _$SafeZoneThreadCopyWithImpl<$Res, $Val extends SafeZoneThread>
                     ? _value.id
                     : id // ignore: cast_nullable_to_non_nullable
                         as String,
-            state:
-                null == state
-                    ? _value.state
-                    : state // ignore: cast_nullable_to_non_nullable
-                        as String,
-            city:
-                null == city
-                    ? _value.city
-                    : city // ignore: cast_nullable_to_non_nullable
+            townId:
+                null == townId
+                    ? _value.townId
+                    : townId // ignore: cast_nullable_to_non_nullable
                         as String,
             startedAt:
                 null == startedAt
@@ -107,10 +99,10 @@ class _$SafeZoneThreadCopyWithImpl<$Res, $Val extends SafeZoneThread>
                     ? _value.endedAt
                     : endedAt // ignore: cast_nullable_to_non_nullable
                         as int,
-            threadCategoryId:
-                null == threadCategoryId
-                    ? _value.threadCategoryId
-                    : threadCategoryId // ignore: cast_nullable_to_non_nullable
+            categoryId:
+                null == categoryId
+                    ? _value.categoryId
+                    : categoryId // ignore: cast_nullable_to_non_nullable
                         as String,
             createdAt:
                 null == createdAt
@@ -124,63 +116,56 @@ class _$SafeZoneThreadCopyWithImpl<$Res, $Val extends SafeZoneThread>
 }
 
 /// @nodoc
-abstract class _$$SafeZoneThreadImplCopyWith<$Res>
-    implements $SafeZoneThreadCopyWith<$Res> {
-  factory _$$SafeZoneThreadImplCopyWith(
-    _$SafeZoneThreadImpl value,
-    $Res Function(_$SafeZoneThreadImpl) then,
-  ) = __$$SafeZoneThreadImplCopyWithImpl<$Res>;
+abstract class _$$SafeZoneThreatImplCopyWith<$Res>
+    implements $SafeZoneThreatCopyWith<$Res> {
+  factory _$$SafeZoneThreatImplCopyWith(
+    _$SafeZoneThreatImpl value,
+    $Res Function(_$SafeZoneThreatImpl) then,
+  ) = __$$SafeZoneThreatImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
     String id,
-    String state,
-    String city,
+    String townId,
     int startedAt,
     int endedAt,
-    String threadCategoryId,
+    String categoryId,
     int createdAt,
   });
 }
 
 /// @nodoc
-class __$$SafeZoneThreadImplCopyWithImpl<$Res>
-    extends _$SafeZoneThreadCopyWithImpl<$Res, _$SafeZoneThreadImpl>
-    implements _$$SafeZoneThreadImplCopyWith<$Res> {
-  __$$SafeZoneThreadImplCopyWithImpl(
-    _$SafeZoneThreadImpl _value,
-    $Res Function(_$SafeZoneThreadImpl) _then,
+class __$$SafeZoneThreatImplCopyWithImpl<$Res>
+    extends _$SafeZoneThreatCopyWithImpl<$Res, _$SafeZoneThreatImpl>
+    implements _$$SafeZoneThreatImplCopyWith<$Res> {
+  __$$SafeZoneThreatImplCopyWithImpl(
+    _$SafeZoneThreatImpl _value,
+    $Res Function(_$SafeZoneThreatImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of SafeZoneThread
+  /// Create a copy of SafeZoneThreat
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = null,
-    Object? state = null,
-    Object? city = null,
+    Object? townId = null,
     Object? startedAt = null,
     Object? endedAt = null,
-    Object? threadCategoryId = null,
+    Object? categoryId = null,
     Object? createdAt = null,
   }) {
     return _then(
-      _$SafeZoneThreadImpl(
+      _$SafeZoneThreatImpl(
         id:
             null == id
                 ? _value.id
                 : id // ignore: cast_nullable_to_non_nullable
                     as String,
-        state:
-            null == state
-                ? _value.state
-                : state // ignore: cast_nullable_to_non_nullable
-                    as String,
-        city:
-            null == city
-                ? _value.city
-                : city // ignore: cast_nullable_to_non_nullable
+        townId:
+            null == townId
+                ? _value.townId
+                : townId // ignore: cast_nullable_to_non_nullable
                     as String,
         startedAt:
             null == startedAt
@@ -192,10 +177,10 @@ class __$$SafeZoneThreadImplCopyWithImpl<$Res>
                 ? _value.endedAt
                 : endedAt // ignore: cast_nullable_to_non_nullable
                     as int,
-        threadCategoryId:
-            null == threadCategoryId
-                ? _value.threadCategoryId
-                : threadCategoryId // ignore: cast_nullable_to_non_nullable
+        categoryId:
+            null == categoryId
+                ? _value.categoryId
+                : categoryId // ignore: cast_nullable_to_non_nullable
                     as String,
         createdAt:
             null == createdAt
@@ -209,53 +194,49 @@ class __$$SafeZoneThreadImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SafeZoneThreadImpl implements _SafeZoneThread {
-  const _$SafeZoneThreadImpl({
+class _$SafeZoneThreatImpl extends _SafeZoneThreat {
+  const _$SafeZoneThreatImpl({
     required this.id,
-    required this.state,
-    required this.city,
+    required this.townId,
     required this.startedAt,
     required this.endedAt,
-    required this.threadCategoryId,
+    required this.categoryId,
     required this.createdAt,
-  });
+  }) : super._();
 
-  factory _$SafeZoneThreadImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SafeZoneThreadImplFromJson(json);
+  factory _$SafeZoneThreatImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SafeZoneThreatImplFromJson(json);
 
   @override
   final String id;
   @override
-  final String state;
-  @override
-  final String city;
+  final String townId;
   @override
   final int startedAt;
   @override
   final int endedAt;
   @override
-  final String threadCategoryId;
+  final String categoryId;
   @override
   final int createdAt;
 
   @override
   String toString() {
-    return 'SafeZoneThread(id: $id, state: $state, city: $city, startedAt: $startedAt, endedAt: $endedAt, threadCategoryId: $threadCategoryId, createdAt: $createdAt)';
+    return 'SafeZoneThreat(id: $id, townId: $townId, startedAt: $startedAt, endedAt: $endedAt, categoryId: $categoryId, createdAt: $createdAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SafeZoneThreadImpl &&
+            other is _$SafeZoneThreatImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.state, state) || other.state == state) &&
-            (identical(other.city, city) || other.city == city) &&
+            (identical(other.townId, townId) || other.townId == townId) &&
             (identical(other.startedAt, startedAt) ||
                 other.startedAt == startedAt) &&
             (identical(other.endedAt, endedAt) || other.endedAt == endedAt) &&
-            (identical(other.threadCategoryId, threadCategoryId) ||
-                other.threadCategoryId == threadCategoryId) &&
+            (identical(other.categoryId, categoryId) ||
+                other.categoryId == categoryId) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
   }
@@ -265,64 +246,61 @@ class _$SafeZoneThreadImpl implements _SafeZoneThread {
   int get hashCode => Object.hash(
     runtimeType,
     id,
-    state,
-    city,
+    townId,
     startedAt,
     endedAt,
-    threadCategoryId,
+    categoryId,
     createdAt,
   );
 
-  /// Create a copy of SafeZoneThread
+  /// Create a copy of SafeZoneThreat
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$SafeZoneThreadImplCopyWith<_$SafeZoneThreadImpl> get copyWith =>
-      __$$SafeZoneThreadImplCopyWithImpl<_$SafeZoneThreadImpl>(
+  _$$SafeZoneThreatImplCopyWith<_$SafeZoneThreatImpl> get copyWith =>
+      __$$SafeZoneThreatImplCopyWithImpl<_$SafeZoneThreatImpl>(
         this,
         _$identity,
       );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SafeZoneThreadImplToJson(this);
+    return _$$SafeZoneThreatImplToJson(this);
   }
 }
 
-abstract class _SafeZoneThread implements SafeZoneThread {
-  const factory _SafeZoneThread({
+abstract class _SafeZoneThreat extends SafeZoneThreat {
+  const factory _SafeZoneThreat({
     required final String id,
-    required final String state,
-    required final String city,
+    required final String townId,
     required final int startedAt,
     required final int endedAt,
-    required final String threadCategoryId,
+    required final String categoryId,
     required final int createdAt,
-  }) = _$SafeZoneThreadImpl;
+  }) = _$SafeZoneThreatImpl;
+  const _SafeZoneThreat._() : super._();
 
-  factory _SafeZoneThread.fromJson(Map<String, dynamic> json) =
-      _$SafeZoneThreadImpl.fromJson;
+  factory _SafeZoneThreat.fromJson(Map<String, dynamic> json) =
+      _$SafeZoneThreatImpl.fromJson;
 
   @override
   String get id;
   @override
-  String get state;
-  @override
-  String get city;
+  String get townId;
   @override
   int get startedAt;
   @override
   int get endedAt;
   @override
-  String get threadCategoryId;
+  String get categoryId;
   @override
   int get createdAt;
 
-  /// Create a copy of SafeZoneThread
+  /// Create a copy of SafeZoneThreat
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SafeZoneThreadImplCopyWith<_$SafeZoneThreadImpl> get copyWith =>
+  _$$SafeZoneThreatImplCopyWith<_$SafeZoneThreatImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

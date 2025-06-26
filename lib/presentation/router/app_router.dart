@@ -1,5 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:safe_zone/presentation/screens/admin/dashboard/admin_dashboard_page.dart';
 import 'package:safe_zone/presentation/screens/home/home_page.dart';
+import 'package:safe_zone/presentation/screens/organization/dashboard/org_dashboard_page.dart';
 import 'package:safe_zone/presentation/screens/signin/signin_page.dart';
 import 'package:safe_zone/presentation/screens/update_address/update_address_page.dart';
 import 'package:safe_zone/presentation/screens/update_user/update_user_page.dart';
@@ -18,5 +21,7 @@ class AppRouter extends RootStackRouter {
     AutoRoute(page: HomeRoute.page, path: "/home"),
     AutoRoute(page: UpdateUserRoute.page, path: "/update-user"),
     AutoRoute(page: UpdateAddressRoute.page, path: "/update-address"),
+    AutoRoute(page: AdminDashboardRoute.page, path: "/admin-dashboard"),
+    AutoRoute(page: OrgDashboardRoute.page, path: "/org-dashboard"),
   ];
 }

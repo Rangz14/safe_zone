@@ -1,11 +1,8 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:safe_zone/application/auth/auth_cubit.dart';
 import 'package:safe_zone/application/signin_with_phone/input_otp_state/input_otp_state.dart';
-import 'package:safe_zone/application/signin_with_phone/input_phone_state/input_phone_state.dart';
 import 'package:safe_zone/application/signin_with_phone/signin_with_phone_cubit.dart';
 import 'package:safe_zone/core/extensions/dartz_x.dart';
 import 'package:safe_zone/core/mutable_object.dart';
@@ -29,104 +26,83 @@ class SigninPage extends StatelessWidget implements AutoRouteWrapper {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<AuthCubit, AuthState>(
-      listener:
-          (context, state) => state.maybeWhen(
-            authenticated:
-                (user) => context.router.replaceAll([LandingRoute()]),
-            orElse: () => Unit,
-          ),
-      child: BlocConsumer<SigninWithPhoneCubit, SigninWithPhoneState>(
-        listener: (context, state) {
-          state.maybeWhen(
-            inputPhone: (inputPhoneState) {
-              if (inputPhoneState.failureMessage.isSome()) {
-                showFailedToast(
-                  context,
-                  inputPhoneState.failureMessage.getOrCrash(),
-                );
-              }
-              if (inputPhoneState.isSuccessful) {
-                context.router.replaceAll([LandingRoute()]);
-              }
-            },
+    return BlocConsumer<SigninWithPhoneCubit, SigninWithPhoneState>(
+      listener: (context, state) {
+        state.maybeWhen(
+          inputPhone: (inputPhoneState) {
+            if (inputPhoneState.failureMessage.isSome()) {
+              showFailedToast(
+                context,
+                inputPhoneState.failureMessage.getOrCrash(),
+              );
+            }
+            if (inputPhoneState.isSuccessful) {
+              context.router.replaceAll([LandingRoute()]);
+            }
+          },
 
-            inputOTP: (inputOtpState) {
-              if (inputOtpState.failureMessage.isSome()) {
-                showFailedToast(
-                  context,
-                  inputOtpState.failureMessage.getOrCrash(),
-                );
-              }
-              if (inputOtpState.isSuccessful) {
-                context.router.replaceAll([LandingRoute()]);
-              }
-            },
-            orElse: () {},
-          );
-        },
-        builder: (context, state) {
-          return Scaffold(
-            body: SafeArea(
-              child: state.maybeWhen(
-                inputPhone: (s) => PhoneInputForm(s),
-                inputOTP: (s) => OtpVerificationForm(s),
-                orElse: () => Center(child: CircularProgressIndicator()),
-              ),
+          inputOTP: (inputOtpState) {
+            if (inputOtpState.failureMessage.isSome()) {
+              showFailedToast(
+                context,
+                inputOtpState.failureMessage.getOrCrash(),
+              );
+            }
+            if (inputOtpState.isSuccessful) {
+              context.router.replaceAll([LandingRoute()]);
+            }
+          },
+          orElse: () {},
+        );
+      },
+      builder: (context, state) {
+        return Scaffold(
+          body: SafeArea(
+            child: state.maybeWhen(
+              inputPhone: (s) => PhoneInputForm(isLoading: s.isLoading),
+              inputOTP: (s) => OtpVerificationForm(s),
+              orElse: () => Center(child: CircularProgressIndicator()),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }
 
 class PhoneInputForm extends StatelessWidget {
-  final InputPhoneState state;
+  final bool isLoading;
 
   final phone = MutableObject("");
-  PhoneInputForm(this.state, {super.key});
+
+  PhoneInputForm({super.key, required this.isLoading});
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: EdgeInsets.symmetric(horizontal: 24),
+      padding: EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const VGap(gap: 48),
           Image.asset('assets/images/logo.png', width: 120, height: 120),
           const VGap(gap: 48),
-          TextLarge('Enter your phone number'),
+          TextLarge('Sign In With Your Phone', align: TextAlign.center),
           const VGap(),
           TextRegular('We will send you a verification code'),
           const SizedBox(height: 48),
           PhoneInputField(onChanged: (value) => phone.value = value),
           const SizedBox(height: 32),
-          FilledButton(
-            onPressed:
-                state.isLoading
-                    ? null
-                    : () => context
-                        .read<SigninWithPhoneCubit>()
-                        .signInWithPhone("+94${phone.value}"),
-            child:
-                state.isLoading
-                    ? Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text('Sending...'),
-                        const HGap(),
-                        SizedBox(
-                          width: 16,
-                          height: 16,
-                          child: CircularProgressIndicator(),
-                        ),
-                      ],
-                    )
-                    : Text('Send Code'),
-          ),
+
+          isLoading
+              ? CircularProgressIndicator()
+              : FilledButton(
+                onPressed:
+                    () => context.read<SigninWithPhoneCubit>().signInWithPhone(
+                      "+94${phone.value}",
+                    ),
+                child: Text('Send Verification Code'),
+              ),
         ],
       ),
     );

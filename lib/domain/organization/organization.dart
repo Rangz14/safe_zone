@@ -7,7 +7,6 @@ abstract class Organization with _$Organization {
   const factory Organization({
     required String id,
     required String name,
-    required String address,
     required String phone,
     required String email,
     required String website,

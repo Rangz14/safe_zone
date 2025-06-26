@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'thread_category.dart';
+part of 'threat_category.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

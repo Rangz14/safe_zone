@@ -9,7 +9,6 @@ part of 'bank_details.dart';
 _$OrganizationBankDetailsImpl _$$OrganizationBankDetailsImplFromJson(
   Map<String, dynamic> json,
 ) => _$OrganizationBankDetailsImpl(
-  id: json['id'] as String,
   organizationId: json['organizationId'] as String,
   bankName: json['bankName'] as String,
   bankBranch: json['bankBranch'] as String,
@@ -21,7 +20,6 @@ _$OrganizationBankDetailsImpl _$$OrganizationBankDetailsImplFromJson(
 Map<String, dynamic> _$$OrganizationBankDetailsImplToJson(
   _$OrganizationBankDetailsImpl instance,
 ) => <String, dynamic>{
-  'id': instance.id,
   'organizationId': instance.organizationId,
   'bankName': instance.bankName,
   'bankBranch': instance.bankBranch,

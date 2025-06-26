@@ -23,7 +23,6 @@ Organization _$OrganizationFromJson(Map<String, dynamic> json) {
 mixin _$Organization {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get address => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get website => throw _privateConstructorUsedError;
@@ -52,7 +51,6 @@ abstract class $OrganizationCopyWith<$Res> {
   $Res call({
     String id,
     String name,
-    String address,
     String phone,
     String email,
     String website,
@@ -80,7 +78,6 @@ class _$OrganizationCopyWithImpl<$Res, $Val extends Organization>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? address = null,
     Object? phone = null,
     Object? email = null,
     Object? website = null,
@@ -100,11 +97,6 @@ class _$OrganizationCopyWithImpl<$Res, $Val extends Organization>
                 null == name
                     ? _value.name
                     : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            address:
-                null == address
-                    ? _value.address
-                    : address // ignore: cast_nullable_to_non_nullable
                         as String,
             phone:
                 null == phone
@@ -159,7 +151,6 @@ abstract class _$$OrganizationImplCopyWith<$Res>
   $Res call({
     String id,
     String name,
-    String address,
     String phone,
     String email,
     String website,
@@ -186,7 +177,6 @@ class __$$OrganizationImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? address = null,
     Object? phone = null,
     Object? email = null,
     Object? website = null,
@@ -206,11 +196,6 @@ class __$$OrganizationImplCopyWithImpl<$Res>
             null == name
                 ? _value.name
                 : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        address:
-            null == address
-                ? _value.address
-                : address // ignore: cast_nullable_to_non_nullable
                     as String,
         phone:
             null == phone
@@ -258,7 +243,6 @@ class _$OrganizationImpl implements _Organization {
   const _$OrganizationImpl({
     required this.id,
     required this.name,
-    required this.address,
     required this.phone,
     required this.email,
     required this.website,
@@ -276,8 +260,6 @@ class _$OrganizationImpl implements _Organization {
   @override
   final String name;
   @override
-  final String address;
-  @override
   final String phone;
   @override
   final String email;
@@ -294,7 +276,7 @@ class _$OrganizationImpl implements _Organization {
 
   @override
   String toString() {
-    return 'Organization(id: $id, name: $name, address: $address, phone: $phone, email: $email, website: $website, logo: $logo, description: $description, coverImage: $coverImage, createdAt: $createdAt)';
+    return 'Organization(id: $id, name: $name, phone: $phone, email: $email, website: $website, logo: $logo, description: $description, coverImage: $coverImage, createdAt: $createdAt)';
   }
 
   @override
@@ -304,7 +286,6 @@ class _$OrganizationImpl implements _Organization {
             other is _$OrganizationImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.address, address) || other.address == address) &&
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.website, website) || other.website == website) &&
@@ -323,7 +304,6 @@ class _$OrganizationImpl implements _Organization {
     runtimeType,
     id,
     name,
-    address,
     phone,
     email,
     website,
@@ -351,7 +331,6 @@ abstract class _Organization implements Organization {
   const factory _Organization({
     required final String id,
     required final String name,
-    required final String address,
     required final String phone,
     required final String email,
     required final String website,
@@ -368,8 +347,6 @@ abstract class _Organization implements Organization {
   String get id;
   @override
   String get name;
-  @override
-  String get address;
   @override
   String get phone;
   @override
