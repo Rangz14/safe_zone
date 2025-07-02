@@ -116,6 +116,7 @@ class PhoneInputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
       children: [
         TextRegular("🇱🇰 +94"),
         const HGap(gap: 20),

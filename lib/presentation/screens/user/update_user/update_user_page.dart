@@ -50,7 +50,7 @@ class UpdateUserPage extends StatelessWidget implements AutoRouteWrapper {
             state.maybeWhen(
               succeed: () {
                 if (isOnboarding) {
-                  context.router.replaceAll([UpdateAddressRoute()]);
+                  context.router.replaceAll([UpdateUserAddressRoute()]);
                   return;
                 }
                 context.router.maybePop();

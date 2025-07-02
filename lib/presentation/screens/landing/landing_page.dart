@@ -25,6 +25,8 @@ class LandingPage extends StatelessWidget {
               (_, _) => context.router.replaceAll([
                 UpdateUserRoute(isOnboarding: true),
               ]),
+          requireRegOrg:
+              (uid, phone) => context.router.replaceAll([UpdateOrgRoute()]),
           failed: (message) => showFailedToast(context, message),
           orElse: () => Unit,
         );

@@ -5,26 +5,24 @@ import 'package:safe_zone/domain/threat/threat_category/threat_category.dart';
 
 abstract class IThreatRepo {
   // Common
+  Stream<Either<Failure, List<SafeZoneThreat>>> watchAll();
   Future<Either<Failure, List<ThreatCategory>>> getCategories();
-  Future<Either<Failure, List<SafeZoneThreat>>> getThreatsByCategory(
-    String categoryId,
-  );
-  Future<Either<Failure, List<SafeZoneThreat>>> getThreatsByCity(String city);
-  Future<Either<Failure, List<SafeZoneThreat>>> getThreatsByState(String state);
+  Stream<Either<Failure, List<ThreatCategory>>> watchCategories();
+  Stream<Either<Failure, ThreatCategory>> watchCategory(String categoryId);
+
+  // User
+  Stream<Either<Failure, List<SafeZoneThreat>>> watchThreatsByCurrentUserTown();
 
   // Admin
-  // ThreadCategory
-  Future<Either<Failure, ThreatCategory>> createCategory(
-    ThreatCategory category,
-  );
-  Future<Either<Failure, ThreatCategory>> updateCategory(
-    ThreatCategory category,
-  );
+  // ThreatCategory
+  Future<Either<Failure, Unit>> createCategory(ThreatCategory category);
+  Future<Either<Failure, Unit>> deleteCategory(String categoryId);
 
-  // Thread
-  Future<Either<Failure, SafeZoneThreat>> createThreat(SafeZoneThreat threat);
-  Future<Either<Failure, SafeZoneThreat>> updateThreat(SafeZoneThreat threat);
-  Future<Either<Failure, SafeZoneThreat>> end(String threatId);
+  Future<Either<Failure, String>> uploadCategoryIcon();
 
-  //
+  // Threat
+  Future<Either<Failure, Unit>> createThreat(SafeZoneThreat threat);
+  Future<Either<Failure, Unit>> end(SafeZoneThreat threat);
+
+  Stream<Either<Failure, int>> watchTotalCategories();
 }

@@ -27,4 +27,16 @@ abstract class OrganizationRating with _$OrganizationRating {
       createdAt: DateTime.now().millisecondsSinceEpoch,
     );
   }
+
+  static (int total, double average) summarized(
+    List<OrganizationRating> ratings,
+  ) {
+    if (ratings.isEmpty) {
+      return (0, 0.0);
+    }
+    final total = ratings.length;
+    final average =
+        ratings.map((e) => e.rating).reduce((a, b) => a + b) / total;
+    return (total, average);
+  }
 }

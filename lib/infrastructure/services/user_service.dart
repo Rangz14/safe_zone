@@ -98,4 +98,62 @@ class UserService {
       return left(Failure(e.toString()));
     }
   }
+
+  Stream<Either<Failure, List<SafeZoneUser>>> watchAll() {
+    try {
+      return _firestore
+          .collection(_usersCollection)
+          .snapshots()
+          .map<Either<Failure, List<SafeZoneUser>>>((snapshot) {
+            final users =
+                snapshot.docs
+                    .map((doc) => SafeZoneUser.fromJson(doc.data()))
+                    .toList();
+            return right(users);
+          })
+          .handleError((error) {
+            return left(Failure(error.toString()));
+          });
+    } catch (e) {
+      return Stream.value(left(Failure(e.toString())));
+    }
+  }
+
+  Stream<Either<Failure, SafeZoneUserAddress>> watchAddress(String id) {
+    try {
+      return _firestore
+          .collection(_userAddressCollection)
+          .doc(id)
+          .snapshots()
+          .map<Either<Failure, SafeZoneUserAddress>>((snapshot) {
+            if (snapshot.exists) {
+              return right(SafeZoneUserAddress.fromJson(snapshot.data()!));
+            } else {
+              return left(Failure('Address not found'));
+            }
+          })
+          .handleError((error) {
+            return left(Failure(error.toString()));
+          });
+    } catch (e) {
+      return Stream.value(left(Failure(e.toString())));
+    }
+  }
+
+  Stream<Either<Failure, int>> watchTotalUsers() {
+    try {
+      return _firestore
+          .collection(_usersCollection)
+          .snapshots()
+          .map<Either<Failure, int>>((snapshot) {
+            final totalUsers = snapshot.docs.length;
+            return right(totalUsers);
+          })
+          .handleError((error) {
+            return left(Failure(error.toString()));
+          });
+    } catch (e) {
+      return Stream.value(left(Failure(e.toString())));
+    }
+  }
 }

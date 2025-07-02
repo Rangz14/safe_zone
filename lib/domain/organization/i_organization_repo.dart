@@ -8,53 +8,52 @@ import 'package:safe_zone/domain/service/service.dart';
 
 abstract class IOrganizationRepo {
   Future<Either<Failure, bool>> isRegistered();
-  Future<Either<Failure, Organization>> getCurrent();
-  Future<Either<Failure, List<Organization>>> getAll();
-  Future<Either<Failure, Organization>> get(String id);
+  Stream<Either<Failure, Organization>> watchCurrent();
+  Stream<Either<Failure, List<Organization>>> watchAll();
+  Stream<Either<Failure, Organization>> watch(String id);
+  Future<Either<Failure, Unit>> updateCurrent(Organization organization);
+
+  Future<Either<Failure, String>> uploadLogo();
+  Future<Either<Failure, String>> uploadCover();
 
   //Org Address
-  Future<Either<Failure, OrganizationAddress>> updateAddress(
-    OrganizationAddress address,
-  );
+  Future<Either<Failure, Unit>> updateAddress(OrganizationAddress address);
 
-  Future<Either<Failure, OrganizationAddress>> getCurrentAddress();
+  Stream<Either<Failure, OrganizationAddress>> watchCurrentAddress();
 
-  Future<Either<Failure, OrganizationAddress>> getAddress(String id);
+  Stream<Either<Failure, OrganizationAddress>> watchAddress(String id);
 
   // Org Bank Details
 
-  Future<Either<Failure, OrganizationBankDetails>> updateBankDetails(
+  Future<Either<Failure, Unit>> updateBankDetails(
     OrganizationBankDetails bankDetails,
   );
 
-  Future<Either<Failure, OrganizationBankDetails>> getCurrentBankDetails();
+  Stream<Either<Failure, OrganizationBankDetails>> watchCurrentBankDetails();
 
-  Future<Either<Failure, OrganizationBankDetails>> getBankDetails(
-    String organizationId,
-  );
+  Stream<Either<Failure, OrganizationBankDetails>> watchBankDetails(String id);
 
   // Org Ratings
 
-  Future<Either<Failure, List<OrganizationRating>>> getCurrentRatings();
+  Stream<Either<Failure, List<OrganizationRating>>> watchCurrentRatings();
 
-  Future<Either<Failure, List<OrganizationRating>>> getRatings(
+  Stream<Either<Failure, List<OrganizationRating>>> watchRatings(
     String organizationId,
   );
-
-  Future<Either<Failure, OrganizationRating>> getRating(String id);
-
-  Future<Either<Failure, OrganizationRating>> createRating(
-    OrganizationRating rating,
-  );
+  Future<Either<Failure, Unit>> createRating(OrganizationRating rating);
 
   // Org Service
-  Future<Either<Failure, List<DonationService>>> getServices(
+  Stream<Either<Failure, List<DonationService>>> watchServices(
     String organizationId,
   );
 
-  Future<Either<Failure, List<DonationService>>> getCurrentServices();
+  Stream<Either<Failure, List<DonationService>>> watchCurrentServices();
+  Stream<Either<Failure, bool>> watchServiceIsSelectedOrg(String serviceId);
 
-  Future<Either<Failure, List<DonationService>>> updateServices(
-    List<String> serviceIds,
-  );
+  // Org Service
+  Future<Either<Failure, Unit>> addOrgService(String serviceId);
+  Future<Either<Failure, Unit>> removeOrgService(String serviceId);
+
+  // Stats
+  Stream<Either<Failure, int>> watchTotalOrgs();
 }

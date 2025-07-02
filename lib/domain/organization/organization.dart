@@ -17,4 +17,15 @@ abstract class Organization with _$Organization {
   }) = _Organization;
   factory Organization.fromJson(Map<String, Object?> json) =>
       _$OrganizationFromJson(json);
+  factory Organization.empty() => Organization(
+    id: '',
+    name: '',
+    phone: '',
+    email: '',
+    website: '',
+    logo: '',
+    description: '',
+    coverImage: '',
+    createdAt: DateTime.now().millisecondsSinceEpoch,
+  );
 }

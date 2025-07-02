@@ -29,4 +29,14 @@ abstract class SafeZoneThreat with _$SafeZoneThreat {
   );
 
   Town get town => getIt<ITownRepo>().get(townId);
+
+  String get humanStartedAt {
+    final dateTime = DateTime.fromMillisecondsSinceEpoch(startedAt);
+    return '${dateTime.year}.${dateTime.month}.${dateTime.day} • ${dateTime.hour}:${dateTime.minute}';
+  }
+
+  String get humanEndedAt {
+    final dateTime = DateTime.fromMillisecondsSinceEpoch(endedAt);
+    return '${dateTime.year}.${dateTime.month}.${dateTime.day} • ${dateTime.hour}:${dateTime.minute}';
+  }
 }

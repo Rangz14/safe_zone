@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 );
 
 ThreatCategory _$ThreatCategoryFromJson(Map<String, dynamic> json) {
-  return _ThreadCategory.fromJson(json);
+  return _ThreatCategory.fromJson(json);
 }
 
 /// @nodoc
@@ -27,22 +27,22 @@ mixin _$ThreatCategory {
   String get icon => throw _privateConstructorUsedError;
   int get createdAt => throw _privateConstructorUsedError;
 
-  /// Serializes this ThreadCategory to a JSON map.
+  /// Serializes this ThreatCategory to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of ThreadCategory
+  /// Create a copy of ThreatCategory
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ThreadCategoryCopyWith<ThreatCategory> get copyWith =>
+  $ThreatCategoryCopyWith<ThreatCategory> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ThreadCategoryCopyWith<$Res> {
-  factory $ThreadCategoryCopyWith(
+abstract class $ThreatCategoryCopyWith<$Res> {
+  factory $ThreatCategoryCopyWith(
     ThreatCategory value,
     $Res Function(ThreatCategory) then,
-  ) = _$ThreadCategoryCopyWithImpl<$Res, ThreatCategory>;
+  ) = _$ThreatCategoryCopyWithImpl<$Res, ThreatCategory>;
   @useResult
   $Res call({
     String id,
@@ -54,16 +54,16 @@ abstract class $ThreadCategoryCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ThreadCategoryCopyWithImpl<$Res, $Val extends ThreatCategory>
-    implements $ThreadCategoryCopyWith<$Res> {
-  _$ThreadCategoryCopyWithImpl(this._value, this._then);
+class _$ThreatCategoryCopyWithImpl<$Res, $Val extends ThreatCategory>
+    implements $ThreatCategoryCopyWith<$Res> {
+  _$ThreatCategoryCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ThreadCategory
+  /// Create a copy of ThreatCategory
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -108,12 +108,12 @@ class _$ThreadCategoryCopyWithImpl<$Res, $Val extends ThreatCategory>
 }
 
 /// @nodoc
-abstract class _$$ThreadCategoryImplCopyWith<$Res>
-    implements $ThreadCategoryCopyWith<$Res> {
-  factory _$$ThreadCategoryImplCopyWith(
-    _$ThreadCategoryImpl value,
-    $Res Function(_$ThreadCategoryImpl) then,
-  ) = __$$ThreadCategoryImplCopyWithImpl<$Res>;
+abstract class _$$ThreatCategoryImplCopyWith<$Res>
+    implements $ThreatCategoryCopyWith<$Res> {
+  factory _$$ThreatCategoryImplCopyWith(
+    _$ThreatCategoryImpl value,
+    $Res Function(_$ThreatCategoryImpl) then,
+  ) = __$$ThreatCategoryImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({
@@ -126,15 +126,15 @@ abstract class _$$ThreadCategoryImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ThreadCategoryImplCopyWithImpl<$Res>
-    extends _$ThreadCategoryCopyWithImpl<$Res, _$ThreadCategoryImpl>
-    implements _$$ThreadCategoryImplCopyWith<$Res> {
-  __$$ThreadCategoryImplCopyWithImpl(
-    _$ThreadCategoryImpl _value,
-    $Res Function(_$ThreadCategoryImpl) _then,
+class __$$ThreatCategoryImplCopyWithImpl<$Res>
+    extends _$ThreatCategoryCopyWithImpl<$Res, _$ThreatCategoryImpl>
+    implements _$$ThreatCategoryImplCopyWith<$Res> {
+  __$$ThreatCategoryImplCopyWithImpl(
+    _$ThreatCategoryImpl _value,
+    $Res Function(_$ThreatCategoryImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of ThreadCategory
+  /// Create a copy of ThreatCategory
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -146,7 +146,7 @@ class __$$ThreadCategoryImplCopyWithImpl<$Res>
     Object? createdAt = null,
   }) {
     return _then(
-      _$ThreadCategoryImpl(
+      _$ThreatCategoryImpl(
         id:
             null == id
                 ? _value.id
@@ -179,8 +179,8 @@ class __$$ThreadCategoryImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ThreadCategoryImpl implements _ThreadCategory {
-  const _$ThreadCategoryImpl({
+class _$ThreatCategoryImpl implements _ThreatCategory {
+  const _$ThreatCategoryImpl({
     required this.id,
     required this.name,
     required this.description,
@@ -188,8 +188,8 @@ class _$ThreadCategoryImpl implements _ThreadCategory {
     required this.createdAt,
   });
 
-  factory _$ThreadCategoryImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ThreadCategoryImplFromJson(json);
+  factory _$ThreatCategoryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ThreatCategoryImplFromJson(json);
 
   @override
   final String id;
@@ -204,14 +204,14 @@ class _$ThreadCategoryImpl implements _ThreadCategory {
 
   @override
   String toString() {
-    return 'ThreadCategory(id: $id, name: $name, description: $description, icon: $icon, createdAt: $createdAt)';
+    return 'ThreatCategory(id: $id, name: $name, description: $description, icon: $icon, createdAt: $createdAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ThreadCategoryImpl &&
+            other is _$ThreatCategoryImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
@@ -226,34 +226,34 @@ class _$ThreadCategoryImpl implements _ThreadCategory {
   int get hashCode =>
       Object.hash(runtimeType, id, name, description, icon, createdAt);
 
-  /// Create a copy of ThreadCategory
+  /// Create a copy of ThreatCategory
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ThreadCategoryImplCopyWith<_$ThreadCategoryImpl> get copyWith =>
-      __$$ThreadCategoryImplCopyWithImpl<_$ThreadCategoryImpl>(
+  _$$ThreatCategoryImplCopyWith<_$ThreatCategoryImpl> get copyWith =>
+      __$$ThreatCategoryImplCopyWithImpl<_$ThreatCategoryImpl>(
         this,
         _$identity,
       );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ThreadCategoryImplToJson(this);
+    return _$$ThreatCategoryImplToJson(this);
   }
 }
 
-abstract class _ThreadCategory implements ThreatCategory {
-  const factory _ThreadCategory({
+abstract class _ThreatCategory implements ThreatCategory {
+  const factory _ThreatCategory({
     required final String id,
     required final String name,
     required final String description,
     required final String icon,
     required final int createdAt,
-  }) = _$ThreadCategoryImpl;
+  }) = _$ThreatCategoryImpl;
 
-  factory _ThreadCategory.fromJson(Map<String, dynamic> json) =
-      _$ThreadCategoryImpl.fromJson;
+  factory _ThreatCategory.fromJson(Map<String, dynamic> json) =
+      _$ThreatCategoryImpl.fromJson;
 
   @override
   String get id;
@@ -266,10 +266,10 @@ abstract class _ThreadCategory implements ThreatCategory {
   @override
   int get createdAt;
 
-  /// Create a copy of ThreadCategory
+  /// Create a copy of ThreatCategory
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ThreadCategoryImplCopyWith<_$ThreadCategoryImpl> get copyWith =>
+  _$$ThreatCategoryImplCopyWith<_$ThreatCategoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
