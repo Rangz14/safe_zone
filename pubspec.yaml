@@ -31,11 +31,14 @@ dependencies:
   image_picker: ^1.1.2
   image_picker_for_web: ^3.0.6
   flutter_datetime_picker_plus: ^2.2.0
+<<<<<<< HEAD
   flutter_map: ^8.1.1
   latlong2: ^0.9.1
   url_launcher: ^6.3.2
   timeago: ^3.7.1
   carousel_slider: ^5.1.1
+=======
+>>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392
 
 dev_dependencies:
   flutter_test:

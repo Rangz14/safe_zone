@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
@@ -16,6 +17,10 @@ import 'package:safe_zone/presentation/widgets/space.dart';
 import 'package:safe_zone/presentation/widgets/text.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/services.dart';
+=======
+import 'package:safe_zone/presentation/widgets/space.dart';
+import 'package:safe_zone/presentation/widgets/text.dart';
+>>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392
 
 @RoutePage()
 class OrgDashboardPage extends StatelessWidget implements AutoRouteWrapper {
@@ -36,6 +41,7 @@ class OrgDashboardPage extends StatelessWidget implements AutoRouteWrapper {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
+<<<<<<< HEAD
           const SVGap(gap: 20),
           SliverToBoxAdapter(
             child: Padding(
@@ -188,6 +194,45 @@ class OrgDashboardPage extends StatelessWidget implements AutoRouteWrapper {
                     itemBuilder: (context, index) {
                       return const DonationRequestCard();
                     },
+=======
+          SliverToBoxAdapter(
+            child: Card(
+              margin: const EdgeInsets.all(20),
+              color: Colors.white.withAlpha(25),
+
+              child: Column(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.asset(
+                      "assets/images/cover.jpg",
+                      fit: BoxFit.fitWidth,
+                      height: 160,
+                      width: double.infinity,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Row(
+                      children: [
+                        CircleAvatar(
+                          radius: 40,
+                          backgroundImage: AssetImage(
+                            "assets/images/avatar.png",
+                          ),
+                        ),
+                        const HGap(gap: 10),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            TextMedium("The Ginger Cat", bold: true),
+                            const VGap(gap: 5),
+                            TextRegular("ginger@cat.meow"),
+                          ],
+                        ),
+                      ],
+                    ),
+>>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392
                   ),
                 ],
               ),
@@ -196,6 +241,7 @@ class OrgDashboardPage extends StatelessWidget implements AutoRouteWrapper {
         ],
       ),
     );
+<<<<<<< HEAD
   }
 }
 
@@ -385,5 +431,7 @@ class DonationRequestCard extends StatelessWidget {
         ),
       ),
     );
+=======
+>>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392
   }
 }

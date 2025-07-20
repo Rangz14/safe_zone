@@ -16,10 +16,13 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:image_picker/image_picker.dart' as _i183;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:safe_zone/application/auth/auth_cubit.dart' as _i1022;
+<<<<<<< HEAD
 import 'package:safe_zone/application/delete_service/delete_service_cubit.dart'
     as _i1022;
 import 'package:safe_zone/application/delete_threat_category/delete_threat_category_cubit.dart'
     as _i146;
+=======
+>>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392
 import 'package:safe_zone/application/end_threat/end_threat_cubit.dart'
     as _i852;
 import 'package:safe_zone/application/new_donation_service/new_donation_service_cubit.dart'
@@ -28,11 +31,14 @@ import 'package:safe_zone/application/new_threat/new_threat_cubit.dart'
     as _i780;
 import 'package:safe_zone/application/new_threat_category/new_threat_category_cubit.dart'
     as _i559;
+<<<<<<< HEAD
 import 'package:safe_zone/application/org_donation_tab/org_donation_tab_cubit.dart'
     as _i835;
 import 'package:safe_zone/application/org_menu/org_menu_cubit.dart' as _i873;
 import 'package:safe_zone/application/org_req_tab/org_req_tab_cubit.dart'
     as _i636;
+=======
+>>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392
 import 'package:safe_zone/application/select_services_org/select_services_org_cubit.dart'
     as _i518;
 import 'package:safe_zone/application/select_threat_category/select_threat_category_cubit.dart'
@@ -125,9 +131,12 @@ extension GetItInjectableX on _i174.GetIt {
   }) {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     final injectableModules = _$InjectableModules();
+<<<<<<< HEAD
     gh.factory<_i835.OrgDonationTabCubit>(() => _i835.OrgDonationTabCubit());
     gh.factory<_i873.OrgMenuCubit>(() => _i873.OrgMenuCubit());
     gh.factory<_i636.OrgReqTabCubit>(() => _i636.OrgReqTabCubit());
+=======
+>>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392
     gh.factory<_i72.SelectThreatCategoryCubit>(
       () => _i72.SelectThreatCategoryCubit(),
     );
@@ -189,9 +198,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i504.IDonationServiceRepo>(
       () => _i481.DonationServiceRepo(gh<_i844.DonationServiceService>()),
     );
+<<<<<<< HEAD
     gh.factory<_i1022.DeleteServiceCubit>(
       () => _i1022.DeleteServiceCubit(gh<_i504.IDonationServiceRepo>()),
     );
+=======
+>>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392
     gh.factory<_i978.NewDonationServiceCubit>(
       () => _i978.NewDonationServiceCubit(gh<_i504.IDonationServiceRepo>()),
     );
@@ -212,9 +224,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i129.IThreatRepo>(
       () => _i259.ThreatRepo(gh<_i144.ThreatService>(), gh<_i569.IUserRepo>()),
     );
+<<<<<<< HEAD
     gh.factory<_i146.DeleteThreatCategoryCubit>(
       () => _i146.DeleteThreatCategoryCubit(gh<_i129.IThreatRepo>()),
     );
+=======
+>>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392
     gh.factory<_i852.EndThreatCubit>(
       () => _i852.EndThreatCubit(gh<_i129.IThreatRepo>()),
     );

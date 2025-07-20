@@ -2,7 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+<<<<<<< HEAD
 import 'package:safe_zone/application/delete_service/delete_service_cubit.dart';
+=======
+>>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392
 import 'package:safe_zone/application/watch_donation_services/watch_donation_services_cubit.dart';
 import 'package:safe_zone/domain/service/service.dart';
 import 'package:safe_zone/injection.dart';
@@ -102,6 +105,7 @@ class DonationServiceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+<<<<<<< HEAD
     return BlocProvider(
       create: (context) => getIt<DeleteServiceCubit>(),
       child: Padding(
@@ -172,6 +176,59 @@ class DonationServiceCard extends StatelessWidget {
                 TextRegular(service.description, overflow: true, maxLines: 3),
               ],
             ),
+=======
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 40),
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        color: theme.colorScheme.surfaceContainer,
+        margin: const EdgeInsets.only(bottom: 20),
+        child: Padding(
+          padding: EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Image.network(service.icon, width: 50, height: 50),
+                  const HGap(gap: 20),
+                  TextMedium(service.title, bold: true),
+                  const HGap(gap: 20),
+                  Material(
+                    shape: StadiumBorder(),
+                    color: Colors.green.withAlpha(25),
+
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 14,
+                        vertical: 5,
+                      ),
+                      child: TextRegular(
+                        "Apx Unit Price: LKR ${service.approximateUnitPrice}",
+                        color: Colors.green,
+                        bold: true,
+                      ),
+                    ),
+                  ),
+                  const Spacer(),
+                  IconButton(
+                    icon: const Icon(Icons.delete),
+                    onPressed: () {
+                      // Navigate to edit page
+                    },
+                    style: IconButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      foregroundColor: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+              const VGap(gap: 5),
+              Divider(),
+              const VGap(gap: 5),
+              TextRegular(service.description, overflow: true, maxLines: 3),
+            ],
+>>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392
           ),
         ),
       ),

@@ -159,6 +159,7 @@ class AdminDashboardPage extends StatelessWidget implements AutoRouteWrapper {
                     if (threats.isEmpty) {
                       return SliverToBoxAdapter(
                         child: Card(
+<<<<<<< HEAD
                           color: Colors.green.withAlpha(50),
                           margin: const EdgeInsets.symmetric(horizontal: 20),
                           child: Padding(
@@ -174,6 +175,9 @@ class AdminDashboardPage extends StatelessWidget implements AutoRouteWrapper {
                               ),
                             ),
                           ),
+=======
+                          child: Center(child: Text("No Ongoing threats")),
+>>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392
                         ),
                       );
                     }

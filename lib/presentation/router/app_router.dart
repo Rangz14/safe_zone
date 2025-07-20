@@ -8,10 +8,15 @@ import 'package:safe_zone/presentation/screens/admin/orgs/admin_orgs_page.dart';
 import 'package:safe_zone/presentation/screens/admin/services/admin_donation_services_page.dart';
 import 'package:safe_zone/presentation/screens/admin/threat_categories/admin_threat_categories_page.dart';
 import 'package:safe_zone/presentation/screens/admin/users/admin_users_page.dart';
+<<<<<<< HEAD
 import 'package:safe_zone/presentation/screens/organization/dashboard_v2/dashboard_page_v2.dart';
 import 'package:safe_zone/presentation/screens/organization/select_services/select_services_page.dart';
 import 'package:safe_zone/presentation/screens/signin/sign_in_org_page.dart';
 import 'package:safe_zone/presentation/screens/user/home/user_main_page.dart';
+=======
+import 'package:safe_zone/presentation/screens/organization/select_services/select_services_page.dart';
+import 'package:safe_zone/presentation/screens/user/home/home_page.dart';
+>>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392
 import 'package:safe_zone/presentation/screens/organization/dashboard/org_dashboard_page.dart';
 import 'package:safe_zone/presentation/screens/organization/update_bank_details/update_bank_details_page.dart';
 import 'package:safe_zone/presentation/screens/organization/update_org/update_org_page.dart';
@@ -31,8 +36,12 @@ class AppRouter extends RootStackRouter {
   List<AutoRoute> get routes => [
     AutoRoute(page: LandingRoute.page, path: "/"),
     AutoRoute(page: SigninRoute.page, path: "/signin"),
+<<<<<<< HEAD
     AutoRoute(page: SignInOrgRoute.page, path: "/signin-org"),
     AutoRoute(page: UserMainRoute.page, path: "/main"),
+=======
+    AutoRoute(page: HomeRoute.page, path: "/home"),
+>>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392
     AutoRoute(page: UpdateUserRoute.page, path: "/user/update"),
     AutoRoute(page: UpdateUserAddressRoute.page, path: "/user/update-address"),
 
@@ -54,7 +63,10 @@ class AppRouter extends RootStackRouter {
 
     // Organization Routes
     AutoRoute(page: OrgDashboardRoute.page, path: "/org"),
+<<<<<<< HEAD
     AutoRoute(page: OrgDashboardV2Route.page, path: "/org/v2"),
+=======
+>>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392
     AutoRoute(page: UpdateOrgRoute.page, path: "/org/update"),
     AutoRoute(page: UpdateOrgAddressRoute.page, path: "/org/update-address"),
     AutoRoute(

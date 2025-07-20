@@ -22,6 +22,176 @@ class AdminDashboardRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return WrappedRoute(child: const AdminDashboardPage());
+<<<<<<< HEAD
+=======
+    },
+  );
+}
+
+/// generated route for
+/// [AdminDonationServicesPage]
+class AdminDonationServicesRoute extends PageRouteInfo<void> {
+  const AdminDonationServicesRoute({List<PageRouteInfo>? children})
+    : super(AdminDonationServicesRoute.name, initialChildren: children);
+
+  static const String name = 'AdminDonationServicesRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const AdminDonationServicesPage());
+    },
+  );
+}
+
+/// generated route for
+/// [AdminNewServicePage]
+class AdminNewServiceRoute extends PageRouteInfo<AdminNewServiceRouteArgs> {
+  AdminNewServiceRoute({Key? key, List<PageRouteInfo>? children})
+    : super(
+        AdminNewServiceRoute.name,
+        args: AdminNewServiceRouteArgs(key: key),
+        initialChildren: children,
+      );
+
+  static const String name = 'AdminNewServiceRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<AdminNewServiceRouteArgs>(
+        orElse: () => const AdminNewServiceRouteArgs(),
+      );
+      return WrappedRoute(child: AdminNewServicePage(key: args.key));
+    },
+  );
+}
+
+class AdminNewServiceRouteArgs {
+  const AdminNewServiceRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'AdminNewServiceRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [AdminNewThreatCategoryPage]
+class AdminNewThreatCategoryRoute
+    extends PageRouteInfo<AdminNewThreatCategoryRouteArgs> {
+  AdminNewThreatCategoryRoute({Key? key, List<PageRouteInfo>? children})
+    : super(
+        AdminNewThreatCategoryRoute.name,
+        args: AdminNewThreatCategoryRouteArgs(key: key),
+        initialChildren: children,
+      );
+
+  static const String name = 'AdminNewThreatCategoryRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<AdminNewThreatCategoryRouteArgs>(
+        orElse: () => const AdminNewThreatCategoryRouteArgs(),
+      );
+      return WrappedRoute(child: AdminNewThreatCategoryPage(key: args.key));
+    },
+  );
+}
+
+class AdminNewThreatCategoryRouteArgs {
+  const AdminNewThreatCategoryRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'AdminNewThreatCategoryRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [AdminNewThreatPage]
+class AdminNewThreatRoute extends PageRouteInfo<AdminNewThreatRouteArgs> {
+  AdminNewThreatRoute({Key? key, List<PageRouteInfo>? children})
+    : super(
+        AdminNewThreatRoute.name,
+        args: AdminNewThreatRouteArgs(key: key),
+        initialChildren: children,
+      );
+
+  static const String name = 'AdminNewThreatRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<AdminNewThreatRouteArgs>(
+        orElse: () => const AdminNewThreatRouteArgs(),
+      );
+      return WrappedRoute(child: AdminNewThreatPage(key: args.key));
+    },
+  );
+}
+
+class AdminNewThreatRouteArgs {
+  const AdminNewThreatRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'AdminNewThreatRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [AdminOrgsPage]
+class AdminOrgsRoute extends PageRouteInfo<void> {
+  const AdminOrgsRoute({List<PageRouteInfo>? children})
+    : super(AdminOrgsRoute.name, initialChildren: children);
+
+  static const String name = 'AdminOrgsRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const AdminOrgsPage());
+    },
+  );
+}
+
+/// generated route for
+/// [AdminThreatCategoriesPage]
+class AdminThreatCategoriesRoute extends PageRouteInfo<void> {
+  const AdminThreatCategoriesRoute({List<PageRouteInfo>? children})
+    : super(AdminThreatCategoriesRoute.name, initialChildren: children);
+
+  static const String name = 'AdminThreatCategoriesRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const AdminThreatCategoriesPage());
+    },
+  );
+}
+
+/// generated route for
+/// [AdminUsersPage]
+class AdminUsersRoute extends PageRouteInfo<void> {
+  const AdminUsersRoute({List<PageRouteInfo>? children})
+    : super(AdminUsersRoute.name, initialChildren: children);
+
+  static const String name = 'AdminUsersRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const AdminUsersPage());
+>>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392
     },
   );
 }
@@ -269,6 +439,22 @@ class SignInOrgRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return WrappedRoute(child: const SignInOrgPage());
+    },
+  );
+}
+
+/// generated route for
+/// [SelectServicesOrgPage]
+class SelectServicesOrgRoute extends PageRouteInfo<void> {
+  const SelectServicesOrgRoute({List<PageRouteInfo>? children})
+    : super(SelectServicesOrgRoute.name, initialChildren: children);
+
+  static const String name = 'SelectServicesOrgRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const SelectServicesOrgPage());
     },
   );
 }
