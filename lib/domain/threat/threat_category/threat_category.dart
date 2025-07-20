@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-part 'thread_category.freezed.dart';
+part 'threat_category.freezed.dart';
 part 'threat_category.g.dart';
 
 @freezed
@@ -10,7 +10,7 @@ abstract class ThreatCategory with _$ThreatCategory {
     required String description,
     required String icon,
     required int createdAt,
-  }) = _ThreadCategory;
+  }) = _ThreatCategory;
   factory ThreatCategory.fromJson(Map<String, Object?> json) =>
       _$ThreatCategoryFromJson(json);
 

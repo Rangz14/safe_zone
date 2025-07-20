@@ -10,8 +10,8 @@ _$OrganizationServiceImpl _$$OrganizationServiceImplFromJson(
   Map<String, dynamic> json,
 ) => _$OrganizationServiceImpl(
   id: json['id'] as String,
-  organizationId: json['organizationId'] as String,
-  donationServiceId: json['donationServiceId'] as String,
+  serviceId: json['serviceId'] as String,
+  orgId: json['orgId'] as String,
   createdAt: (json['createdAt'] as num).toInt(),
 );
 
@@ -19,7 +19,7 @@ Map<String, dynamic> _$$OrganizationServiceImplToJson(
   _$OrganizationServiceImpl instance,
 ) => <String, dynamic>{
   'id': instance.id,
-  'organizationId': instance.organizationId,
-  'donationServiceId': instance.donationServiceId,
+  'serviceId': instance.serviceId,
+  'orgId': instance.orgId,
   'createdAt': instance.createdAt,
 };

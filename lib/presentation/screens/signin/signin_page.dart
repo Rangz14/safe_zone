@@ -59,8 +59,8 @@ class SigninPage extends StatelessWidget implements AutoRouteWrapper {
         return Scaffold(
           body: SafeArea(
             child: state.maybeWhen(
-              inputPhone: (s) => PhoneInputForm(isLoading: s.isLoading),
-              inputOTP: (s) => OtpVerificationForm(s),
+              inputPhone: (s) => _PhoneInputForm(isLoading: s.isLoading),
+              inputOTP: (s) => _OtpVerificationForm(s),
               orElse: () => Center(child: CircularProgressIndicator()),
             ),
           ),
@@ -70,12 +70,12 @@ class SigninPage extends StatelessWidget implements AutoRouteWrapper {
   }
 }
 
-class PhoneInputForm extends StatelessWidget {
+class _PhoneInputForm extends StatelessWidget {
   final bool isLoading;
 
   final phone = MutableObject("");
 
-  PhoneInputForm({super.key, required this.isLoading});
+  _PhoneInputForm({required this.isLoading});
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +91,7 @@ class PhoneInputForm extends StatelessWidget {
           const VGap(),
           TextRegular('We will send you a verification code'),
           const SizedBox(height: 48),
-          PhoneInputField(onChanged: (value) => phone.value = value),
+          _PhoneInputField(onChanged: (value) => phone.value = value),
           const SizedBox(height: 32),
 
           isLoading
@@ -109,13 +109,14 @@ class PhoneInputForm extends StatelessWidget {
   }
 }
 
-class PhoneInputField extends StatelessWidget {
+class _PhoneInputField extends StatelessWidget {
   final Function(String) onChanged;
-  const PhoneInputField({super.key, required this.onChanged});
+  const _PhoneInputField({required this.onChanged});
 
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
       children: [
         TextRegular("🇱🇰 +94"),
         const HGap(gap: 20),
@@ -143,10 +144,10 @@ class PhoneInputField extends StatelessWidget {
   }
 }
 
-class OtpVerificationForm extends StatelessWidget {
+class _OtpVerificationForm extends StatelessWidget {
   final InputOtpState state;
   final otp = MutableObject<List<String>>([]);
-  OtpVerificationForm(this.state, {super.key});
+  _OtpVerificationForm(this.state);
 
   @override
   Widget build(BuildContext context) {
@@ -162,7 +163,7 @@ class OtpVerificationForm extends StatelessWidget {
             "Enter the 6-digit code sent to ${context.read<SigninWithPhoneCubit>().phone.getOrCrash()}",
           ),
           const VGap(gap: 48),
-          OtpInputRow(onOtpChanged: (otpList) => otp.value = otpList),
+          _OtpInputRow(onOtpChanged: (otpList) => otp.value = otpList),
           const VGap(gap: 20),
           FilledButton(
             onPressed:
@@ -215,11 +216,11 @@ class OtpVerificationForm extends StatelessWidget {
   }
 }
 
-class OtpInputRow extends StatelessWidget {
+class _OtpInputRow extends StatelessWidget {
   final Function(List<String>) onOtpChanged;
   final List<String> otp = List.filled(6, "");
 
-  OtpInputRow({super.key, required this.onOtpChanged});
+  _OtpInputRow({required this.onOtpChanged});
 
   @override
   Widget build(BuildContext context) {

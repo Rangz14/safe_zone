@@ -25,6 +25,7 @@ mixin _$AuthState {
     required TResult Function() loading,
     required TResult Function() unAuthenticated,
     required TResult Function(String uid, String phone) requireRegUser,
+    required TResult Function(String uid, String phone) requireRegOrg,
     required TResult Function(String message) failed,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +36,7 @@ mixin _$AuthState {
     TResult? Function()? loading,
     TResult? Function()? unAuthenticated,
     TResult? Function(String uid, String phone)? requireRegUser,
+    TResult? Function(String uid, String phone)? requireRegOrg,
     TResult? Function(String message)? failed,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -45,6 +47,7 @@ mixin _$AuthState {
     TResult Function()? loading,
     TResult Function()? unAuthenticated,
     TResult Function(String uid, String phone)? requireRegUser,
+    TResult Function(String uid, String phone)? requireRegOrg,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
@@ -56,6 +59,7 @@ mixin _$AuthState {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Unauthenticated value) unAuthenticated,
     required TResult Function(_RequireRegUser value) requireRegUser,
+    required TResult Function(_RequireRegOrg value) requireRegOrg,
     required TResult Function(_Failed value) failed,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,6 +70,7 @@ mixin _$AuthState {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Unauthenticated value)? unAuthenticated,
     TResult? Function(_RequireRegUser value)? requireRegUser,
+    TResult? Function(_RequireRegOrg value)? requireRegOrg,
     TResult? Function(_Failed value)? failed,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +81,7 @@ mixin _$AuthState {
     TResult Function(_Loading value)? loading,
     TResult Function(_Unauthenticated value)? unAuthenticated,
     TResult Function(_RequireRegUser value)? requireRegUser,
+    TResult Function(_RequireRegOrg value)? requireRegOrg,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
@@ -193,6 +199,7 @@ class _$AuthenticatedUserImpl implements _AuthenticatedUser {
     required TResult Function() loading,
     required TResult Function() unAuthenticated,
     required TResult Function(String uid, String phone) requireRegUser,
+    required TResult Function(String uid, String phone) requireRegOrg,
     required TResult Function(String message) failed,
   }) {
     return authenticatedUser(user);
@@ -207,6 +214,7 @@ class _$AuthenticatedUserImpl implements _AuthenticatedUser {
     TResult? Function()? loading,
     TResult? Function()? unAuthenticated,
     TResult? Function(String uid, String phone)? requireRegUser,
+    TResult? Function(String uid, String phone)? requireRegOrg,
     TResult? Function(String message)? failed,
   }) {
     return authenticatedUser?.call(user);
@@ -221,6 +229,7 @@ class _$AuthenticatedUserImpl implements _AuthenticatedUser {
     TResult Function()? loading,
     TResult Function()? unAuthenticated,
     TResult Function(String uid, String phone)? requireRegUser,
+    TResult Function(String uid, String phone)? requireRegOrg,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
@@ -239,6 +248,7 @@ class _$AuthenticatedUserImpl implements _AuthenticatedUser {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Unauthenticated value) unAuthenticated,
     required TResult Function(_RequireRegUser value) requireRegUser,
+    required TResult Function(_RequireRegOrg value) requireRegOrg,
     required TResult Function(_Failed value) failed,
   }) {
     return authenticatedUser(this);
@@ -253,6 +263,7 @@ class _$AuthenticatedUserImpl implements _AuthenticatedUser {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Unauthenticated value)? unAuthenticated,
     TResult? Function(_RequireRegUser value)? requireRegUser,
+    TResult? Function(_RequireRegOrg value)? requireRegOrg,
     TResult? Function(_Failed value)? failed,
   }) {
     return authenticatedUser?.call(this);
@@ -267,6 +278,7 @@ class _$AuthenticatedUserImpl implements _AuthenticatedUser {
     TResult Function(_Loading value)? loading,
     TResult Function(_Unauthenticated value)? unAuthenticated,
     TResult Function(_RequireRegUser value)? requireRegUser,
+    TResult Function(_RequireRegOrg value)? requireRegOrg,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
@@ -382,6 +394,7 @@ class _$AuthenticatedOrgImpl implements _AuthenticatedOrg {
     required TResult Function() loading,
     required TResult Function() unAuthenticated,
     required TResult Function(String uid, String phone) requireRegUser,
+    required TResult Function(String uid, String phone) requireRegOrg,
     required TResult Function(String message) failed,
   }) {
     return authenticatedOrg(org);
@@ -396,6 +409,7 @@ class _$AuthenticatedOrgImpl implements _AuthenticatedOrg {
     TResult? Function()? loading,
     TResult? Function()? unAuthenticated,
     TResult? Function(String uid, String phone)? requireRegUser,
+    TResult? Function(String uid, String phone)? requireRegOrg,
     TResult? Function(String message)? failed,
   }) {
     return authenticatedOrg?.call(org);
@@ -410,6 +424,7 @@ class _$AuthenticatedOrgImpl implements _AuthenticatedOrg {
     TResult Function()? loading,
     TResult Function()? unAuthenticated,
     TResult Function(String uid, String phone)? requireRegUser,
+    TResult Function(String uid, String phone)? requireRegOrg,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
@@ -428,6 +443,7 @@ class _$AuthenticatedOrgImpl implements _AuthenticatedOrg {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Unauthenticated value) unAuthenticated,
     required TResult Function(_RequireRegUser value) requireRegUser,
+    required TResult Function(_RequireRegOrg value) requireRegOrg,
     required TResult Function(_Failed value) failed,
   }) {
     return authenticatedOrg(this);
@@ -442,6 +458,7 @@ class _$AuthenticatedOrgImpl implements _AuthenticatedOrg {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Unauthenticated value)? unAuthenticated,
     TResult? Function(_RequireRegUser value)? requireRegUser,
+    TResult? Function(_RequireRegOrg value)? requireRegOrg,
     TResult? Function(_Failed value)? failed,
   }) {
     return authenticatedOrg?.call(this);
@@ -456,6 +473,7 @@ class _$AuthenticatedOrgImpl implements _AuthenticatedOrg {
     TResult Function(_Loading value)? loading,
     TResult Function(_Unauthenticated value)? unAuthenticated,
     TResult Function(_RequireRegUser value)? requireRegUser,
+    TResult Function(_RequireRegOrg value)? requireRegOrg,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
@@ -528,6 +546,7 @@ class _$AuthenticatedAdminImpl implements _AuthenticatedAdmin {
     required TResult Function() loading,
     required TResult Function() unAuthenticated,
     required TResult Function(String uid, String phone) requireRegUser,
+    required TResult Function(String uid, String phone) requireRegOrg,
     required TResult Function(String message) failed,
   }) {
     return authenticatedAdmin();
@@ -542,6 +561,7 @@ class _$AuthenticatedAdminImpl implements _AuthenticatedAdmin {
     TResult? Function()? loading,
     TResult? Function()? unAuthenticated,
     TResult? Function(String uid, String phone)? requireRegUser,
+    TResult? Function(String uid, String phone)? requireRegOrg,
     TResult? Function(String message)? failed,
   }) {
     return authenticatedAdmin?.call();
@@ -556,6 +576,7 @@ class _$AuthenticatedAdminImpl implements _AuthenticatedAdmin {
     TResult Function()? loading,
     TResult Function()? unAuthenticated,
     TResult Function(String uid, String phone)? requireRegUser,
+    TResult Function(String uid, String phone)? requireRegOrg,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
@@ -574,6 +595,7 @@ class _$AuthenticatedAdminImpl implements _AuthenticatedAdmin {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Unauthenticated value) unAuthenticated,
     required TResult Function(_RequireRegUser value) requireRegUser,
+    required TResult Function(_RequireRegOrg value) requireRegOrg,
     required TResult Function(_Failed value) failed,
   }) {
     return authenticatedAdmin(this);
@@ -588,6 +610,7 @@ class _$AuthenticatedAdminImpl implements _AuthenticatedAdmin {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Unauthenticated value)? unAuthenticated,
     TResult? Function(_RequireRegUser value)? requireRegUser,
+    TResult? Function(_RequireRegOrg value)? requireRegOrg,
     TResult? Function(_Failed value)? failed,
   }) {
     return authenticatedAdmin?.call(this);
@@ -602,6 +625,7 @@ class _$AuthenticatedAdminImpl implements _AuthenticatedAdmin {
     TResult Function(_Loading value)? loading,
     TResult Function(_Unauthenticated value)? unAuthenticated,
     TResult Function(_RequireRegUser value)? requireRegUser,
+    TResult Function(_RequireRegOrg value)? requireRegOrg,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
@@ -665,6 +689,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() loading,
     required TResult Function() unAuthenticated,
     required TResult Function(String uid, String phone) requireRegUser,
+    required TResult Function(String uid, String phone) requireRegOrg,
     required TResult Function(String message) failed,
   }) {
     return loading();
@@ -679,6 +704,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? loading,
     TResult? Function()? unAuthenticated,
     TResult? Function(String uid, String phone)? requireRegUser,
+    TResult? Function(String uid, String phone)? requireRegOrg,
     TResult? Function(String message)? failed,
   }) {
     return loading?.call();
@@ -693,6 +719,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? loading,
     TResult Function()? unAuthenticated,
     TResult Function(String uid, String phone)? requireRegUser,
+    TResult Function(String uid, String phone)? requireRegOrg,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
@@ -711,6 +738,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Unauthenticated value) unAuthenticated,
     required TResult Function(_RequireRegUser value) requireRegUser,
+    required TResult Function(_RequireRegOrg value) requireRegOrg,
     required TResult Function(_Failed value) failed,
   }) {
     return loading(this);
@@ -725,6 +753,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Unauthenticated value)? unAuthenticated,
     TResult? Function(_RequireRegUser value)? requireRegUser,
+    TResult? Function(_RequireRegOrg value)? requireRegOrg,
     TResult? Function(_Failed value)? failed,
   }) {
     return loading?.call(this);
@@ -739,6 +768,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_Unauthenticated value)? unAuthenticated,
     TResult Function(_RequireRegUser value)? requireRegUser,
+    TResult Function(_RequireRegOrg value)? requireRegOrg,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
@@ -802,6 +832,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     required TResult Function() loading,
     required TResult Function() unAuthenticated,
     required TResult Function(String uid, String phone) requireRegUser,
+    required TResult Function(String uid, String phone) requireRegOrg,
     required TResult Function(String message) failed,
   }) {
     return unAuthenticated();
@@ -816,6 +847,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     TResult? Function()? loading,
     TResult? Function()? unAuthenticated,
     TResult? Function(String uid, String phone)? requireRegUser,
+    TResult? Function(String uid, String phone)? requireRegOrg,
     TResult? Function(String message)? failed,
   }) {
     return unAuthenticated?.call();
@@ -830,6 +862,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     TResult Function()? loading,
     TResult Function()? unAuthenticated,
     TResult Function(String uid, String phone)? requireRegUser,
+    TResult Function(String uid, String phone)? requireRegOrg,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
@@ -848,6 +881,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Unauthenticated value) unAuthenticated,
     required TResult Function(_RequireRegUser value) requireRegUser,
+    required TResult Function(_RequireRegOrg value) requireRegOrg,
     required TResult Function(_Failed value) failed,
   }) {
     return unAuthenticated(this);
@@ -862,6 +896,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Unauthenticated value)? unAuthenticated,
     TResult? Function(_RequireRegUser value)? requireRegUser,
+    TResult? Function(_RequireRegOrg value)? requireRegOrg,
     TResult? Function(_Failed value)? failed,
   }) {
     return unAuthenticated?.call(this);
@@ -876,6 +911,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     TResult Function(_Loading value)? loading,
     TResult Function(_Unauthenticated value)? unAuthenticated,
     TResult Function(_RequireRegUser value)? requireRegUser,
+    TResult Function(_RequireRegOrg value)? requireRegOrg,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
@@ -976,6 +1012,7 @@ class _$RequireRegUserImpl implements _RequireRegUser {
     required TResult Function() loading,
     required TResult Function() unAuthenticated,
     required TResult Function(String uid, String phone) requireRegUser,
+    required TResult Function(String uid, String phone) requireRegOrg,
     required TResult Function(String message) failed,
   }) {
     return requireRegUser(uid, phone);
@@ -990,6 +1027,7 @@ class _$RequireRegUserImpl implements _RequireRegUser {
     TResult? Function()? loading,
     TResult? Function()? unAuthenticated,
     TResult? Function(String uid, String phone)? requireRegUser,
+    TResult? Function(String uid, String phone)? requireRegOrg,
     TResult? Function(String message)? failed,
   }) {
     return requireRegUser?.call(uid, phone);
@@ -1004,6 +1042,7 @@ class _$RequireRegUserImpl implements _RequireRegUser {
     TResult Function()? loading,
     TResult Function()? unAuthenticated,
     TResult Function(String uid, String phone)? requireRegUser,
+    TResult Function(String uid, String phone)? requireRegOrg,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
@@ -1022,6 +1061,7 @@ class _$RequireRegUserImpl implements _RequireRegUser {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Unauthenticated value) unAuthenticated,
     required TResult Function(_RequireRegUser value) requireRegUser,
+    required TResult Function(_RequireRegOrg value) requireRegOrg,
     required TResult Function(_Failed value) failed,
   }) {
     return requireRegUser(this);
@@ -1036,6 +1076,7 @@ class _$RequireRegUserImpl implements _RequireRegUser {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Unauthenticated value)? unAuthenticated,
     TResult? Function(_RequireRegUser value)? requireRegUser,
+    TResult? Function(_RequireRegOrg value)? requireRegOrg,
     TResult? Function(_Failed value)? failed,
   }) {
     return requireRegUser?.call(this);
@@ -1050,6 +1091,7 @@ class _$RequireRegUserImpl implements _RequireRegUser {
     TResult Function(_Loading value)? loading,
     TResult Function(_Unauthenticated value)? unAuthenticated,
     TResult Function(_RequireRegUser value)? requireRegUser,
+    TResult Function(_RequireRegOrg value)? requireRegOrg,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
@@ -1071,6 +1113,193 @@ abstract class _RequireRegUser implements AuthState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RequireRegUserImplCopyWith<_$RequireRegUserImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RequireRegOrgImplCopyWith<$Res> {
+  factory _$$RequireRegOrgImplCopyWith(
+    _$RequireRegOrgImpl value,
+    $Res Function(_$RequireRegOrgImpl) then,
+  ) = __$$RequireRegOrgImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String uid, String phone});
+}
+
+/// @nodoc
+class __$$RequireRegOrgImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$RequireRegOrgImpl>
+    implements _$$RequireRegOrgImplCopyWith<$Res> {
+  __$$RequireRegOrgImplCopyWithImpl(
+    _$RequireRegOrgImpl _value,
+    $Res Function(_$RequireRegOrgImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? uid = null, Object? phone = null}) {
+    return _then(
+      _$RequireRegOrgImpl(
+        null == uid
+            ? _value.uid
+            : uid // ignore: cast_nullable_to_non_nullable
+                as String,
+        null == phone
+            ? _value.phone
+            : phone // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$RequireRegOrgImpl implements _RequireRegOrg {
+  const _$RequireRegOrgImpl(this.uid, this.phone);
+
+  @override
+  final String uid;
+  @override
+  final String phone;
+
+  @override
+  String toString() {
+    return 'AuthState.requireRegOrg(uid: $uid, phone: $phone)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RequireRegOrgImpl &&
+            (identical(other.uid, uid) || other.uid == uid) &&
+            (identical(other.phone, phone) || other.phone == phone));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, uid, phone);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RequireRegOrgImplCopyWith<_$RequireRegOrgImpl> get copyWith =>
+      __$$RequireRegOrgImplCopyWithImpl<_$RequireRegOrgImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(SafeZoneUser user) authenticatedUser,
+    required TResult Function(Organization org) authenticatedOrg,
+    required TResult Function() authenticatedAdmin,
+    required TResult Function() loading,
+    required TResult Function() unAuthenticated,
+    required TResult Function(String uid, String phone) requireRegUser,
+    required TResult Function(String uid, String phone) requireRegOrg,
+    required TResult Function(String message) failed,
+  }) {
+    return requireRegOrg(uid, phone);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(SafeZoneUser user)? authenticatedUser,
+    TResult? Function(Organization org)? authenticatedOrg,
+    TResult? Function()? authenticatedAdmin,
+    TResult? Function()? loading,
+    TResult? Function()? unAuthenticated,
+    TResult? Function(String uid, String phone)? requireRegUser,
+    TResult? Function(String uid, String phone)? requireRegOrg,
+    TResult? Function(String message)? failed,
+  }) {
+    return requireRegOrg?.call(uid, phone);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SafeZoneUser user)? authenticatedUser,
+    TResult Function(Organization org)? authenticatedOrg,
+    TResult Function()? authenticatedAdmin,
+    TResult Function()? loading,
+    TResult Function()? unAuthenticated,
+    TResult Function(String uid, String phone)? requireRegUser,
+    TResult Function(String uid, String phone)? requireRegOrg,
+    TResult Function(String message)? failed,
+    required TResult orElse(),
+  }) {
+    if (requireRegOrg != null) {
+      return requireRegOrg(uid, phone);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthenticatedUser value) authenticatedUser,
+    required TResult Function(_AuthenticatedOrg value) authenticatedOrg,
+    required TResult Function(_AuthenticatedAdmin value) authenticatedAdmin,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Unauthenticated value) unAuthenticated,
+    required TResult Function(_RequireRegUser value) requireRegUser,
+    required TResult Function(_RequireRegOrg value) requireRegOrg,
+    required TResult Function(_Failed value) failed,
+  }) {
+    return requireRegOrg(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AuthenticatedUser value)? authenticatedUser,
+    TResult? Function(_AuthenticatedOrg value)? authenticatedOrg,
+    TResult? Function(_AuthenticatedAdmin value)? authenticatedAdmin,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Unauthenticated value)? unAuthenticated,
+    TResult? Function(_RequireRegUser value)? requireRegUser,
+    TResult? Function(_RequireRegOrg value)? requireRegOrg,
+    TResult? Function(_Failed value)? failed,
+  }) {
+    return requireRegOrg?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthenticatedUser value)? authenticatedUser,
+    TResult Function(_AuthenticatedOrg value)? authenticatedOrg,
+    TResult Function(_AuthenticatedAdmin value)? authenticatedAdmin,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Unauthenticated value)? unAuthenticated,
+    TResult Function(_RequireRegUser value)? requireRegUser,
+    TResult Function(_RequireRegOrg value)? requireRegOrg,
+    TResult Function(_Failed value)? failed,
+    required TResult orElse(),
+  }) {
+    if (requireRegOrg != null) {
+      return requireRegOrg(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RequireRegOrg implements AuthState {
+  const factory _RequireRegOrg(final String uid, final String phone) =
+      _$RequireRegOrgImpl;
+
+  String get uid;
+  String get phone;
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RequireRegOrgImplCopyWith<_$RequireRegOrgImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1151,6 +1380,7 @@ class _$FailedImpl implements _Failed {
     required TResult Function() loading,
     required TResult Function() unAuthenticated,
     required TResult Function(String uid, String phone) requireRegUser,
+    required TResult Function(String uid, String phone) requireRegOrg,
     required TResult Function(String message) failed,
   }) {
     return failed(message);
@@ -1165,6 +1395,7 @@ class _$FailedImpl implements _Failed {
     TResult? Function()? loading,
     TResult? Function()? unAuthenticated,
     TResult? Function(String uid, String phone)? requireRegUser,
+    TResult? Function(String uid, String phone)? requireRegOrg,
     TResult? Function(String message)? failed,
   }) {
     return failed?.call(message);
@@ -1179,6 +1410,7 @@ class _$FailedImpl implements _Failed {
     TResult Function()? loading,
     TResult Function()? unAuthenticated,
     TResult Function(String uid, String phone)? requireRegUser,
+    TResult Function(String uid, String phone)? requireRegOrg,
     TResult Function(String message)? failed,
     required TResult orElse(),
   }) {
@@ -1197,6 +1429,7 @@ class _$FailedImpl implements _Failed {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Unauthenticated value) unAuthenticated,
     required TResult Function(_RequireRegUser value) requireRegUser,
+    required TResult Function(_RequireRegOrg value) requireRegOrg,
     required TResult Function(_Failed value) failed,
   }) {
     return failed(this);
@@ -1211,6 +1444,7 @@ class _$FailedImpl implements _Failed {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Unauthenticated value)? unAuthenticated,
     TResult? Function(_RequireRegUser value)? requireRegUser,
+    TResult? Function(_RequireRegOrg value)? requireRegOrg,
     TResult? Function(_Failed value)? failed,
   }) {
     return failed?.call(this);
@@ -1225,6 +1459,7 @@ class _$FailedImpl implements _Failed {
     TResult Function(_Loading value)? loading,
     TResult Function(_Unauthenticated value)? unAuthenticated,
     TResult Function(_RequireRegUser value)? requireRegUser,
+    TResult Function(_RequireRegOrg value)? requireRegOrg,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {

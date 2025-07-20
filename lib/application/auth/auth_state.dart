@@ -11,5 +11,7 @@ class AuthState with _$AuthState {
   const factory AuthState.unAuthenticated() = _Unauthenticated;
   const factory AuthState.requireRegUser(String uid, String phone) =
       _RequireRegUser;
+  const factory AuthState.requireRegOrg(String uid, String phone) =
+      _RequireRegOrg;
   const factory AuthState.failed({required String message}) = _Failed;
 }

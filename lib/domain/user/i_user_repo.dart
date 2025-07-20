@@ -14,4 +14,9 @@ abstract class IUserRepo {
     String address,
   );
   Future<Either<Failure, SafeZoneUserAddress>> getAddress(String id);
+  Stream<Either<Failure, SafeZoneUserAddress>> watchAddress(String id);
+  Future<Either<Failure, SafeZoneUserAddress>> getCurrentAddress();
+  Stream<Either<Failure, List<SafeZoneUser>>> watchAll();
+
+  Stream<Either<Failure, int>> watchTotalUsers();
 }

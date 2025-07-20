@@ -1,26 +1,26 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:safe_zone/core/extensions/dartz_x.dart';
+import 'package:safe_zone/domain/auth/i_auth_repo.dart';
 import 'package:safe_zone/domain/failure/failure.dart';
 import 'package:safe_zone/domain/user/address/address.dart';
 import 'package:safe_zone/domain/user/i_user_repo.dart';
 import 'package:safe_zone/domain/user/user.dart';
-import 'package:safe_zone/infrastructure/services/auth_service.dart';
 import 'package:safe_zone/infrastructure/services/user_service.dart';
 
 @LazySingleton(as: IUserRepo)
 class UserRepo implements IUserRepo {
   final UserService _userService;
-  final AuthService _authService;
+  final IAuthRepo _authRepo;
 
-  UserRepo(this._userService, this._authService);
+  UserRepo(this._userService, this._authRepo);
 
   @override
   Future<Either<Failure, SafeZoneUserAddress>> updateAddress(
     String townId,
     String address,
   ) async {
-    final unitOrUid = _authService.getUid();
+    final unitOrUid = _authRepo.getUid();
     if (unitOrUid.isLeft()) {
       return left(const Failure('User not signed in'));
     }
@@ -43,7 +43,7 @@ class UserRepo implements IUserRepo {
 
   @override
   Future<Either<Failure, SafeZoneUser>> getCurrent() async {
-    final unitOrUid = _authService.getUid();
+    final unitOrUid = _authRepo.getUid();
     if (unitOrUid.isLeft()) {
       return left(const Failure('User not signed in'));
     }
@@ -57,7 +57,7 @@ class UserRepo implements IUserRepo {
 
   @override
   Future<Either<Failure, bool>> isExist() async {
-    final unitOrUid = _authService.getUid();
+    final unitOrUid = _authRepo.getUid();
     if (unitOrUid.isLeft()) {
       return left(const Failure('User not signed in'));
     }
@@ -67,4 +67,26 @@ class UserRepo implements IUserRepo {
   @override
   Future<Either<Failure, String>> uploadProfileImage(String id) =>
       _userService.uploadProfileImage(id);
+
+  @override
+  Future<Either<Failure, SafeZoneUserAddress>> getCurrentAddress() async {
+    final unitOrUid = _authRepo.getUid();
+    if (unitOrUid.isLeft()) {
+      return left(const Failure('User not signed in'));
+    }
+    final userId = unitOrUid.getOrCrash();
+    return _userService.getAddress(userId);
+  }
+
+  @override
+  Stream<Either<Failure, List<SafeZoneUser>>> watchAll() =>
+      _userService.watchAll();
+
+  @override
+  Stream<Either<Failure, SafeZoneUserAddress>> watchAddress(String id) =>
+      _userService.watchAddress(id);
+
+  @override
+  Stream<Either<Failure, int>> watchTotalUsers() =>
+      _userService.watchTotalUsers();
 }

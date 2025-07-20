@@ -11,6 +11,7 @@ _$DonationRequestImpl _$$DonationRequestImplFromJson(
 ) => _$DonationRequestImpl(
   id: json['id'] as String,
   donationServiceId: json['donationServiceId'] as String,
+  units: (json['units'] as num).toInt(),
   userId: json['userId'] as String,
   threatId: json['threatId'] as String,
   longitude: (json['longitude'] as num).toDouble(),
@@ -28,6 +29,7 @@ Map<String, dynamic> _$$DonationRequestImplToJson(
 ) => <String, dynamic>{
   'id': instance.id,
   'donationServiceId': instance.donationServiceId,
+  'units': instance.units,
   'userId': instance.userId,
   'threatId': instance.threatId,
   'longitude': instance.longitude,
@@ -41,7 +43,6 @@ Map<String, dynamic> _$$DonationRequestImplToJson(
 const _$DonationRequestStateEnumMap = {
   DonationRequestState.pending: 'pending',
   DonationRequestState.accepted: 'accepted',
-  DonationRequestState.rejectedByAdmin: 'rejectedByAdmin',
   DonationRequestState.fundRaised: 'fundRaised',
   DonationRequestState.donated: 'donated',
 };

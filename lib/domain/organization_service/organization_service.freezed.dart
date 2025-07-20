@@ -22,8 +22,8 @@ OrganizationService _$OrganizationServiceFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$OrganizationService {
   String get id => throw _privateConstructorUsedError;
-  String get organizationId => throw _privateConstructorUsedError;
-  String get donationServiceId => throw _privateConstructorUsedError;
+  String get serviceId => throw _privateConstructorUsedError;
+  String get orgId => throw _privateConstructorUsedError;
   int get createdAt => throw _privateConstructorUsedError;
 
   /// Serializes this OrganizationService to a JSON map.
@@ -43,12 +43,7 @@ abstract class $OrganizationServiceCopyWith<$Res> {
     $Res Function(OrganizationService) then,
   ) = _$OrganizationServiceCopyWithImpl<$Res, OrganizationService>;
   @useResult
-  $Res call({
-    String id,
-    String organizationId,
-    String donationServiceId,
-    int createdAt,
-  });
+  $Res call({String id, String serviceId, String orgId, int createdAt});
 }
 
 /// @nodoc
@@ -67,8 +62,8 @@ class _$OrganizationServiceCopyWithImpl<$Res, $Val extends OrganizationService>
   @override
   $Res call({
     Object? id = null,
-    Object? organizationId = null,
-    Object? donationServiceId = null,
+    Object? serviceId = null,
+    Object? orgId = null,
     Object? createdAt = null,
   }) {
     return _then(
@@ -78,15 +73,15 @@ class _$OrganizationServiceCopyWithImpl<$Res, $Val extends OrganizationService>
                     ? _value.id
                     : id // ignore: cast_nullable_to_non_nullable
                         as String,
-            organizationId:
-                null == organizationId
-                    ? _value.organizationId
-                    : organizationId // ignore: cast_nullable_to_non_nullable
+            serviceId:
+                null == serviceId
+                    ? _value.serviceId
+                    : serviceId // ignore: cast_nullable_to_non_nullable
                         as String,
-            donationServiceId:
-                null == donationServiceId
-                    ? _value.donationServiceId
-                    : donationServiceId // ignore: cast_nullable_to_non_nullable
+            orgId:
+                null == orgId
+                    ? _value.orgId
+                    : orgId // ignore: cast_nullable_to_non_nullable
                         as String,
             createdAt:
                 null == createdAt
@@ -108,12 +103,7 @@ abstract class _$$OrganizationServiceImplCopyWith<$Res>
   ) = __$$OrganizationServiceImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String id,
-    String organizationId,
-    String donationServiceId,
-    int createdAt,
-  });
+  $Res call({String id, String serviceId, String orgId, int createdAt});
 }
 
 /// @nodoc
@@ -131,8 +121,8 @@ class __$$OrganizationServiceImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? organizationId = null,
-    Object? donationServiceId = null,
+    Object? serviceId = null,
+    Object? orgId = null,
     Object? createdAt = null,
   }) {
     return _then(
@@ -142,15 +132,15 @@ class __$$OrganizationServiceImplCopyWithImpl<$Res>
                 ? _value.id
                 : id // ignore: cast_nullable_to_non_nullable
                     as String,
-        organizationId:
-            null == organizationId
-                ? _value.organizationId
-                : organizationId // ignore: cast_nullable_to_non_nullable
+        serviceId:
+            null == serviceId
+                ? _value.serviceId
+                : serviceId // ignore: cast_nullable_to_non_nullable
                     as String,
-        donationServiceId:
-            null == donationServiceId
-                ? _value.donationServiceId
-                : donationServiceId // ignore: cast_nullable_to_non_nullable
+        orgId:
+            null == orgId
+                ? _value.orgId
+                : orgId // ignore: cast_nullable_to_non_nullable
                     as String,
         createdAt:
             null == createdAt
@@ -167,8 +157,8 @@ class __$$OrganizationServiceImplCopyWithImpl<$Res>
 class _$OrganizationServiceImpl implements _OrganizationService {
   const _$OrganizationServiceImpl({
     required this.id,
-    required this.organizationId,
-    required this.donationServiceId,
+    required this.serviceId,
+    required this.orgId,
     required this.createdAt,
   });
 
@@ -178,15 +168,15 @@ class _$OrganizationServiceImpl implements _OrganizationService {
   @override
   final String id;
   @override
-  final String organizationId;
+  final String serviceId;
   @override
-  final String donationServiceId;
+  final String orgId;
   @override
   final int createdAt;
 
   @override
   String toString() {
-    return 'OrganizationService(id: $id, organizationId: $organizationId, donationServiceId: $donationServiceId, createdAt: $createdAt)';
+    return 'OrganizationService(id: $id, serviceId: $serviceId, orgId: $orgId, createdAt: $createdAt)';
   }
 
   @override
@@ -195,23 +185,16 @@ class _$OrganizationServiceImpl implements _OrganizationService {
         (other.runtimeType == runtimeType &&
             other is _$OrganizationServiceImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.organizationId, organizationId) ||
-                other.organizationId == organizationId) &&
-            (identical(other.donationServiceId, donationServiceId) ||
-                other.donationServiceId == donationServiceId) &&
+            (identical(other.serviceId, serviceId) ||
+                other.serviceId == serviceId) &&
+            (identical(other.orgId, orgId) || other.orgId == orgId) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    id,
-    organizationId,
-    donationServiceId,
-    createdAt,
-  );
+  int get hashCode => Object.hash(runtimeType, id, serviceId, orgId, createdAt);
 
   /// Create a copy of OrganizationService
   /// with the given fields replaced by the non-null parameter values.
@@ -233,8 +216,8 @@ class _$OrganizationServiceImpl implements _OrganizationService {
 abstract class _OrganizationService implements OrganizationService {
   const factory _OrganizationService({
     required final String id,
-    required final String organizationId,
-    required final String donationServiceId,
+    required final String serviceId,
+    required final String orgId,
     required final int createdAt,
   }) = _$OrganizationServiceImpl;
 
@@ -244,9 +227,9 @@ abstract class _OrganizationService implements OrganizationService {
   @override
   String get id;
   @override
-  String get organizationId;
+  String get serviceId;
   @override
-  String get donationServiceId;
+  String get orgId;
   @override
   int get createdAt;
 

@@ -1,6 +1,8 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
+import 'package:safe_zone/core/constants.dart';
+import 'package:safe_zone/injection.dart';
 
 import 'router/app_router.dart';
 
@@ -21,7 +23,10 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: FlexThemeData.light(scheme: FlexScheme.wasabi),
       darkTheme: FlexThemeData.dark(scheme: FlexScheme.wasabi),
-      themeMode: ThemeMode.dark,
+      themeMode:
+          getIt<StakeHolder>() == StakeHolder.safeZoneUser
+              ? ThemeMode.light
+              : ThemeMode.dark,
       routerConfig: _router.config(),
     );
   }

@@ -3,6 +3,8 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:safe_zone/application/auth/auth_cubit.dart';
+import 'package:safe_zone/core/constants.dart';
+import 'package:safe_zone/injection.dart';
 import 'package:safe_zone/presentation/router/app_router.dart';
 import 'package:safe_zone/presentation/widgets/toast.dart';
 
@@ -18,13 +20,22 @@ class LandingPage extends StatelessWidget {
           authenticatedAdmin:
               () => context.router.replaceAll([AdminDashboardRoute()]),
           authenticatedOrg:
-              (org) => context.router.replaceAll([OrgDashboardRoute()]),
-          authenticatedUser: (user) => context.router.replaceAll([HomeRoute()]),
-          unAuthenticated: () => context.router.replaceAll([SigninRoute()]),
+              (org) => context.router.replaceAll([OrgDashboardV2Route()]),
+          authenticatedUser:
+              (user) => context.router.replaceAll([UserMainRoute()]),
+          unAuthenticated: () {
+            if (getIt<StakeHolder>() == StakeHolder.safeZoneUser) {
+              context.router.replaceAll([SigninRoute()]);
+              return;
+            }
+            context.router.replaceAll([SignInOrgRoute()]);
+          },
           requireRegUser:
               (_, _) => context.router.replaceAll([
                 UpdateUserRoute(isOnboarding: true),
               ]),
+          requireRegOrg:
+              (uid, phone) => context.router.replaceAll([UpdateOrgRoute()]),
           failed: (message) => showFailedToast(context, message),
           orElse: () => Unit,
         );

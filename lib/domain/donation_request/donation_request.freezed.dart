@@ -23,11 +23,12 @@ DonationRequest _$DonationRequestFromJson(Map<String, dynamic> json) {
 mixin _$DonationRequest {
   String get id => throw _privateConstructorUsedError;
   String get donationServiceId => throw _privateConstructorUsedError;
+  int get units => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
   String get threatId => throw _privateConstructorUsedError;
   double get longitude => throw _privateConstructorUsedError;
   double get latitude =>
-      throw _privateConstructorUsedError; // PENDING, ACCEPTED, REJECTED_BY_ADMIN, FUND_RAISED, DONATED
+      throw _privateConstructorUsedError; // PENDING, ACCEPTED, FUND_RAISED, DONATED
   DonationRequestState get state => throw _privateConstructorUsedError;
   @OptionStringConverter()
   Option<String> get acceptedOrgId => throw _privateConstructorUsedError;
@@ -54,6 +55,7 @@ abstract class $DonationRequestCopyWith<$Res> {
   $Res call({
     String id,
     String donationServiceId,
+    int units,
     String userId,
     String threatId,
     double longitude,
@@ -82,6 +84,7 @@ class _$DonationRequestCopyWithImpl<$Res, $Val extends DonationRequest>
   $Res call({
     Object? id = null,
     Object? donationServiceId = null,
+    Object? units = null,
     Object? userId = null,
     Object? threatId = null,
     Object? longitude = null,
@@ -103,6 +106,11 @@ class _$DonationRequestCopyWithImpl<$Res, $Val extends DonationRequest>
                     ? _value.donationServiceId
                     : donationServiceId // ignore: cast_nullable_to_non_nullable
                         as String,
+            units:
+                null == units
+                    ? _value.units
+                    : units // ignore: cast_nullable_to_non_nullable
+                        as int,
             userId:
                 null == userId
                     ? _value.userId
@@ -161,6 +169,7 @@ abstract class _$$DonationRequestImplCopyWith<$Res>
   $Res call({
     String id,
     String donationServiceId,
+    int units,
     String userId,
     String threatId,
     double longitude,
@@ -188,6 +197,7 @@ class __$$DonationRequestImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? donationServiceId = null,
+    Object? units = null,
     Object? userId = null,
     Object? threatId = null,
     Object? longitude = null,
@@ -209,6 +219,11 @@ class __$$DonationRequestImplCopyWithImpl<$Res>
                 ? _value.donationServiceId
                 : donationServiceId // ignore: cast_nullable_to_non_nullable
                     as String,
+        units:
+            null == units
+                ? _value.units
+                : units // ignore: cast_nullable_to_non_nullable
+                    as int,
         userId:
             null == userId
                 ? _value.userId
@@ -260,6 +275,7 @@ class _$DonationRequestImpl implements _DonationRequest {
   const _$DonationRequestImpl({
     required this.id,
     required this.donationServiceId,
+    required this.units,
     required this.userId,
     required this.threatId,
     required this.longitude,
@@ -278,6 +294,8 @@ class _$DonationRequestImpl implements _DonationRequest {
   @override
   final String donationServiceId;
   @override
+  final int units;
+  @override
   final String userId;
   @override
   final String threatId;
@@ -285,7 +303,7 @@ class _$DonationRequestImpl implements _DonationRequest {
   final double longitude;
   @override
   final double latitude;
-  // PENDING, ACCEPTED, REJECTED_BY_ADMIN, FUND_RAISED, DONATED
+  // PENDING, ACCEPTED, FUND_RAISED, DONATED
   @override
   final DonationRequestState state;
   @override
@@ -298,7 +316,7 @@ class _$DonationRequestImpl implements _DonationRequest {
 
   @override
   String toString() {
-    return 'DonationRequest(id: $id, donationServiceId: $donationServiceId, userId: $userId, threatId: $threatId, longitude: $longitude, latitude: $latitude, state: $state, acceptedOrgId: $acceptedOrgId, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'DonationRequest(id: $id, donationServiceId: $donationServiceId, units: $units, userId: $userId, threatId: $threatId, longitude: $longitude, latitude: $latitude, state: $state, acceptedOrgId: $acceptedOrgId, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -309,6 +327,7 @@ class _$DonationRequestImpl implements _DonationRequest {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.donationServiceId, donationServiceId) ||
                 other.donationServiceId == donationServiceId) &&
+            (identical(other.units, units) || other.units == units) &&
             (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.threatId, threatId) ||
                 other.threatId == threatId) &&
@@ -331,6 +350,7 @@ class _$DonationRequestImpl implements _DonationRequest {
     runtimeType,
     id,
     donationServiceId,
+    units,
     userId,
     threatId,
     longitude,
@@ -362,6 +382,7 @@ abstract class _DonationRequest implements DonationRequest {
   const factory _DonationRequest({
     required final String id,
     required final String donationServiceId,
+    required final int units,
     required final String userId,
     required final String threatId,
     required final double longitude,
@@ -380,13 +401,15 @@ abstract class _DonationRequest implements DonationRequest {
   @override
   String get donationServiceId;
   @override
+  int get units;
+  @override
   String get userId;
   @override
   String get threatId;
   @override
   double get longitude;
   @override
-  double get latitude; // PENDING, ACCEPTED, REJECTED_BY_ADMIN, FUND_RAISED, DONATED
+  double get latitude; // PENDING, ACCEPTED, FUND_RAISED, DONATED
   @override
   DonationRequestState get state;
   @override

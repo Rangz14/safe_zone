@@ -13,11 +13,12 @@ abstract class DonationRequest with _$DonationRequest {
   const factory DonationRequest({
     required String id,
     required String donationServiceId,
+    required int units,
     required String userId,
     required String threatId,
     required double longitude,
     required double latitude,
-    // PENDING, ACCEPTED, REJECTED_BY_ADMIN, FUND_RAISED, DONATED
+    // PENDING, ACCEPTED, FUND_RAISED, DONATED
     required DonationRequestState state,
     @OptionStringConverter() required Option<String> acceptedOrgId,
     required int createdAt,
@@ -31,6 +32,7 @@ abstract class DonationRequest with _$DonationRequest {
         id: "",
         threatId: threatId,
         donationServiceId: donationServiceId,
+        units: 1,
         userId: getIt<IAuthRepo>().getUid().getOrCrash(),
         longitude: 79.8612,
         latitude: 6.9271,

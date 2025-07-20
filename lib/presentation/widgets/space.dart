@@ -7,9 +7,7 @@ class VGap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: gap,
-    );
+    return SizedBox(height: gap);
   }
 }
 
@@ -20,8 +18,17 @@ class HGap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: gap,
-    );
+    return SizedBox(width: gap);
+  }
+}
+
+class SVGap extends StatelessWidget {
+  final double gap;
+
+  const SVGap({super.key, this.gap = 8});
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverToBoxAdapter(child: SizedBox(height: gap));
   }
 }

@@ -12,4 +12,6 @@ abstract class IDonationRepo {
   // Org
   Future<Either<Failure, List<Donation>>> getForCurrentOrg();
   Future<Either<Failure, List<Donation>>> updateState(DonationState state);
+
+  Stream<Either<Failure, int>> watchTotalDonations();
 }

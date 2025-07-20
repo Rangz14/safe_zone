@@ -21,23 +21,174 @@ class AdminDashboardRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const AdminDashboardPage();
+      return WrappedRoute(child: const AdminDashboardPage());
     },
   );
 }
 
 /// generated route for
-/// [HomePage]
-class HomeRoute extends PageRouteInfo<void> {
-  const HomeRoute({List<PageRouteInfo>? children})
-    : super(HomeRoute.name, initialChildren: children);
+/// [AdminDonationServicesPage]
+class AdminDonationServicesRoute extends PageRouteInfo<void> {
+  const AdminDonationServicesRoute({List<PageRouteInfo>? children})
+    : super(AdminDonationServicesRoute.name, initialChildren: children);
 
-  static const String name = 'HomeRoute';
+  static const String name = 'AdminDonationServicesRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const HomePage();
+      return WrappedRoute(child: const AdminDonationServicesPage());
+    },
+  );
+}
+
+/// generated route for
+/// [AdminNewServicePage]
+class AdminNewServiceRoute extends PageRouteInfo<AdminNewServiceRouteArgs> {
+  AdminNewServiceRoute({Key? key, List<PageRouteInfo>? children})
+    : super(
+        AdminNewServiceRoute.name,
+        args: AdminNewServiceRouteArgs(key: key),
+        initialChildren: children,
+      );
+
+  static const String name = 'AdminNewServiceRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<AdminNewServiceRouteArgs>(
+        orElse: () => const AdminNewServiceRouteArgs(),
+      );
+      return WrappedRoute(child: AdminNewServicePage(key: args.key));
+    },
+  );
+}
+
+class AdminNewServiceRouteArgs {
+  const AdminNewServiceRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'AdminNewServiceRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [AdminNewThreatCategoryPage]
+class AdminNewThreatCategoryRoute
+    extends PageRouteInfo<AdminNewThreatCategoryRouteArgs> {
+  AdminNewThreatCategoryRoute({Key? key, List<PageRouteInfo>? children})
+    : super(
+        AdminNewThreatCategoryRoute.name,
+        args: AdminNewThreatCategoryRouteArgs(key: key),
+        initialChildren: children,
+      );
+
+  static const String name = 'AdminNewThreatCategoryRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<AdminNewThreatCategoryRouteArgs>(
+        orElse: () => const AdminNewThreatCategoryRouteArgs(),
+      );
+      return WrappedRoute(child: AdminNewThreatCategoryPage(key: args.key));
+    },
+  );
+}
+
+class AdminNewThreatCategoryRouteArgs {
+  const AdminNewThreatCategoryRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'AdminNewThreatCategoryRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [AdminNewThreatPage]
+class AdminNewThreatRoute extends PageRouteInfo<AdminNewThreatRouteArgs> {
+  AdminNewThreatRoute({Key? key, List<PageRouteInfo>? children})
+    : super(
+        AdminNewThreatRoute.name,
+        args: AdminNewThreatRouteArgs(key: key),
+        initialChildren: children,
+      );
+
+  static const String name = 'AdminNewThreatRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<AdminNewThreatRouteArgs>(
+        orElse: () => const AdminNewThreatRouteArgs(),
+      );
+      return WrappedRoute(child: AdminNewThreatPage(key: args.key));
+    },
+  );
+}
+
+class AdminNewThreatRouteArgs {
+  const AdminNewThreatRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'AdminNewThreatRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [AdminOrgsPage]
+class AdminOrgsRoute extends PageRouteInfo<void> {
+  const AdminOrgsRoute({List<PageRouteInfo>? children})
+    : super(AdminOrgsRoute.name, initialChildren: children);
+
+  static const String name = 'AdminOrgsRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const AdminOrgsPage());
+    },
+  );
+}
+
+/// generated route for
+/// [AdminThreatCategoriesPage]
+class AdminThreatCategoriesRoute extends PageRouteInfo<void> {
+  const AdminThreatCategoriesRoute({List<PageRouteInfo>? children})
+    : super(AdminThreatCategoriesRoute.name, initialChildren: children);
+
+  static const String name = 'AdminThreatCategoriesRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const AdminThreatCategoriesPage());
+    },
+  );
+}
+
+/// generated route for
+/// [AdminUsersPage]
+class AdminUsersRoute extends PageRouteInfo<void> {
+  const AdminUsersRoute({List<PageRouteInfo>? children})
+    : super(AdminUsersRoute.name, initialChildren: children);
+
+  static const String name = 'AdminUsersRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const AdminUsersPage());
     },
   );
 }
@@ -69,7 +220,55 @@ class OrgDashboardRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const OrgDashboardPage();
+      return WrappedRoute(child: const OrgDashboardPage());
+    },
+  );
+}
+
+/// generated route for
+/// [OrgDashboardV2Page]
+class OrgDashboardV2Route extends PageRouteInfo<void> {
+  const OrgDashboardV2Route({List<PageRouteInfo>? children})
+    : super(OrgDashboardV2Route.name, initialChildren: children);
+
+  static const String name = 'OrgDashboardV2Route';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const OrgDashboardV2Page();
+    },
+  );
+}
+
+/// generated route for
+/// [SelectServicesOrgPage]
+class SelectServicesOrgRoute extends PageRouteInfo<void> {
+  const SelectServicesOrgRoute({List<PageRouteInfo>? children})
+    : super(SelectServicesOrgRoute.name, initialChildren: children);
+
+  static const String name = 'SelectServicesOrgRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const SelectServicesOrgPage());
+    },
+  );
+}
+
+/// generated route for
+/// [SignInOrgPage]
+class SignInOrgRoute extends PageRouteInfo<void> {
+  const SignInOrgRoute({List<PageRouteInfo>? children})
+    : super(SignInOrgRoute.name, initialChildren: children);
+
+  static const String name = 'SignInOrgRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const SignInOrgPage());
     },
   );
 }
@@ -91,36 +290,120 @@ class SigninRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [UpdateAddressPage]
-class UpdateAddressRoute extends PageRouteInfo<UpdateAddressRouteArgs> {
-  UpdateAddressRoute({Key? key, List<PageRouteInfo>? children})
+/// [UpdateBankDetailsPage]
+class UpdateBankDetailsRoute extends PageRouteInfo<UpdateBankDetailsRouteArgs> {
+  UpdateBankDetailsRoute({Key? key, List<PageRouteInfo>? children})
     : super(
-        UpdateAddressRoute.name,
-        args: UpdateAddressRouteArgs(key: key),
+        UpdateBankDetailsRoute.name,
+        args: UpdateBankDetailsRouteArgs(key: key),
         initialChildren: children,
       );
 
-  static const String name = 'UpdateAddressRoute';
+  static const String name = 'UpdateBankDetailsRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      final args = data.argsAs<UpdateAddressRouteArgs>(
-        orElse: () => const UpdateAddressRouteArgs(),
+      final args = data.argsAs<UpdateBankDetailsRouteArgs>(
+        orElse: () => const UpdateBankDetailsRouteArgs(),
       );
-      return WrappedRoute(child: UpdateAddressPage(key: args.key));
+      return WrappedRoute(child: UpdateBankDetailsPage(key: args.key));
     },
   );
 }
 
-class UpdateAddressRouteArgs {
-  const UpdateAddressRouteArgs({this.key});
+class UpdateBankDetailsRouteArgs {
+  const UpdateBankDetailsRouteArgs({this.key});
 
   final Key? key;
 
   @override
   String toString() {
-    return 'UpdateAddressRouteArgs{key: $key}';
+    return 'UpdateBankDetailsRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [UpdateOrgAddressPage]
+class UpdateOrgAddressRoute extends PageRouteInfo<UpdateOrgAddressRouteArgs> {
+  UpdateOrgAddressRoute({Key? key, List<PageRouteInfo>? children})
+    : super(
+        UpdateOrgAddressRoute.name,
+        args: UpdateOrgAddressRouteArgs(key: key),
+        initialChildren: children,
+      );
+
+  static const String name = 'UpdateOrgAddressRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<UpdateOrgAddressRouteArgs>(
+        orElse: () => const UpdateOrgAddressRouteArgs(),
+      );
+      return WrappedRoute(child: UpdateOrgAddressPage(key: args.key));
+    },
+  );
+}
+
+class UpdateOrgAddressRouteArgs {
+  const UpdateOrgAddressRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'UpdateOrgAddressRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [UpdateOrgPage]
+class UpdateOrgRoute extends PageRouteInfo<void> {
+  const UpdateOrgRoute({List<PageRouteInfo>? children})
+    : super(UpdateOrgRoute.name, initialChildren: children);
+
+  static const String name = 'UpdateOrgRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const UpdateOrgPage());
+    },
+  );
+}
+
+/// generated route for
+/// [UpdateUserAddressPage]
+class UpdateUserAddressRoute extends PageRouteInfo<UpdateUserAddressRouteArgs> {
+  UpdateUserAddressRoute({Key? key, List<PageRouteInfo>? children})
+    : super(
+        UpdateUserAddressRoute.name,
+        args: UpdateUserAddressRouteArgs(key: key),
+        initialChildren: children,
+      );
+
+  static const String name = 'UpdateUserAddressRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<UpdateUserAddressRouteArgs>(
+        orElse: () => const UpdateUserAddressRouteArgs(),
+      );
+      return WrappedRoute(child: UpdateUserAddressPage(key: args.key));
+    },
+  );
+}
+
+class UpdateUserAddressRouteArgs {
+  const UpdateUserAddressRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'UpdateUserAddressRouteArgs{key: $key}';
   }
 }
 
@@ -163,4 +446,20 @@ class UpdateUserRouteArgs {
   String toString() {
     return 'UpdateUserRouteArgs{key: $key, isOnboarding: $isOnboarding}';
   }
+}
+
+/// generated route for
+/// [UserMainPage]
+class UserMainRoute extends PageRouteInfo<void> {
+  const UserMainRoute({List<PageRouteInfo>? children})
+    : super(UserMainRoute.name, initialChildren: children);
+
+  static const String name = 'UserMainRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const UserMainPage();
+    },
+  );
 }
