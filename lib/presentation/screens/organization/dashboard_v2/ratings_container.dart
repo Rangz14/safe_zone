@@ -1,52 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:safe_zone/presentation/screens/organization/dashboard_v2/donation_request.dart';
-import 'package:safe_zone/presentation/screens/organization/dashboard_v2/rating.dart';
+import 'package:safe_zone/core/mock_data/mock_donation_requests.dart';
+import 'package:safe_zone/core/mock_data/mock_donation_services.dart';
+import 'package:safe_zone/core/mock_data/mock_organization_ratings.dart';
+import 'package:safe_zone/core/mock_data/mock_threat_categories.dart';
+import 'package:safe_zone/core/mock_data/mock_threats.dart';
+import 'package:safe_zone/core/mock_data/mock_users.dart';
+import 'package:safe_zone/domain/donation_request/donation_request.dart';
+import 'package:safe_zone/domain/organization/rating/rating.dart';
+import 'package:safe_zone/domain/service/service.dart';
+import 'package:safe_zone/domain/threat/threat.dart';
+import 'package:safe_zone/domain/threat/threat_category/threat_category.dart';
+import 'package:safe_zone/domain/user/user.dart';
+
 import 'package:safe_zone/presentation/screens/organization/dashboard_v2/rating_card.dart';
 
 class RatingsContainer extends StatelessWidget {
   RatingsContainer({super.key});
 
-  // --- DUMMY DATA ---
-  final List<Rating> _allRatings = [
-    Rating(
-      user: User(name: "Chandana Silva", avatarUrl: "assets/images/user10.png"),
-      serviceTitle: "Kids Clothes",
-      serviceIcon: Icons.checkroom_outlined,
-      unitCount: 20,
-      starRating: 5,
-      reviewText:
-          "Amazing and fast service! The clothes were delivered to the family in need within a day. Thank you, Safe Zone!",
-      // --- UPDATE HERE ---
-      threatCategory: "Displacement",
-      threatIcon: Icons.house_outlined,
-      createdAt: DateTime.now().subtract(const Duration(days: 2)),
-    ),
-    Rating(
-      user: User(name: "Aisha Mohammed", avatarUrl: "assets/images/user11.png"),
-      serviceTitle: "Dry Rations",
-      serviceIcon: Icons.food_bank_outlined,
-      unitCount: 10,
-      starRating: 4,
-      reviewText:
-          "Good work, but the coordination could be slightly better. Overall, very happy with the platform.",
-      // --- UPDATE HERE ---
-      threatCategory: "Economic Crisis",
-      threatIcon: Icons.trending_down,
-      createdAt: DateTime.now().subtract(const Duration(days: 5)),
-    ),
-    Rating(
-      user: User(name: "Ravi Kumar", avatarUrl: "assets/images/user12.png"),
-      serviceTitle: "Medicine",
-      serviceIcon: Icons.medical_services_outlined,
-      unitCount: 3,
-      starRating: 5,
-      reviewText: null,
-      // --- UPDATE HERE ---
-      threatCategory: "Medical Emergency",
-      threatIcon: Icons.emergency_outlined,
-      createdAt: DateTime.now().subtract(const Duration(days: 14)),
-    ),
-  ];
+  // Use the real mock data
+  final List<OrganizationRating> _allRatings = mockOrganizationRatings;
 
   @override
   Widget build(BuildContext context) {
@@ -67,12 +39,104 @@ class RatingsContainer extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               itemCount: _allRatings.length,
               itemBuilder: (context, index) {
-                return RatingCard(rating: _allRatings[index]);
+                final rating = _allRatings[index];
+
+                // --- Resolve all data relationships ---
+                final user = _getUserById(rating.userId);
+                final request = _getRequestById(rating.donationRequestId);
+
+                // We need the request to find the other details
+                if (user == null || request == null) {
+                  return const Card(
+                    color: Colors.redAccent,
+                    child: ListTile(
+                      title: Text("Error: Missing user or request data."),
+                    ),
+                  );
+                }
+
+                final service = _getServiceById(request.donationServiceId);
+                final threat = _getThreatById(request.threatId);
+
+                if (service == null || threat == null) {
+                  return const Card(
+                    color: Colors.redAccent,
+                    child: ListTile(
+                      title: Text("Error: Missing service or threat data."),
+                    ),
+                  );
+                }
+
+                final threatCategory = _getThreatCategoryById(
+                  threat.categoryId,
+                );
+
+                if (threatCategory == null) {
+                  return const Card(
+                    color: Colors.redAccent,
+                    child: ListTile(
+                      title: Text("Error: Missing threat category data."),
+                    ),
+                  );
+                }
+
+                // Pass the fully resolved data to the card
+                return RatingCard(
+                  rating: rating,
+                  user: user,
+                  request: request,
+                  service: service,
+                  threatCategory: threatCategory,
+                );
               },
             ),
           ),
         ],
       ),
     );
+  }
+
+  // --- HELPER FUNCTIONS TO SIMULATE A REPOSITORY ---
+
+  SafeZoneUser? _getUserById(String id) {
+    try {
+      return mockUsers.firstWhere((u) => u.id == id);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  DonationRequest? _getRequestById(String id) {
+    try {
+      return mockDonationRequests.firstWhere((r) => r.id == id);
+    } catch (e) {
+      // It's possible a rating is for an older, archived request
+      // not in our current mock list. This is a graceful fallback.
+      return mockDonationRequests.first; // Or return null
+    }
+  }
+
+  DonationService? _getServiceById(String id) {
+    try {
+      return mockDonationServices.firstWhere((s) => s.id == id);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  SafeZoneThreat? _getThreatById(String id) {
+    try {
+      return mockThreats.firstWhere((t) => t.id == id);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  ThreatCategory? _getThreatCategoryById(String id) {
+    try {
+      return mockThreatCategories.firstWhere((c) => c.id == id);
+    } catch (e) {
+      return null;
+    }
   }
 }

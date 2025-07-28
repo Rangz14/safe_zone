@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,380 +9,322 @@ part of 'signin_with_phone_cubit.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
 /// @nodoc
 mixin _$SigninWithPhoneState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(InputPhoneState inputPhoneState) inputPhone,
-    required TResult Function(InputOtpState inputOtpState) inputOTP,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(InputPhoneState inputPhoneState)? inputPhone,
-    TResult? Function(InputOtpState inputOtpState)? inputOTP,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(InputPhoneState inputPhoneState)? inputPhone,
-    TResult Function(InputOtpState inputOtpState)? inputOTP,
-    required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_InputPhone value) inputPhone,
-    required TResult Function(_InputOTP value) inputOTP,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InputPhone value)? inputPhone,
-    TResult? Function(_InputOTP value)? inputOTP,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InputPhone value)? inputPhone,
-    TResult Function(_InputOTP value)? inputOTP,
-    required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SigninWithPhoneState);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'SigninWithPhoneState()';
+}
+
+
 }
 
 /// @nodoc
-abstract class $SigninWithPhoneStateCopyWith<$Res> {
-  factory $SigninWithPhoneStateCopyWith(
-    SigninWithPhoneState value,
-    $Res Function(SigninWithPhoneState) then,
-  ) = _$SigninWithPhoneStateCopyWithImpl<$Res, SigninWithPhoneState>;
+class $SigninWithPhoneStateCopyWith<$Res>  {
+$SigninWithPhoneStateCopyWith(SigninWithPhoneState _, $Res Function(SigninWithPhoneState) __);
 }
 
-/// @nodoc
-class _$SigninWithPhoneStateCopyWithImpl<
-  $Res,
-  $Val extends SigninWithPhoneState
->
-    implements $SigninWithPhoneStateCopyWith<$Res> {
-  _$SigninWithPhoneStateCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+/// Adds pattern-matching-related methods to [SigninWithPhoneState].
+extension SigninWithPhoneStatePatterns on SigninWithPhoneState {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
 
-  /// Create a copy of SigninWithPhoneState
-  /// with the given fields replaced by the non-null parameter values.
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _InputPhone value)?  inputPhone,TResult Function( _InputOTP value)?  inputOTP,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _InputPhone() when inputPhone != null:
+return inputPhone(_that);case _InputOTP() when inputOTP != null:
+return inputOTP(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _InputPhone value)  inputPhone,required TResult Function( _InputOTP value)  inputOTP,}){
+final _that = this;
+switch (_that) {
+case _InputPhone():
+return inputPhone(_that);case _InputOTP():
+return inputOTP(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _InputPhone value)?  inputPhone,TResult? Function( _InputOTP value)?  inputOTP,}){
+final _that = this;
+switch (_that) {
+case _InputPhone() when inputPhone != null:
+return inputPhone(_that);case _InputOTP() when inputOTP != null:
+return inputOTP(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( InputPhoneState inputPhoneState)?  inputPhone,TResult Function( InputOtpState inputOtpState)?  inputOTP,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _InputPhone() when inputPhone != null:
+return inputPhone(_that.inputPhoneState);case _InputOTP() when inputOTP != null:
+return inputOTP(_that.inputOtpState);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( InputPhoneState inputPhoneState)  inputPhone,required TResult Function( InputOtpState inputOtpState)  inputOTP,}) {final _that = this;
+switch (_that) {
+case _InputPhone():
+return inputPhone(_that.inputPhoneState);case _InputOTP():
+return inputOTP(_that.inputOtpState);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( InputPhoneState inputPhoneState)?  inputPhone,TResult? Function( InputOtpState inputOtpState)?  inputOTP,}) {final _that = this;
+switch (_that) {
+case _InputPhone() when inputPhone != null:
+return inputPhone(_that.inputPhoneState);case _InputOTP() when inputOTP != null:
+return inputOTP(_that.inputOtpState);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-abstract class _$$InputPhoneImplCopyWith<$Res> {
-  factory _$$InputPhoneImplCopyWith(
-    _$InputPhoneImpl value,
-    $Res Function(_$InputPhoneImpl) then,
-  ) = __$$InputPhoneImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({InputPhoneState inputPhoneState});
-
-  $InputPhoneStateCopyWith<$Res> get inputPhoneState;
-}
-
-/// @nodoc
-class __$$InputPhoneImplCopyWithImpl<$Res>
-    extends _$SigninWithPhoneStateCopyWithImpl<$Res, _$InputPhoneImpl>
-    implements _$$InputPhoneImplCopyWith<$Res> {
-  __$$InputPhoneImplCopyWithImpl(
-    _$InputPhoneImpl _value,
-    $Res Function(_$InputPhoneImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of SigninWithPhoneState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? inputPhoneState = null}) {
-    return _then(
-      _$InputPhoneImpl(
-        null == inputPhoneState
-            ? _value.inputPhoneState
-            : inputPhoneState // ignore: cast_nullable_to_non_nullable
-                as InputPhoneState,
-      ),
-    );
-  }
-
-  /// Create a copy of SigninWithPhoneState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $InputPhoneStateCopyWith<$Res> get inputPhoneState {
-    return $InputPhoneStateCopyWith<$Res>(_value.inputPhoneState, (value) {
-      return _then(_value.copyWith(inputPhoneState: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$InputPhoneImpl implements _InputPhone {
-  const _$InputPhoneImpl(this.inputPhoneState);
-
-  @override
-  final InputPhoneState inputPhoneState;
-
-  @override
-  String toString() {
-    return 'SigninWithPhoneState.inputPhone(inputPhoneState: $inputPhoneState)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$InputPhoneImpl &&
-            (identical(other.inputPhoneState, inputPhoneState) ||
-                other.inputPhoneState == inputPhoneState));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, inputPhoneState);
-
-  /// Create a copy of SigninWithPhoneState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$InputPhoneImplCopyWith<_$InputPhoneImpl> get copyWith =>
-      __$$InputPhoneImplCopyWithImpl<_$InputPhoneImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(InputPhoneState inputPhoneState) inputPhone,
-    required TResult Function(InputOtpState inputOtpState) inputOTP,
-  }) {
-    return inputPhone(inputPhoneState);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(InputPhoneState inputPhoneState)? inputPhone,
-    TResult? Function(InputOtpState inputOtpState)? inputOTP,
-  }) {
-    return inputPhone?.call(inputPhoneState);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(InputPhoneState inputPhoneState)? inputPhone,
-    TResult Function(InputOtpState inputOtpState)? inputOTP,
-    required TResult orElse(),
-  }) {
-    if (inputPhone != null) {
-      return inputPhone(inputPhoneState);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_InputPhone value) inputPhone,
-    required TResult Function(_InputOTP value) inputOTP,
-  }) {
-    return inputPhone(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InputPhone value)? inputPhone,
-    TResult? Function(_InputOTP value)? inputOTP,
-  }) {
-    return inputPhone?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InputPhone value)? inputPhone,
-    TResult Function(_InputOTP value)? inputOTP,
-    required TResult orElse(),
-  }) {
-    if (inputPhone != null) {
-      return inputPhone(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _InputPhone implements SigninWithPhoneState {
-  const factory _InputPhone(final InputPhoneState inputPhoneState) =
-      _$InputPhoneImpl;
-
-  InputPhoneState get inputPhoneState;
-
-  /// Create a copy of SigninWithPhoneState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$InputPhoneImplCopyWith<_$InputPhoneImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$InputOTPImplCopyWith<$Res> {
-  factory _$$InputOTPImplCopyWith(
-    _$InputOTPImpl value,
-    $Res Function(_$InputOTPImpl) then,
-  ) = __$$InputOTPImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({InputOtpState inputOtpState});
-
-  $InputOtpStateCopyWith<$Res> get inputOtpState;
-}
-
-/// @nodoc
-class __$$InputOTPImplCopyWithImpl<$Res>
-    extends _$SigninWithPhoneStateCopyWithImpl<$Res, _$InputOTPImpl>
-    implements _$$InputOTPImplCopyWith<$Res> {
-  __$$InputOTPImplCopyWithImpl(
-    _$InputOTPImpl _value,
-    $Res Function(_$InputOTPImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of SigninWithPhoneState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? inputOtpState = null}) {
-    return _then(
-      _$InputOTPImpl(
-        null == inputOtpState
-            ? _value.inputOtpState
-            : inputOtpState // ignore: cast_nullable_to_non_nullable
-                as InputOtpState,
-      ),
-    );
-  }
-
-  /// Create a copy of SigninWithPhoneState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $InputOtpStateCopyWith<$Res> get inputOtpState {
-    return $InputOtpStateCopyWith<$Res>(_value.inputOtpState, (value) {
-      return _then(_value.copyWith(inputOtpState: value));
-    });
-  }
 }
 
 /// @nodoc
 
-class _$InputOTPImpl implements _InputOTP {
-  const _$InputOTPImpl(this.inputOtpState);
 
-  @override
-  final InputOtpState inputOtpState;
+class _InputPhone implements SigninWithPhoneState {
+  const _InputPhone(this.inputPhoneState);
+  
 
-  @override
-  String toString() {
-    return 'SigninWithPhoneState.inputOTP(inputOtpState: $inputOtpState)';
-  }
+ final  InputPhoneState inputPhoneState;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$InputOTPImpl &&
-            (identical(other.inputOtpState, inputOtpState) ||
-                other.inputOtpState == inputOtpState));
-  }
+/// Create a copy of SigninWithPhoneState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$InputPhoneCopyWith<_InputPhone> get copyWith => __$InputPhoneCopyWithImpl<_InputPhone>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, inputOtpState);
 
-  /// Create a copy of SigninWithPhoneState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$InputOTPImplCopyWith<_$InputOTPImpl> get copyWith =>
-      __$$InputOTPImplCopyWithImpl<_$InputOTPImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(InputPhoneState inputPhoneState) inputPhone,
-    required TResult Function(InputOtpState inputOtpState) inputOTP,
-  }) {
-    return inputOTP(inputOtpState);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(InputPhoneState inputPhoneState)? inputPhone,
-    TResult? Function(InputOtpState inputOtpState)? inputOTP,
-  }) {
-    return inputOTP?.call(inputOtpState);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(InputPhoneState inputPhoneState)? inputPhone,
-    TResult Function(InputOtpState inputOtpState)? inputOTP,
-    required TResult orElse(),
-  }) {
-    if (inputOTP != null) {
-      return inputOTP(inputOtpState);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_InputPhone value) inputPhone,
-    required TResult Function(_InputOTP value) inputOTP,
-  }) {
-    return inputOTP(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InputPhone value)? inputPhone,
-    TResult? Function(_InputOTP value)? inputOTP,
-  }) {
-    return inputOTP?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InputPhone value)? inputPhone,
-    TResult Function(_InputOTP value)? inputOTP,
-    required TResult orElse(),
-  }) {
-    if (inputOTP != null) {
-      return inputOTP(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _InputPhone&&(identical(other.inputPhoneState, inputPhoneState) || other.inputPhoneState == inputPhoneState));
 }
 
-abstract class _InputOTP implements SigninWithPhoneState {
-  const factory _InputOTP(final InputOtpState inputOtpState) = _$InputOTPImpl;
 
-  InputOtpState get inputOtpState;
+@override
+int get hashCode => Object.hash(runtimeType,inputPhoneState);
 
-  /// Create a copy of SigninWithPhoneState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$InputOTPImplCopyWith<_$InputOTPImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'SigninWithPhoneState.inputPhone(inputPhoneState: $inputPhoneState)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$InputPhoneCopyWith<$Res> implements $SigninWithPhoneStateCopyWith<$Res> {
+  factory _$InputPhoneCopyWith(_InputPhone value, $Res Function(_InputPhone) _then) = __$InputPhoneCopyWithImpl;
+@useResult
+$Res call({
+ InputPhoneState inputPhoneState
+});
+
+
+$InputPhoneStateCopyWith<$Res> get inputPhoneState;
+
+}
+/// @nodoc
+class __$InputPhoneCopyWithImpl<$Res>
+    implements _$InputPhoneCopyWith<$Res> {
+  __$InputPhoneCopyWithImpl(this._self, this._then);
+
+  final _InputPhone _self;
+  final $Res Function(_InputPhone) _then;
+
+/// Create a copy of SigninWithPhoneState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? inputPhoneState = null,}) {
+  return _then(_InputPhone(
+null == inputPhoneState ? _self.inputPhoneState : inputPhoneState // ignore: cast_nullable_to_non_nullable
+as InputPhoneState,
+  ));
+}
+
+/// Create a copy of SigninWithPhoneState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$InputPhoneStateCopyWith<$Res> get inputPhoneState {
+  
+  return $InputPhoneStateCopyWith<$Res>(_self.inputPhoneState, (value) {
+    return _then(_self.copyWith(inputPhoneState: value));
+  });
+}
+}
+
+/// @nodoc
+
+
+class _InputOTP implements SigninWithPhoneState {
+  const _InputOTP(this.inputOtpState);
+  
+
+ final  InputOtpState inputOtpState;
+
+/// Create a copy of SigninWithPhoneState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$InputOTPCopyWith<_InputOTP> get copyWith => __$InputOTPCopyWithImpl<_InputOTP>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _InputOTP&&(identical(other.inputOtpState, inputOtpState) || other.inputOtpState == inputOtpState));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,inputOtpState);
+
+@override
+String toString() {
+  return 'SigninWithPhoneState.inputOTP(inputOtpState: $inputOtpState)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$InputOTPCopyWith<$Res> implements $SigninWithPhoneStateCopyWith<$Res> {
+  factory _$InputOTPCopyWith(_InputOTP value, $Res Function(_InputOTP) _then) = __$InputOTPCopyWithImpl;
+@useResult
+$Res call({
+ InputOtpState inputOtpState
+});
+
+
+$InputOtpStateCopyWith<$Res> get inputOtpState;
+
+}
+/// @nodoc
+class __$InputOTPCopyWithImpl<$Res>
+    implements _$InputOTPCopyWith<$Res> {
+  __$InputOTPCopyWithImpl(this._self, this._then);
+
+  final _InputOTP _self;
+  final $Res Function(_InputOTP) _then;
+
+/// Create a copy of SigninWithPhoneState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? inputOtpState = null,}) {
+  return _then(_InputOTP(
+null == inputOtpState ? _self.inputOtpState : inputOtpState // ignore: cast_nullable_to_non_nullable
+as InputOtpState,
+  ));
+}
+
+/// Create a copy of SigninWithPhoneState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$InputOtpStateCopyWith<$Res> get inputOtpState {
+  
+  return $InputOtpStateCopyWith<$Res>(_self.inputOtpState, (value) {
+    return _then(_self.copyWith(inputOtpState: value));
+  });
+}
+}
+
+// dart format on

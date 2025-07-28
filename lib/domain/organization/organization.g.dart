@@ -6,8 +6,8 @@ part of 'organization.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$OrganizationImpl _$$OrganizationImplFromJson(Map<String, dynamic> json) =>
-    _$OrganizationImpl(
+_Organization _$OrganizationFromJson(Map<String, dynamic> json) =>
+    _Organization(
       id: json['id'] as String,
       name: json['name'] as String,
       phone: json['phone'] as String,
@@ -19,7 +19,7 @@ _$OrganizationImpl _$$OrganizationImplFromJson(Map<String, dynamic> json) =>
       createdAt: (json['createdAt'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$OrganizationImplToJson(_$OrganizationImpl instance) =>
+Map<String, dynamic> _$OrganizationToJson(_Organization instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

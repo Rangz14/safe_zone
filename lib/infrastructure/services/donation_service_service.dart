@@ -166,4 +166,23 @@ class DonationServiceService {
       return Stream.value(left(Failure(e.toString())));
     }
   }
+
+  Stream<Either<Failure, DonationService>> watchService(String id) {
+    try {
+      return _firestore
+          .collection(_donationServicesCollection)
+          .doc(id)
+          .snapshots()
+          .map<Either<Failure, DonationService>>((snapshot) {
+            if (!snapshot.exists) {
+              return left(Failure('Service not found'));
+            }
+            final service = DonationService.fromJson(snapshot.data()!);
+            return right(service);
+          })
+          .handleError((error) => left(Failure(error.toString())));
+    } catch (e) {
+      return Stream.value(left(Failure(e.toString())));
+    }
+  }
 }

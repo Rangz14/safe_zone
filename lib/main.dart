@@ -11,7 +11,7 @@ import 'presentation/app.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   configureDependencies();
-  getIt.registerSingleton<StakeHolder>(StakeHolder.admin);
+  getIt.registerSingleton<StakeHolder>(StakeHolder.organization);
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(
     BlocProvider(

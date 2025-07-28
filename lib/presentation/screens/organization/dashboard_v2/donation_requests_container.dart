@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:latlong2/latlong.dart';
-import 'package:safe_zone/presentation/screens/organization/dashboard_v2/donation_request.dart';
+import 'package:safe_zone/core/constants.dart';
+import 'package:safe_zone/core/mock_data/mock_donation_requests.dart';
+import 'package:safe_zone/core/mock_data/mock_donation_services.dart';
+import 'package:safe_zone/core/mock_data/mock_threat_categories.dart';
+import 'package:safe_zone/core/mock_data/mock_threats.dart';
+import 'package:safe_zone/core/mock_data/mock_users.dart';
+import 'package:safe_zone/domain/donation_request/donation_request.dart';
+import 'package:safe_zone/domain/service/service.dart';
+import 'package:safe_zone/domain/threat/threat.dart';
+import 'package:safe_zone/domain/threat/threat_category/threat_category.dart';
+import 'package:safe_zone/domain/user/user.dart';
+
+// Import the new RequestCard
 import 'package:safe_zone/presentation/screens/organization/dashboard_v2/request_card.dart';
 
 class DonationRequestsContainer extends StatefulWidget {
@@ -15,92 +26,25 @@ class _DonationRequestsContainerState extends State<DonationRequestsContainer>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
-  // --- DUMMY DATA ---
-  // In a real app, this would come from a database or API
-  final List<DonationRequest> _allRequests = [
-    // Pending
-    DonationRequest(
-      user: User(name: "Nimal Perera", avatarUrl: "assets/images/user1.png"),
-      locationAddress: "Galle Rd, Colombo",
-      coordinates: LatLng(6.9023, 79.8611),
-      serviceTitle: "Dry Rations",
-      serviceIcon: Icons.food_bank_outlined,
-      unitCount: 5,
-      threatCategory: "Economic Crisis",
-      threatIcon: Icons.trending_down,
-      createdAt: DateTime.now().subtract(const Duration(minutes: 15)),
-      state: DonationRequestState.pending,
-    ),
-    DonationRequest(
-      user: User(
-        name: "Sunil Jayasuriya",
-        avatarUrl: "assets/images/user2.png",
-      ),
-      locationAddress: "Kandy City Center",
-      coordinates: LatLng(7.2906, 80.6337),
-      serviceTitle: "School Supplies",
-      serviceIcon: Icons.school_outlined,
-      unitCount: 10,
-      threatCategory: "Flood",
-      threatIcon: Icons.water_drop_outlined,
-      createdAt: DateTime.now().subtract(const Duration(hours: 2)),
-      state: DonationRequestState.pending,
-    ),
-
-    // Accepted
-    DonationRequest(
-      user: User(name: "Fathima Rizwan", avatarUrl: "assets/images/user3.png"),
-      locationAddress: "Jaffna",
-      coordinates: LatLng(9.6615, 80.0255),
-      serviceTitle: "Medicine",
-      serviceIcon: Icons.medical_services_outlined,
-      unitCount: 3,
-      threatCategory: "Medical Emergency",
-      threatIcon: Icons.emergency_outlined,
-      createdAt: DateTime.now().subtract(const Duration(days: 1)),
-      state: DonationRequestState.accepted,
-    ),
-
-    // Fund Raised
-    DonationRequest(
-      user: User(name: "David Silva", avatarUrl: "assets/images/user4.png"),
-      locationAddress: "Negombo",
-      coordinates: LatLng(7.2008, 79.8737),
-      serviceTitle: "Kids Clothes",
-      serviceIcon: Icons.checkroom_outlined,
-      unitCount: 20,
-      threatCategory: "Displacement",
-      threatIcon: Icons.house_outlined,
-      createdAt: DateTime.now().subtract(const Duration(days: 3)),
-      state: DonationRequestState.fundRaised,
-    ),
-
-    // Donated
-    DonationRequest(
-      user: User(name: "Kamala Devi", avatarUrl: "assets/images/user5.png"),
-      locationAddress: "Matara",
-      coordinates: LatLng(5.9496, 80.5470),
-      serviceTitle: "Clean Water",
-      serviceIcon: Icons.water_damage,
-      unitCount: 50,
-      threatCategory: "Drought",
-      threatIcon: Icons.wb_sunny_outlined,
-      createdAt: DateTime.now().subtract(const Duration(days: 10)),
-      state: DonationRequestState.donated,
-    ),
-  ];
+  // Use the imported mock data list as the source of truth
+  final List<DonationRequest> _allRequests = mockDonationRequests;
 
   late final Map<DonationRequestState, List<DonationRequest>> _requestsByState;
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(
-      length: DonationRequestState.values.length,
-      vsync: this,
-    );
+    // Your enum might have more states than your mock data, so we filter them
+    final availableStates =
+        DonationRequestState.values
+            .where((s) => _allRequests.any((r) => r.state == s))
+            .toList();
+
+    _tabController = TabController(length: availableStates.length, vsync: this);
+
+    // Group requests by their state
     _requestsByState = {
-      for (var state in DonationRequestState.values)
+      for (var state in availableStates)
         state: _allRequests.where((req) => req.state == state).toList(),
     };
   }
@@ -113,16 +57,17 @@ class _DonationRequestsContainerState extends State<DonationRequestsContainer>
 
   @override
   Widget build(BuildContext context) {
+    final availableStates = _requestsByState.keys.toList();
+
     return Card(
-      // The Card provides a nice themed background and border
       child: Column(
         children: [
           // Tab Bar with Badges
           TabBar(
             controller: _tabController,
-            isScrollable: true, // Good for responsiveness on smaller screens
+            isScrollable: true,
             tabs:
-                DonationRequestState.values.map((state) {
+                availableStates.map((state) {
                   final count = _requestsByState[state]!.length;
                   return _buildTabWithBadge(state.value, count);
                 }).toList(),
@@ -133,7 +78,7 @@ class _DonationRequestsContainerState extends State<DonationRequestsContainer>
             child: TabBarView(
               controller: _tabController,
               children:
-                  DonationRequestState.values.map((state) {
+                  availableStates.map((state) {
                     final requests = _requestsByState[state]!;
                     if (requests.isEmpty) {
                       return Center(child: Text("No ${state.value} requests."));
@@ -142,7 +87,40 @@ class _DonationRequestsContainerState extends State<DonationRequestsContainer>
                       padding: const EdgeInsets.all(16.0),
                       itemCount: requests.length,
                       itemBuilder: (context, index) {
-                        return RequestCard(request: requests[index]);
+                        final request = requests[index];
+
+                        // --- Resolve IDs to get full data objects ---
+                        final user = _getUserById(request.userId);
+                        final service = _getServiceById(
+                          request.donationServiceId,
+                        );
+                        final threat = _getThreatById(request.threatId);
+                        final threatCategory = _getThreatCategoryById(
+                          threat!.categoryId,
+                        );
+
+                        // If any data is missing (shouldn't happen with good mock data), show an error
+                        if (user == null ||
+                            service == null ||
+                            threatCategory == null) {
+                          return const Card(
+                            color: Colors.redAccent,
+                            child: ListTile(
+                              title: Text(
+                                "Error: Incomplete mock data for this request.",
+                              ),
+                            ),
+                          );
+                        }
+
+                        // Pass the resolved data to the new RequestCard
+                        return RequestCard(
+                          request: request,
+                          user: user,
+                          service: service,
+                          threatCategory: threatCategory,
+                          town: threat.town,
+                        );
                       },
                     );
                   }).toList(),
@@ -153,7 +131,6 @@ class _DonationRequestsContainerState extends State<DonationRequestsContainer>
     );
   }
 
-  // Helper widget to build a tab with a notification-style badge
   Widget _buildTabWithBadge(String title, int count) {
     return Tab(
       child: Row(
@@ -178,5 +155,24 @@ class _DonationRequestsContainerState extends State<DonationRequestsContainer>
         ],
       ),
     );
+  }
+
+  // --- HELPER FUNCTIONS TO SIMULATE A REPOSITORY ---
+  // In a real app, these would be methods in your repository classes that fetch data from an API or local DB.
+
+  SafeZoneUser? _getUserById(String id) {
+    return mockUsers.firstWhere((user) => user.id == id);
+  }
+
+  DonationService? _getServiceById(String id) {
+    return mockDonationServices.firstWhere((service) => service.id == id);
+  }
+
+  SafeZoneThreat? _getThreatById(String id) {
+    return mockThreats.firstWhere((threat) => threat.id == id);
+  }
+
+  ThreatCategory? _getThreatCategoryById(String id) {
+    return mockThreatCategories.firstWhere((cat) => cat.id == id);
   }
 }

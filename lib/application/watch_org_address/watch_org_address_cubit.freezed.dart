@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,496 +9,351 @@ part of 'watch_org_address_cubit.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
 /// @nodoc
 mixin _$WatchOrgAddressState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loading,
-    required TResult Function(OrganizationAddress address) watching,
-    required TResult Function(String message) failed,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loading,
-    TResult? Function(OrganizationAddress address)? watching,
-    TResult? Function(String message)? failed,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(OrganizationAddress address)? watching,
-    TResult Function(String message)? failed,
-    required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Watching value) watching,
-    required TResult Function(_Failed value) failed,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Watching value)? watching,
-    TResult? Function(_Failed value)? failed,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Watching value)? watching,
-    TResult Function(_Failed value)? failed,
-    required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WatchOrgAddressState);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'WatchOrgAddressState()';
+}
+
+
 }
 
 /// @nodoc
-abstract class $WatchOrgAddressStateCopyWith<$Res> {
-  factory $WatchOrgAddressStateCopyWith(
-    WatchOrgAddressState value,
-    $Res Function(WatchOrgAddressState) then,
-  ) = _$WatchOrgAddressStateCopyWithImpl<$Res, WatchOrgAddressState>;
+class $WatchOrgAddressStateCopyWith<$Res>  {
+$WatchOrgAddressStateCopyWith(WatchOrgAddressState _, $Res Function(WatchOrgAddressState) __);
 }
 
-/// @nodoc
-class _$WatchOrgAddressStateCopyWithImpl<
-  $Res,
-  $Val extends WatchOrgAddressState
->
-    implements $WatchOrgAddressStateCopyWith<$Res> {
-  _$WatchOrgAddressStateCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+/// Adds pattern-matching-related methods to [WatchOrgAddressState].
+extension WatchOrgAddressStatePatterns on WatchOrgAddressState {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
 
-  /// Create a copy of WatchOrgAddressState
-  /// with the given fields replaced by the non-null parameter values.
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Loading value)?  loading,TResult Function( _Watching value)?  watching,TResult Function( _Failed value)?  failed,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _Loading() when loading != null:
+return loading(_that);case _Watching() when watching != null:
+return watching(_that);case _Failed() when failed != null:
+return failed(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Loading value)  loading,required TResult Function( _Watching value)  watching,required TResult Function( _Failed value)  failed,}){
+final _that = this;
+switch (_that) {
+case _Loading():
+return loading(_that);case _Watching():
+return watching(_that);case _Failed():
+return failed(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Loading value)?  loading,TResult? Function( _Watching value)?  watching,TResult? Function( _Failed value)?  failed,}){
+final _that = this;
+switch (_that) {
+case _Loading() when loading != null:
+return loading(_that);case _Watching() when watching != null:
+return watching(_that);case _Failed() when failed != null:
+return failed(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  loading,TResult Function( OrganizationAddress address)?  watching,TResult Function( String message)?  failed,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _Loading() when loading != null:
+return loading();case _Watching() when watching != null:
+return watching(_that.address);case _Failed() when failed != null:
+return failed(_that.message);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  loading,required TResult Function( OrganizationAddress address)  watching,required TResult Function( String message)  failed,}) {final _that = this;
+switch (_that) {
+case _Loading():
+return loading();case _Watching():
+return watching(_that.address);case _Failed():
+return failed(_that.message);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  loading,TResult? Function( OrganizationAddress address)?  watching,TResult? Function( String message)?  failed,}) {final _that = this;
+switch (_that) {
+case _Loading() when loading != null:
+return loading();case _Watching() when watching != null:
+return watching(_that.address);case _Failed() when failed != null:
+return failed(_that.message);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-abstract class _$$LoadingImplCopyWith<$Res> {
-  factory _$$LoadingImplCopyWith(
-    _$LoadingImpl value,
-    $Res Function(_$LoadingImpl) then,
-  ) = __$$LoadingImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$WatchOrgAddressStateCopyWithImpl<$Res, _$LoadingImpl>
-    implements _$$LoadingImplCopyWith<$Res> {
-  __$$LoadingImplCopyWithImpl(
-    _$LoadingImpl _value,
-    $Res Function(_$LoadingImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of WatchOrgAddressState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$LoadingImpl implements _Loading {
-  const _$LoadingImpl();
-
-  @override
-  String toString() {
-    return 'WatchOrgAddressState.loading()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loading,
-    required TResult Function(OrganizationAddress address) watching,
-    required TResult Function(String message) failed,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loading,
-    TResult? Function(OrganizationAddress address)? watching,
-    TResult? Function(String message)? failed,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(OrganizationAddress address)? watching,
-    TResult Function(String message)? failed,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Watching value) watching,
-    required TResult Function(_Failed value) failed,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Watching value)? watching,
-    TResult? Function(_Failed value)? failed,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Watching value)? watching,
-    TResult Function(_Failed value)? failed,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Loading implements WatchOrgAddressState {
-  const factory _Loading() = _$LoadingImpl;
-}
-
-/// @nodoc
-abstract class _$$WatchingImplCopyWith<$Res> {
-  factory _$$WatchingImplCopyWith(
-    _$WatchingImpl value,
-    $Res Function(_$WatchingImpl) then,
-  ) = __$$WatchingImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({OrganizationAddress address});
-
-  $OrganizationAddressCopyWith<$Res> get address;
-}
-
-/// @nodoc
-class __$$WatchingImplCopyWithImpl<$Res>
-    extends _$WatchOrgAddressStateCopyWithImpl<$Res, _$WatchingImpl>
-    implements _$$WatchingImplCopyWith<$Res> {
-  __$$WatchingImplCopyWithImpl(
-    _$WatchingImpl _value,
-    $Res Function(_$WatchingImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of WatchOrgAddressState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? address = null}) {
-    return _then(
-      _$WatchingImpl(
-        null == address
-            ? _value.address
-            : address // ignore: cast_nullable_to_non_nullable
-                as OrganizationAddress,
-      ),
-    );
-  }
-
-  /// Create a copy of WatchOrgAddressState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $OrganizationAddressCopyWith<$Res> get address {
-    return $OrganizationAddressCopyWith<$Res>(_value.address, (value) {
-      return _then(_value.copyWith(address: value));
-    });
-  }
 }
 
 /// @nodoc
 
-class _$WatchingImpl implements _Watching {
-  const _$WatchingImpl(this.address);
 
-  @override
-  final OrganizationAddress address;
+class _Loading implements WatchOrgAddressState {
+  const _Loading();
+  
 
-  @override
-  String toString() {
-    return 'WatchOrgAddressState.watching(address: $address)';
-  }
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$WatchingImpl &&
-            (identical(other.address, address) || other.address == address));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, address);
 
-  /// Create a copy of WatchOrgAddressState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$WatchingImplCopyWith<_$WatchingImpl> get copyWith =>
-      __$$WatchingImplCopyWithImpl<_$WatchingImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loading,
-    required TResult Function(OrganizationAddress address) watching,
-    required TResult Function(String message) failed,
-  }) {
-    return watching(address);
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loading,
-    TResult? Function(OrganizationAddress address)? watching,
-    TResult? Function(String message)? failed,
-  }) {
-    return watching?.call(address);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(OrganizationAddress address)? watching,
-    TResult Function(String message)? failed,
-    required TResult orElse(),
-  }) {
-    if (watching != null) {
-      return watching(address);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Watching value) watching,
-    required TResult Function(_Failed value) failed,
-  }) {
-    return watching(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Watching value)? watching,
-    TResult? Function(_Failed value)? failed,
-  }) {
-    return watching?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Watching value)? watching,
-    TResult Function(_Failed value)? failed,
-    required TResult orElse(),
-  }) {
-    if (watching != null) {
-      return watching(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Loading);
 }
 
-abstract class _Watching implements WatchOrgAddressState {
-  const factory _Watching(final OrganizationAddress address) = _$WatchingImpl;
 
-  OrganizationAddress get address;
+@override
+int get hashCode => runtimeType.hashCode;
 
-  /// Create a copy of WatchOrgAddressState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$WatchingImplCopyWith<_$WatchingImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'WatchOrgAddressState.loading()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _Watching implements WatchOrgAddressState {
+  const _Watching(this.address);
+  
+
+ final  OrganizationAddress address;
+
+/// Create a copy of WatchOrgAddressState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$WatchingCopyWith<_Watching> get copyWith => __$WatchingCopyWithImpl<_Watching>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Watching&&(identical(other.address, address) || other.address == address));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,address);
+
+@override
+String toString() {
+  return 'WatchOrgAddressState.watching(address: $address)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$FailedImplCopyWith<$Res> {
-  factory _$$FailedImplCopyWith(
-    _$FailedImpl value,
-    $Res Function(_$FailedImpl) then,
-  ) = __$$FailedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String message});
+abstract mixin class _$WatchingCopyWith<$Res> implements $WatchOrgAddressStateCopyWith<$Res> {
+  factory _$WatchingCopyWith(_Watching value, $Res Function(_Watching) _then) = __$WatchingCopyWithImpl;
+@useResult
+$Res call({
+ OrganizationAddress address
+});
+
+
+$OrganizationAddressCopyWith<$Res> get address;
+
+}
+/// @nodoc
+class __$WatchingCopyWithImpl<$Res>
+    implements _$WatchingCopyWith<$Res> {
+  __$WatchingCopyWithImpl(this._self, this._then);
+
+  final _Watching _self;
+  final $Res Function(_Watching) _then;
+
+/// Create a copy of WatchOrgAddressState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? address = null,}) {
+  return _then(_Watching(
+null == address ? _self.address : address // ignore: cast_nullable_to_non_nullable
+as OrganizationAddress,
+  ));
 }
 
-/// @nodoc
-class __$$FailedImplCopyWithImpl<$Res>
-    extends _$WatchOrgAddressStateCopyWithImpl<$Res, _$FailedImpl>
-    implements _$$FailedImplCopyWith<$Res> {
-  __$$FailedImplCopyWithImpl(
-    _$FailedImpl _value,
-    $Res Function(_$FailedImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of WatchOrgAddressState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? message = null}) {
-    return _then(
-      _$FailedImpl(
-        null == message
-            ? _value.message
-            : message // ignore: cast_nullable_to_non_nullable
-                as String,
-      ),
-    );
-  }
+/// Create a copy of WatchOrgAddressState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$OrganizationAddressCopyWith<$Res> get address {
+  
+  return $OrganizationAddressCopyWith<$Res>(_self.address, (value) {
+    return _then(_self.copyWith(address: value));
+  });
+}
 }
 
 /// @nodoc
 
-class _$FailedImpl implements _Failed {
-  const _$FailedImpl(this.message);
 
-  @override
-  final String message;
+class _Failed implements WatchOrgAddressState {
+  const _Failed(this.message);
+  
 
-  @override
-  String toString() {
-    return 'WatchOrgAddressState.failed(message: $message)';
-  }
+ final  String message;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FailedImpl &&
-            (identical(other.message, message) || other.message == message));
-  }
+/// Create a copy of WatchOrgAddressState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$FailedCopyWith<_Failed> get copyWith => __$FailedCopyWithImpl<_Failed>(this, _$identity);
 
-  @override
-  int get hashCode => Object.hash(runtimeType, message);
 
-  /// Create a copy of WatchOrgAddressState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FailedImplCopyWith<_$FailedImpl> get copyWith =>
-      __$$FailedImplCopyWithImpl<_$FailedImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loading,
-    required TResult Function(OrganizationAddress address) watching,
-    required TResult Function(String message) failed,
-  }) {
-    return failed(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loading,
-    TResult? Function(OrganizationAddress address)? watching,
-    TResult? Function(String message)? failed,
-  }) {
-    return failed?.call(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(OrganizationAddress address)? watching,
-    TResult Function(String message)? failed,
-    required TResult orElse(),
-  }) {
-    if (failed != null) {
-      return failed(message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Watching value) watching,
-    required TResult Function(_Failed value) failed,
-  }) {
-    return failed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Watching value)? watching,
-    TResult? Function(_Failed value)? failed,
-  }) {
-    return failed?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Watching value)? watching,
-    TResult Function(_Failed value)? failed,
-    required TResult orElse(),
-  }) {
-    if (failed != null) {
-      return failed(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Failed&&(identical(other.message, message) || other.message == message));
 }
 
-abstract class _Failed implements WatchOrgAddressState {
-  const factory _Failed(final String message) = _$FailedImpl;
 
-  String get message;
+@override
+int get hashCode => Object.hash(runtimeType,message);
 
-  /// Create a copy of WatchOrgAddressState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FailedImplCopyWith<_$FailedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'WatchOrgAddressState.failed(message: $message)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$FailedCopyWith<$Res> implements $WatchOrgAddressStateCopyWith<$Res> {
+  factory _$FailedCopyWith(_Failed value, $Res Function(_Failed) _then) = __$FailedCopyWithImpl;
+@useResult
+$Res call({
+ String message
+});
+
+
+
+
+}
+/// @nodoc
+class __$FailedCopyWithImpl<$Res>
+    implements _$FailedCopyWith<$Res> {
+  __$FailedCopyWithImpl(this._self, this._then);
+
+  final _Failed _self;
+  final $Res Function(_Failed) _then;
+
+/// Create a copy of WatchOrgAddressState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
+  return _then(_Failed(
+null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

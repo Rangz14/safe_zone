@@ -6,9 +6,9 @@ part of 'bank_details.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$OrganizationBankDetailsImpl _$$OrganizationBankDetailsImplFromJson(
+_OrganizationBankDetails _$OrganizationBankDetailsFromJson(
   Map<String, dynamic> json,
-) => _$OrganizationBankDetailsImpl(
+) => _OrganizationBankDetails(
   organizationId: json['organizationId'] as String,
   bankName: json['bankName'] as String,
   bankBranch: json['bankBranch'] as String,
@@ -17,8 +17,8 @@ _$OrganizationBankDetailsImpl _$$OrganizationBankDetailsImplFromJson(
   createdAt: (json['createdAt'] as num).toInt(),
 );
 
-Map<String, dynamic> _$$OrganizationBankDetailsImplToJson(
-  _$OrganizationBankDetailsImpl instance,
+Map<String, dynamic> _$OrganizationBankDetailsToJson(
+  _OrganizationBankDetails instance,
 ) => <String, dynamic>{
   'organizationId': instance.organizationId,
   'bankName': instance.bankName,

@@ -56,4 +56,6 @@ abstract class IOrganizationRepo {
 
   // Stats
   Stream<Either<Failure, int>> watchTotalOrgs();
+
+  Stream<Either<Failure, Organization>> watchOrg(String id);
 }

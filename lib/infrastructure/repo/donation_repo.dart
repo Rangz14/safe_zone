@@ -11,11 +11,6 @@ class DonationRepo implements IDonationRepo {
   final DonationService _donationService;
 
   DonationRepo(this._donationService);
-  @override
-  Future<Either<Failure, Donation>> create() {
-    // TODO: implement create
-    throw UnimplementedError();
-  }
 
   @override
   Future<Either<Failure, List<Donation>>> getForCurrentOrg() {
@@ -47,4 +42,26 @@ class DonationRepo implements IDonationRepo {
       right<Failure, int>(0), // Replace with actual implementation
     );
   }
+
+  @override
+  Future<Either<Failure, Donation>> create(Donation donation) {
+    // TODO: implement create
+    throw UnimplementedError();
+  }
+
+  @override
+  Stream<Either<Failure, List<Donation>>> watchByCurrentOrg() {
+    // TODO: implement watchByCurrentOrg
+    throw UnimplementedError();
+  }
+
+  @override
+  Stream<Either<Failure, List<Donation>>> watchByCurrentUser() {
+    // TODO: implement watchByCurrentUser
+    throw UnimplementedError();
+  }
+
+  @override
+  Stream<Either<Failure, Donation>> watch(String id) =>
+      _donationService.watch(id);
 }

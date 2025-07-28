@@ -11,7 +11,7 @@ abstract class IThreatRepo {
   Stream<Either<Failure, ThreatCategory>> watchCategory(String categoryId);
 
   // User
-  Stream<Either<Failure, List<SafeZoneThreat>>> watchThreatsByCurrentUserTown();
+  Stream<Either<Failure, List<SafeZoneThreat>>> watchByCurrentUser();
 
   // Admin
   // ThreatCategory
@@ -25,4 +25,6 @@ abstract class IThreatRepo {
   Future<Either<Failure, Unit>> end(SafeZoneThreat threat);
 
   Stream<Either<Failure, int>> watchTotalCategories();
+
+  Stream<Either<Failure, SafeZoneThreat>> watchThreat(String id);
 }

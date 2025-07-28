@@ -6,8 +6,8 @@ part of 'threat_category.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ThreatCategoryImpl _$$ThreatCategoryImplFromJson(Map<String, dynamic> json) =>
-    _$ThreatCategoryImpl(
+_ThreatCategory _$ThreatCategoryFromJson(Map<String, dynamic> json) =>
+    _ThreatCategory(
       id: json['id'] as String,
       name: json['name'] as String,
       description: json['description'] as String,
@@ -15,12 +15,11 @@ _$ThreatCategoryImpl _$$ThreatCategoryImplFromJson(Map<String, dynamic> json) =>
       createdAt: (json['createdAt'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$ThreatCategoryImplToJson(
-  _$ThreatCategoryImpl instance,
-) => <String, dynamic>{
-  'id': instance.id,
-  'name': instance.name,
-  'description': instance.description,
-  'icon': instance.icon,
-  'createdAt': instance.createdAt,
-};
+Map<String, dynamic> _$ThreatCategoryToJson(_ThreatCategory instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'description': instance.description,
+      'icon': instance.icon,
+      'createdAt': instance.createdAt,
+    };

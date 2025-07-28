@@ -2,22 +2,41 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:safe_zone/presentation/screens/organization/dashboard_v2/donation_request.dart';
+import 'package:safe_zone/core/constants.dart';
+import 'package:safe_zone/domain/donation_request/donation_request.dart';
+import 'package:safe_zone/domain/service/service.dart';
+import 'package:safe_zone/domain/threat/threat_category/threat_category.dart';
+import 'package:safe_zone/domain/town/town.dart';
+import 'package:safe_zone/domain/user/user.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class RequestCard extends StatelessWidget {
+  // The constructor now takes all the necessary data models.
+  // This makes the widget self-contained and easy to test.
   final DonationRequest request;
+  final SafeZoneUser user;
+  final DonationService service;
+  final ThreatCategory threatCategory;
+  final Town town;
 
-  const RequestCard({super.key, required this.request});
+  const RequestCard({
+    super.key,
+    required this.request,
+    required this.user,
+    required this.service,
+    required this.threatCategory,
+    required this.town,
+  });
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final timeAgo = timeago.format(request.createdAt);
+    final timeAgo = timeago.format(
+      DateTime.fromMillisecondsSinceEpoch(request.createdAt),
+    );
+    final coordinates = LatLng(request.latitude, request.longitude);
 
     return Card(
-      // Use a slightly different background color from the main card
-      // to make it stand out, but still theme-aware.
       color: Colors.white.withAlpha(25),
       margin: const EdgeInsets.only(bottom: 16.0),
       child: Padding(
@@ -29,12 +48,16 @@ class RequestCard extends StatelessWidget {
             Row(
               children: [
                 CircleAvatar(
-                  backgroundImage: AssetImage(request.user.avatarUrl),
-                  onBackgroundImageError:
-                      (_, __) {}, // Handle image errors gracefully
+                  backgroundImage: AssetImage(
+                    user.image,
+                  ), // Use user model for image
+                  onBackgroundImageError: (_, __) {},
                 ),
                 const SizedBox(width: 12),
-                Text(request.user.name, style: theme.textTheme.titleMedium),
+                Text(
+                  user.name,
+                  style: theme.textTheme.titleMedium,
+                ), // Use user model for name
                 const Spacer(),
                 Text(timeAgo, style: theme.textTheme.bodySmall),
               ],
@@ -44,20 +67,26 @@ class RequestCard extends StatelessWidget {
             // Info Rows
             _buildInfoRow(
               theme,
-              icon: Icons.location_on_outlined,
-              title: request.locationAddress,
+              icon: const Icon(
+                Icons.location_on_outlined,
+                size: 18,
+              ), // Keep location icon
+              title: town.town, // Use town model for location name
               isLocation: true,
-              context: context,
+              onTap: () => _showMapDialog(context, coordinates, town.town),
             ),
             _buildInfoRow(
               theme,
-              icon: request.serviceIcon,
-              title: "${request.serviceTitle} (x${request.unitCount})",
+              // Use Image.asset for the service icon from the data model
+              icon: Image.asset(service.icon, width: 18, height: 18),
+              title:
+                  "${service.title} (x${request.units})", // Use service and request models
             ),
             _buildInfoRow(
               theme,
-              icon: request.threatIcon,
-              title: request.threatCategory,
+              // Use Image.asset for the threat icon from the data model
+              icon: Image.asset(threatCategory.icon, width: 18, height: 18),
+              title: threatCategory.name, // Use threat category model
             ),
 
             // Action Button
@@ -74,31 +103,30 @@ class RequestCard extends StatelessWidget {
     );
   }
 
-  // Helper for info rows to avoid repetition
+  // Helper for info rows, now accepts a Widget for the icon for more flexibility
   Widget _buildInfoRow(
     ThemeData theme, {
-    required IconData icon,
+    required Widget icon,
     required String title,
     bool isLocation = false,
-    BuildContext? context,
+    VoidCallback? onTap,
   }) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4.0),
       child: InkWell(
-        onTap:
-            isLocation
-                ? () => _showMapDialog(
-                  context!,
-                  request.coordinates,
-                  request.locationAddress,
-                )
-                : null,
+        onTap: onTap,
         borderRadius: BorderRadius.circular(4),
         child: Padding(
           padding: const EdgeInsets.all(4.0),
           child: Row(
             children: [
-              Icon(icon, size: 18, color: theme.colorScheme.primary),
+              // The icon parameter is now a Widget, so it can be an Icon or an Image
+              Theme(
+                data: theme.copyWith(
+                  iconTheme: IconThemeData(color: theme.colorScheme.primary),
+                ),
+                child: icon,
+              ),
               const SizedBox(width: 12),
               Expanded(child: Text(title, style: theme.textTheme.bodyMedium)),
               if (isLocation)
@@ -116,6 +144,7 @@ class RequestCard extends StatelessWidget {
 
   // Builds the correct action button based on the request state
   Widget _buildActionButton(BuildContext context) {
+    // This logic remains the same, just uses the correct enum
     switch (request.state) {
       case DonationRequestState.pending:
         return FilledButton.icon(
@@ -150,7 +179,7 @@ class RequestCard extends StatelessWidget {
     }
   }
 
-  // The Map Dialog
+  // The Map Dialog - no changes needed here, it's already perfect
   void _showMapDialog(
     BuildContext context,
     LatLng coordinates,
@@ -162,7 +191,7 @@ class RequestCard extends StatelessWidget {
           (context) => AlertDialog(
             title: const Text("Location"),
             content: SizedBox(
-              width: 400, // Fixed size for dialog
+              width: 400,
               height: 300,
               child: FlutterMap(
                 options: MapOptions(
@@ -183,7 +212,7 @@ class RequestCard extends StatelessWidget {
                         point: coordinates,
                         child: Icon(
                           Icons.location_on,
-                          color: Theme.of(context).colorScheme.primary,
+                          color: Colors.red,
                           size: 40.0,
                         ),
                       ),

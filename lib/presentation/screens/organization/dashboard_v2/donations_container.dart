@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:safe_zone/presentation/screens/organization/dashboard_v2/donation.dart';
+import 'package:safe_zone/core/constants.dart';
+import 'package:safe_zone/core/mock_data/mock_donation_services.dart';
+import 'package:safe_zone/core/mock_data/mock_donations.dart';
+import 'package:safe_zone/core/mock_data/mock_users.dart';
+import 'package:safe_zone/domain/donation/donation.dart';
+import 'package:safe_zone/domain/service/service.dart';
+import 'package:safe_zone/domain/user/user.dart';
+
+// Import the new DonationCard
 import 'package:safe_zone/presentation/screens/organization/dashboard_v2/donation_card.dart';
-import 'package:safe_zone/presentation/screens/organization/dashboard_v2/donation_request.dart';
 
 class DonationsContainer extends StatefulWidget {
   const DonationsContainer({super.key});
@@ -14,46 +21,8 @@ class _DonationsContainerState extends State<DonationsContainer>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
-  // --- DUMMY DATA ---
-  final List<Donation> _allDonations = [
-    // Pending
-    Donation(
-      user: User(name: "John Doe", avatarUrl: "assets/images/user6.png"),
-      serviceTitle: "Dry Rations",
-      serviceIcon: Icons.food_bank_outlined,
-      unitCount: 10,
-      payslipUrl: "assets/images/payslip.png",
-      state: DonationState.pending,
-    ),
-    Donation(
-      user: User(name: "Jane Smith", avatarUrl: "assets/images/user7.png"),
-      serviceTitle: "Medicine",
-      serviceIcon: Icons.medical_services_outlined,
-      unitCount: 5,
-      payslipUrl: "assets/images/payslip.png",
-      state: DonationState.pending,
-    ),
-
-    // Accepted
-    Donation(
-      user: User(name: "Alex Johnson", avatarUrl: "assets/images/user8.png"),
-      serviceTitle: "School Supplies",
-      serviceIcon: Icons.school_outlined,
-      unitCount: 25,
-      payslipUrl: "assets/images/payslip.png",
-      state: DonationState.accepted,
-    ),
-
-    // Declined
-    Donation(
-      user: User(name: "Emily White", avatarUrl: "assets/images/user9.png"),
-      serviceTitle: "Clean Water",
-      serviceIcon: Icons.water_damage,
-      unitCount: 100,
-      payslipUrl: "assets/images/payslip.png",
-      state: DonationState.declined,
-    ),
-  ];
+  // Use the imported mock data list
+  final List<Donation> _allDonations = mockDonations;
 
   late final Map<DonationState, List<Donation>> _donationsByState;
 
@@ -64,6 +33,7 @@ class _DonationsContainerState extends State<DonationsContainer>
       length: DonationState.values.length,
       vsync: this,
     );
+    // Group donations by their state
     _donationsByState = {
       for (var state in DonationState.values)
         state: _allDonations.where((d) => d.state == state).toList(),
@@ -108,7 +78,30 @@ class _DonationsContainerState extends State<DonationsContainer>
                       padding: const EdgeInsets.all(16.0),
                       itemCount: donations.length,
                       itemBuilder: (context, index) {
-                        return DonationCard(donation: donations[index]);
+                        final donation = donations[index];
+
+                        // --- Resolve IDs to get full data objects ---
+                        final user = _getUserById(donation.userId);
+                        final service = _getServiceById(
+                          donation.donationServiceId,
+                        );
+
+                        // A safety check for your mock data
+                        if (user == null || service == null) {
+                          return const Card(
+                            color: Colors.redAccent,
+                            child: ListTile(
+                              title: Text("Error: Incomplete mock data."),
+                            ),
+                          );
+                        }
+
+                        // Pass the resolved data to the new DonationCard
+                        return DonationCard(
+                          donation: donation,
+                          user: user,
+                          service: service,
+                        );
                       },
                     );
                   }).toList(),
@@ -142,5 +135,15 @@ class _DonationsContainerState extends State<DonationsContainer>
         ],
       ),
     );
+  }
+
+  // --- HELPER FUNCTIONS TO SIMULATE A REPOSITORY ---
+
+  SafeZoneUser? _getUserById(String id) {
+    return mockUsers.firstWhere((user) => user.id == id);
+  }
+
+  DonationService? _getServiceById(String id) {
+    return mockDonationServices.firstWhere((service) => service.id == id);
   }
 }

@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:safe_zone/domain/town/i_town_repo.dart';
 import 'package:safe_zone/domain/town/town.dart';
 import 'package:safe_zone/injection.dart';
+import 'package:timeago/timeago.dart' as timeago;
 part 'threat.freezed.dart';
 part 'threat.g.dart';
 
@@ -30,13 +31,9 @@ abstract class SafeZoneThreat with _$SafeZoneThreat {
 
   Town get town => getIt<ITownRepo>().get(townId);
 
-  String get humanStartedAt {
-    final dateTime = DateTime.fromMillisecondsSinceEpoch(startedAt);
-    return '${dateTime.year}.${dateTime.month}.${dateTime.day} • ${dateTime.hour}:${dateTime.minute}';
-  }
+  String get startedAgo =>
+      timeago.format(DateTime.fromMillisecondsSinceEpoch(startedAt));
 
-  String get humanEndedAt {
-    final dateTime = DateTime.fromMillisecondsSinceEpoch(endedAt);
-    return '${dateTime.year}.${dateTime.month}.${dateTime.day} • ${dateTime.hour}:${dateTime.minute}';
-  }
+  String get endedAgo =>
+      timeago.format(DateTime.fromMillisecondsSinceEpoch(endedAt));
 }

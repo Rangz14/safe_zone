@@ -28,20 +28,16 @@ class AuthCubit extends Cubit<AuthState> {
   Future<void> checkAuthStatus() async {
     emit(AuthState.loading());
     await Future.delayed(Duration(seconds: 2));
-    final isSignedIn = _authRepo.isSignedIn();
 
     if (_stakeholder == StakeHolder.admin) {
       emit(AuthState.authenticatedAdmin());
       return;
     }
+
+    final isSignedIn = _authRepo.isSignedIn();
 
     if (!isSignedIn) {
       emit(AuthState.unAuthenticated());
-      return;
-    }
-
-    if (_stakeholder == StakeHolder.admin) {
-      emit(AuthState.authenticatedAdmin());
       return;
     }
 

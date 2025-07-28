@@ -6,8 +6,8 @@ part of 'user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SafeZoneUserImpl _$$SafeZoneUserImplFromJson(Map<String, dynamic> json) =>
-    _$SafeZoneUserImpl(
+_SafeZoneUser _$SafeZoneUserFromJson(Map<String, dynamic> json) =>
+    _SafeZoneUser(
       id: json['id'] as String,
       name: json['name'] as String,
       phone: json['phone'] as String,
@@ -15,7 +15,7 @@ _$SafeZoneUserImpl _$$SafeZoneUserImplFromJson(Map<String, dynamic> json) =>
       createdAt: (json['createdAt'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$SafeZoneUserImplToJson(_$SafeZoneUserImpl instance) =>
+Map<String, dynamic> _$SafeZoneUserToJson(_SafeZoneUser instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

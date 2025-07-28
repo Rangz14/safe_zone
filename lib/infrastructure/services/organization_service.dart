@@ -27,10 +27,11 @@ class OrgService {
   OrgService(this._firestore, this._storage, this._imagePicker);
 
   // Organization
-  Future<Either<Failure, bool>> isExist() async {
+  Future<Either<Failure, bool>> isExist(String id) async {
     try {
-      final snapshot = await _firestore.collection(_orgsCollection).get();
-      return right(snapshot.docs.isNotEmpty);
+      final snapshot =
+          await _firestore.collection(_orgsCollection).doc(id).get();
+      return right(snapshot.exists);
     } catch (e) {
       return left(Failure(e.toString()));
     }

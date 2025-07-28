@@ -16,13 +16,10 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:image_picker/image_picker.dart' as _i183;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:safe_zone/application/auth/auth_cubit.dart' as _i1022;
-<<<<<<< HEAD
 import 'package:safe_zone/application/delete_service/delete_service_cubit.dart'
     as _i1022;
 import 'package:safe_zone/application/delete_threat_category/delete_threat_category_cubit.dart'
     as _i146;
-=======
->>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392
 import 'package:safe_zone/application/end_threat/end_threat_cubit.dart'
     as _i852;
 import 'package:safe_zone/application/new_donation_service/new_donation_service_cubit.dart'
@@ -31,14 +28,11 @@ import 'package:safe_zone/application/new_threat/new_threat_cubit.dart'
     as _i780;
 import 'package:safe_zone/application/new_threat_category/new_threat_category_cubit.dart'
     as _i559;
-<<<<<<< HEAD
 import 'package:safe_zone/application/org_donation_tab/org_donation_tab_cubit.dart'
     as _i835;
 import 'package:safe_zone/application/org_menu/org_menu_cubit.dart' as _i873;
 import 'package:safe_zone/application/org_req_tab/org_req_tab_cubit.dart'
     as _i636;
-=======
->>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392
 import 'package:safe_zone/application/select_services_org/select_services_org_cubit.dart'
     as _i518;
 import 'package:safe_zone/application/select_threat_category/select_threat_category_cubit.dart'
@@ -71,8 +65,13 @@ import 'package:safe_zone/application/upload_user_image/upload_user_image_cubit.
     as _i961;
 import 'package:safe_zone/application/watch_admin_stats/watch_admin_stats_cubit.dart'
     as _i474;
+import 'package:safe_zone/application/watch_both_threats/watch_both_threats_cubit.dart'
+    as _i807;
+import 'package:safe_zone/application/watch_donation_service/watch_donation_service_cubit.dart'
+    as _i511;
 import 'package:safe_zone/application/watch_donation_services/watch_donation_services_cubit.dart'
     as _i66;
+import 'package:safe_zone/application/watch_org/watch_org_cubit.dart' as _i994;
 import 'package:safe_zone/application/watch_org_address/watch_org_address_cubit.dart'
     as _i568;
 import 'package:safe_zone/application/watch_org_bank_details/watch_org_bank_details_cubit.dart'
@@ -82,6 +81,8 @@ import 'package:safe_zone/application/watch_org_ratings/watch_org_ratings_cubit.
 import 'package:safe_zone/application/watch_orgs/watch_orgs_cubit.dart' as _i88;
 import 'package:safe_zone/application/watch_service_is_selected_org/watch_service_is_selected_org_cubit.dart'
     as _i106;
+import 'package:safe_zone/application/watch_threat/watch_threat_cubit.dart'
+    as _i943;
 import 'package:safe_zone/application/watch_threat_categories/watch_threat_categories_cubit.dart'
     as _i179;
 import 'package:safe_zone/application/watch_threat_category/watch_threat_category_cubit.dart'
@@ -90,11 +91,19 @@ import 'package:safe_zone/application/watch_threats/watch_threats_cubit.dart'
     as _i650;
 import 'package:safe_zone/application/watch_user_address/watch_user_address_cubit.dart'
     as _i344;
+import 'package:safe_zone/application/watch_user_donations/watch_user_donations_cubit.dart'
+    as _i1025;
+import 'package:safe_zone/application/watch_user_requests/watch_user_requests_cubit.dart'
+    as _i268;
+import 'package:safe_zone/application/watch_user_threats/watch_user_threats_cubit.dart'
+    as _i582;
 import 'package:safe_zone/application/watch_users/watch_users_cubit.dart'
     as _i823;
 import 'package:safe_zone/core/constants.dart' as _i963;
 import 'package:safe_zone/domain/auth/i_auth_repo.dart' as _i846;
 import 'package:safe_zone/domain/donation/i_donation_repo.dart' as _i550;
+import 'package:safe_zone/domain/donation_request/i_donation_request_repo.dart'
+    as _i327;
 import 'package:safe_zone/domain/organization/i_organization_repo.dart'
     as _i922;
 import 'package:safe_zone/domain/service/i_donation_service_repo.dart' as _i504;
@@ -104,6 +113,8 @@ import 'package:safe_zone/domain/user/i_user_repo.dart' as _i569;
 import 'package:safe_zone/infrastructure/data/towns.dart' as _i702;
 import 'package:safe_zone/infrastructure/repo/auth_repo.dart' as _i276;
 import 'package:safe_zone/infrastructure/repo/donation_repo.dart' as _i757;
+import 'package:safe_zone/infrastructure/repo/donation_request_repo.dart'
+    as _i453;
 import 'package:safe_zone/infrastructure/repo/donation_service_repo.dart'
     as _i481;
 import 'package:safe_zone/infrastructure/repo/organization_repo.dart' as _i191;
@@ -111,6 +122,8 @@ import 'package:safe_zone/infrastructure/repo/threat_repo.dart' as _i259;
 import 'package:safe_zone/infrastructure/repo/town_repo.dart' as _i499;
 import 'package:safe_zone/infrastructure/repo/user_repo.dart' as _i54;
 import 'package:safe_zone/infrastructure/services/auth_service.dart' as _i136;
+import 'package:safe_zone/infrastructure/services/donation_request_service.dart'
+    as _i542;
 import 'package:safe_zone/infrastructure/services/donation_service.dart'
     as _i252;
 import 'package:safe_zone/infrastructure/services/donation_service_service.dart'
@@ -131,12 +144,9 @@ extension GetItInjectableX on _i174.GetIt {
   }) {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     final injectableModules = _$InjectableModules();
-<<<<<<< HEAD
     gh.factory<_i835.OrgDonationTabCubit>(() => _i835.OrgDonationTabCubit());
     gh.factory<_i873.OrgMenuCubit>(() => _i873.OrgMenuCubit());
     gh.factory<_i636.OrgReqTabCubit>(() => _i636.OrgReqTabCubit());
-=======
->>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392
     gh.factory<_i72.SelectThreatCategoryCubit>(
       () => _i72.SelectThreatCategoryCubit(),
     );
@@ -145,7 +155,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.singleton<_i702.TownData>(() => _i702.TownData());
     gh.singleton<_i204.AppRouter>(() => injectableModules.appRouter);
-    gh.lazySingleton<_i252.DonationService>(() => _i252.DonationService());
     gh.lazySingleton<_i59.FirebaseAuth>(() => injectableModules.firebaseAuth);
     gh.lazySingleton<_i974.FirebaseFirestore>(
       () => injectableModules.firestore,
@@ -154,9 +163,6 @@ extension GetItInjectableX on _i174.GetIt {
       () => injectableModules.firebaseStorage,
     );
     gh.lazySingleton<_i183.ImagePicker>(() => injectableModules.imagePicker);
-    gh.lazySingleton<_i550.IDonationRepo>(
-      () => _i757.DonationRepo(gh<_i252.DonationService>()),
-    );
     gh.lazySingleton<_i260.ITownRepo>(
       () => _i499.TownRepo(gh<_i702.TownData>()),
     );
@@ -188,6 +194,12 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i183.ImagePicker>(),
       ),
     );
+    gh.lazySingleton<_i542.DonationRequestService>(
+      () => _i542.DonationRequestService(gh<_i974.FirebaseFirestore>()),
+    );
+    gh.lazySingleton<_i252.DonationService>(
+      () => _i252.DonationService(gh<_i974.FirebaseFirestore>()),
+    );
     gh.factory<_i431.App>(() => _i431.App.create(gh<_i204.AppRouter>()));
     gh.lazySingleton<_i136.AuthService>(
       () => _i136.AuthService(gh<_i59.FirebaseAuth>()),
@@ -198,12 +210,18 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i504.IDonationServiceRepo>(
       () => _i481.DonationServiceRepo(gh<_i844.DonationServiceService>()),
     );
-<<<<<<< HEAD
+    gh.lazySingleton<_i550.IDonationRepo>(
+      () => _i757.DonationRepo(gh<_i252.DonationService>()),
+    );
+    gh.factory<_i1025.WatchUserDonationsCubit>(
+      () => _i1025.WatchUserDonationsCubit(gh<_i550.IDonationRepo>()),
+    );
+    gh.factory<_i511.WatchDonationServiceCubit>(
+      () => _i511.WatchDonationServiceCubit(gh<_i504.IDonationServiceRepo>()),
+    );
     gh.factory<_i1022.DeleteServiceCubit>(
       () => _i1022.DeleteServiceCubit(gh<_i504.IDonationServiceRepo>()),
     );
-=======
->>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392
     gh.factory<_i978.NewDonationServiceCubit>(
       () => _i978.NewDonationServiceCubit(gh<_i504.IDonationServiceRepo>()),
     );
@@ -224,12 +242,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i129.IThreatRepo>(
       () => _i259.ThreatRepo(gh<_i144.ThreatService>(), gh<_i569.IUserRepo>()),
     );
-<<<<<<< HEAD
     gh.factory<_i146.DeleteThreatCategoryCubit>(
       () => _i146.DeleteThreatCategoryCubit(gh<_i129.IThreatRepo>()),
     );
-=======
->>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392
     gh.factory<_i852.EndThreatCubit>(
       () => _i852.EndThreatCubit(gh<_i129.IThreatRepo>()),
     );
@@ -242,6 +257,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i91.UploadThreatCategoryIconCubit>(
       () => _i91.UploadThreatCategoryIconCubit(gh<_i129.IThreatRepo>()),
     );
+    gh.factory<_i807.WatchBothThreatsCubit>(
+      () => _i807.WatchBothThreatsCubit(gh<_i129.IThreatRepo>()),
+    );
+    gh.factory<_i943.WatchThreatCubit>(
+      () => _i943.WatchThreatCubit(gh<_i129.IThreatRepo>()),
+    );
     gh.factory<_i650.WatchThreatsCubit>(
       () => _i650.WatchThreatsCubit(gh<_i129.IThreatRepo>()),
     );
@@ -250,6 +271,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i718.WatchThreatCategoryCubit>(
       () => _i718.WatchThreatCategoryCubit(gh<_i129.IThreatRepo>()),
+    );
+    gh.factory<_i582.WatchUserThreatsCubit>(
+      () => _i582.WatchUserThreatsCubit(gh<_i129.IThreatRepo>()),
     );
     gh.factory<_i265.UpdateUserCubit>(
       () => _i265.UpdateUserCubit(gh<_i569.IUserRepo>()),
@@ -288,6 +312,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i71.UploadOrgImagesCubit>(
       () => _i71.UploadOrgImagesCubit(gh<_i922.IOrganizationRepo>()),
     );
+    gh.factory<_i994.WatchOrgCubit>(
+      () => _i994.WatchOrgCubit(gh<_i922.IOrganizationRepo>()),
+    );
     gh.factory<_i568.WatchOrgAddressCubit>(
       () => _i568.WatchOrgAddressCubit(gh<_i922.IOrganizationRepo>()),
     );
@@ -305,6 +332,15 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i922.IOrganizationRepo>(),
         gh<_i504.IDonationServiceRepo>(),
       ),
+    );
+    gh.lazySingleton<_i327.IDonationRequestRepo>(
+      () => _i453.DonationRequestRepo(
+        gh<_i542.DonationRequestService>(),
+        gh<_i846.IAuthRepo>(),
+      ),
+    );
+    gh.factory<_i268.WatchUserRequestsCubit>(
+      () => _i268.WatchUserRequestsCubit(gh<_i327.IDonationRequestRepo>()),
     );
     gh.factory<_i88.WatchOrgsCubit>(
       () => _i88.WatchOrgsCubit(gh<_i922.IOrganizationRepo>()),

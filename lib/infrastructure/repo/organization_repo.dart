@@ -31,7 +31,13 @@ class OrganizationRepo implements IOrganizationRepo {
   }
 
   @override
-  Future<Either<Failure, bool>> isRegistered() => _orgService.isExist();
+  Future<Either<Failure, bool>> isRegistered() async {
+    final unitOrUid = _authRepo.getUid();
+    if (unitOrUid.isLeft()) {
+      return left(const Failure('User not signed in'));
+    }
+    return _orgService.isExist(unitOrUid.getOrCrash());
+  }
 
   @override
   Future<Either<Failure, Unit>> addOrgService(String serviceId) async {
@@ -192,4 +198,8 @@ class OrganizationRepo implements IOrganizationRepo {
       unitOrUid.getOrCrash(),
     );
   }
+
+  @override
+  Stream<Either<Failure, Organization>> watchOrg(String id) =>
+      _orgService.watch(id);
 }

@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,298 +9,284 @@ part of 'threat.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
-SafeZoneThreat _$SafeZoneThreatFromJson(Map<String, dynamic> json) {
-  return _SafeZoneThreat.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SafeZoneThreat {
-  String get id => throw _privateConstructorUsedError;
-  String get townId => throw _privateConstructorUsedError;
-  int get startedAt => throw _privateConstructorUsedError;
-  int get endedAt => throw _privateConstructorUsedError;
-  String get categoryId => throw _privateConstructorUsedError;
-  int get createdAt => throw _privateConstructorUsedError;
+
+ String get id; String get townId; int get startedAt; int get endedAt; String get categoryId; int get createdAt;
+/// Create a copy of SafeZoneThreat
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SafeZoneThreatCopyWith<SafeZoneThreat> get copyWith => _$SafeZoneThreatCopyWithImpl<SafeZoneThreat>(this as SafeZoneThreat, _$identity);
 
   /// Serializes this SafeZoneThreat to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of SafeZoneThreat
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $SafeZoneThreatCopyWith<SafeZoneThreat> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SafeZoneThreat&&(identical(other.id, id) || other.id == id)&&(identical(other.townId, townId) || other.townId == townId)&&(identical(other.startedAt, startedAt) || other.startedAt == startedAt)&&(identical(other.endedAt, endedAt) || other.endedAt == endedAt)&&(identical(other.categoryId, categoryId) || other.categoryId == categoryId)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,townId,startedAt,endedAt,categoryId,createdAt);
+
+@override
+String toString() {
+  return 'SafeZoneThreat(id: $id, townId: $townId, startedAt: $startedAt, endedAt: $endedAt, categoryId: $categoryId, createdAt: $createdAt)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $SafeZoneThreatCopyWith<$Res> {
-  factory $SafeZoneThreatCopyWith(
-    SafeZoneThreat value,
-    $Res Function(SafeZoneThreat) then,
-  ) = _$SafeZoneThreatCopyWithImpl<$Res, SafeZoneThreat>;
-  @useResult
-  $Res call({
-    String id,
-    String townId,
-    int startedAt,
-    int endedAt,
-    String categoryId,
-    int createdAt,
-  });
-}
+abstract mixin class $SafeZoneThreatCopyWith<$Res>  {
+  factory $SafeZoneThreatCopyWith(SafeZoneThreat value, $Res Function(SafeZoneThreat) _then) = _$SafeZoneThreatCopyWithImpl;
+@useResult
+$Res call({
+ String id, String townId, int startedAt, int endedAt, String categoryId, int createdAt
+});
 
+
+
+
+}
 /// @nodoc
-class _$SafeZoneThreatCopyWithImpl<$Res, $Val extends SafeZoneThreat>
+class _$SafeZoneThreatCopyWithImpl<$Res>
     implements $SafeZoneThreatCopyWith<$Res> {
-  _$SafeZoneThreatCopyWithImpl(this._value, this._then);
+  _$SafeZoneThreatCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final SafeZoneThreat _self;
+  final $Res Function(SafeZoneThreat) _then;
 
-  /// Create a copy of SafeZoneThreat
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? townId = null,
-    Object? startedAt = null,
-    Object? endedAt = null,
-    Object? categoryId = null,
-    Object? createdAt = null,
-  }) {
-    return _then(
-      _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as String,
-            townId:
-                null == townId
-                    ? _value.townId
-                    : townId // ignore: cast_nullable_to_non_nullable
-                        as String,
-            startedAt:
-                null == startedAt
-                    ? _value.startedAt
-                    : startedAt // ignore: cast_nullable_to_non_nullable
-                        as int,
-            endedAt:
-                null == endedAt
-                    ? _value.endedAt
-                    : endedAt // ignore: cast_nullable_to_non_nullable
-                        as int,
-            categoryId:
-                null == categoryId
-                    ? _value.categoryId
-                    : categoryId // ignore: cast_nullable_to_non_nullable
-                        as String,
-            createdAt:
-                null == createdAt
-                    ? _value.createdAt
-                    : createdAt // ignore: cast_nullable_to_non_nullable
-                        as int,
-          )
-          as $Val,
-    );
-  }
+/// Create a copy of SafeZoneThreat
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? townId = null,Object? startedAt = null,Object? endedAt = null,Object? categoryId = null,Object? createdAt = null,}) {
+  return _then(_self.copyWith(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,townId: null == townId ? _self.townId : townId // ignore: cast_nullable_to_non_nullable
+as String,startedAt: null == startedAt ? _self.startedAt : startedAt // ignore: cast_nullable_to_non_nullable
+as int,endedAt: null == endedAt ? _self.endedAt : endedAt // ignore: cast_nullable_to_non_nullable
+as int,categoryId: null == categoryId ? _self.categoryId : categoryId // ignore: cast_nullable_to_non_nullable
+as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
 }
 
-/// @nodoc
-abstract class _$$SafeZoneThreatImplCopyWith<$Res>
-    implements $SafeZoneThreatCopyWith<$Res> {
-  factory _$$SafeZoneThreatImplCopyWith(
-    _$SafeZoneThreatImpl value,
-    $Res Function(_$SafeZoneThreatImpl) then,
-  ) = __$$SafeZoneThreatImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({
-    String id,
-    String townId,
-    int startedAt,
-    int endedAt,
-    String categoryId,
-    int createdAt,
-  });
 }
 
-/// @nodoc
-class __$$SafeZoneThreatImplCopyWithImpl<$Res>
-    extends _$SafeZoneThreatCopyWithImpl<$Res, _$SafeZoneThreatImpl>
-    implements _$$SafeZoneThreatImplCopyWith<$Res> {
-  __$$SafeZoneThreatImplCopyWithImpl(
-    _$SafeZoneThreatImpl _value,
-    $Res Function(_$SafeZoneThreatImpl) _then,
-  ) : super(_value, _then);
 
-  /// Create a copy of SafeZoneThreat
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? townId = null,
-    Object? startedAt = null,
-    Object? endedAt = null,
-    Object? categoryId = null,
-    Object? createdAt = null,
-  }) {
-    return _then(
-      _$SafeZoneThreatImpl(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as String,
-        townId:
-            null == townId
-                ? _value.townId
-                : townId // ignore: cast_nullable_to_non_nullable
-                    as String,
-        startedAt:
-            null == startedAt
-                ? _value.startedAt
-                : startedAt // ignore: cast_nullable_to_non_nullable
-                    as int,
-        endedAt:
-            null == endedAt
-                ? _value.endedAt
-                : endedAt // ignore: cast_nullable_to_non_nullable
-                    as int,
-        categoryId:
-            null == categoryId
-                ? _value.categoryId
-                : categoryId // ignore: cast_nullable_to_non_nullable
-                    as String,
-        createdAt:
-            null == createdAt
-                ? _value.createdAt
-                : createdAt // ignore: cast_nullable_to_non_nullable
-                    as int,
-      ),
-    );
-  }
+/// Adds pattern-matching-related methods to [SafeZoneThreat].
+extension SafeZoneThreatPatterns on SafeZoneThreat {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _SafeZoneThreat value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _SafeZoneThreat() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _SafeZoneThreat value)  $default,){
+final _that = this;
+switch (_that) {
+case _SafeZoneThreat():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _SafeZoneThreat value)?  $default,){
+final _that = this;
+switch (_that) {
+case _SafeZoneThreat() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String townId,  int startedAt,  int endedAt,  String categoryId,  int createdAt)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _SafeZoneThreat() when $default != null:
+return $default(_that.id,_that.townId,_that.startedAt,_that.endedAt,_that.categoryId,_that.createdAt);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String townId,  int startedAt,  int endedAt,  String categoryId,  int createdAt)  $default,) {final _that = this;
+switch (_that) {
+case _SafeZoneThreat():
+return $default(_that.id,_that.townId,_that.startedAt,_that.endedAt,_that.categoryId,_that.createdAt);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String townId,  int startedAt,  int endedAt,  String categoryId,  int createdAt)?  $default,) {final _that = this;
+switch (_that) {
+case _SafeZoneThreat() when $default != null:
+return $default(_that.id,_that.townId,_that.startedAt,_that.endedAt,_that.categoryId,_that.createdAt);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$SafeZoneThreatImpl extends _SafeZoneThreat {
-  const _$SafeZoneThreatImpl({
-    required this.id,
-    required this.townId,
-    required this.startedAt,
-    required this.endedAt,
-    required this.categoryId,
-    required this.createdAt,
-  }) : super._();
 
-  factory _$SafeZoneThreatImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SafeZoneThreatImplFromJson(json);
+class _SafeZoneThreat extends SafeZoneThreat {
+  const _SafeZoneThreat({required this.id, required this.townId, required this.startedAt, required this.endedAt, required this.categoryId, required this.createdAt}): super._();
+  factory _SafeZoneThreat.fromJson(Map<String, dynamic> json) => _$SafeZoneThreatFromJson(json);
 
-  @override
-  final String id;
-  @override
-  final String townId;
-  @override
-  final int startedAt;
-  @override
-  final int endedAt;
-  @override
-  final String categoryId;
-  @override
-  final int createdAt;
+@override final  String id;
+@override final  String townId;
+@override final  int startedAt;
+@override final  int endedAt;
+@override final  String categoryId;
+@override final  int createdAt;
 
-  @override
-  String toString() {
-    return 'SafeZoneThreat(id: $id, townId: $townId, startedAt: $startedAt, endedAt: $endedAt, categoryId: $categoryId, createdAt: $createdAt)';
-  }
+/// Create a copy of SafeZoneThreat
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SafeZoneThreatCopyWith<_SafeZoneThreat> get copyWith => __$SafeZoneThreatCopyWithImpl<_SafeZoneThreat>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SafeZoneThreatImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.townId, townId) || other.townId == townId) &&
-            (identical(other.startedAt, startedAt) ||
-                other.startedAt == startedAt) &&
-            (identical(other.endedAt, endedAt) || other.endedAt == endedAt) &&
-            (identical(other.categoryId, categoryId) ||
-                other.categoryId == categoryId) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    id,
-    townId,
-    startedAt,
-    endedAt,
-    categoryId,
-    createdAt,
-  );
-
-  /// Create a copy of SafeZoneThreat
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SafeZoneThreatImplCopyWith<_$SafeZoneThreatImpl> get copyWith =>
-      __$$SafeZoneThreatImplCopyWithImpl<_$SafeZoneThreatImpl>(
-        this,
-        _$identity,
-      );
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SafeZoneThreatImplToJson(this);
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$SafeZoneThreatToJson(this, );
 }
 
-abstract class _SafeZoneThreat extends SafeZoneThreat {
-  const factory _SafeZoneThreat({
-    required final String id,
-    required final String townId,
-    required final int startedAt,
-    required final int endedAt,
-    required final String categoryId,
-    required final int createdAt,
-  }) = _$SafeZoneThreatImpl;
-  const _SafeZoneThreat._() : super._();
-
-  factory _SafeZoneThreat.fromJson(Map<String, dynamic> json) =
-      _$SafeZoneThreatImpl.fromJson;
-
-  @override
-  String get id;
-  @override
-  String get townId;
-  @override
-  int get startedAt;
-  @override
-  int get endedAt;
-  @override
-  String get categoryId;
-  @override
-  int get createdAt;
-
-  /// Create a copy of SafeZoneThreat
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SafeZoneThreatImplCopyWith<_$SafeZoneThreatImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SafeZoneThreat&&(identical(other.id, id) || other.id == id)&&(identical(other.townId, townId) || other.townId == townId)&&(identical(other.startedAt, startedAt) || other.startedAt == startedAt)&&(identical(other.endedAt, endedAt) || other.endedAt == endedAt)&&(identical(other.categoryId, categoryId) || other.categoryId == categoryId)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,townId,startedAt,endedAt,categoryId,createdAt);
+
+@override
+String toString() {
+  return 'SafeZoneThreat(id: $id, townId: $townId, startedAt: $startedAt, endedAt: $endedAt, categoryId: $categoryId, createdAt: $createdAt)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SafeZoneThreatCopyWith<$Res> implements $SafeZoneThreatCopyWith<$Res> {
+  factory _$SafeZoneThreatCopyWith(_SafeZoneThreat value, $Res Function(_SafeZoneThreat) _then) = __$SafeZoneThreatCopyWithImpl;
+@override @useResult
+$Res call({
+ String id, String townId, int startedAt, int endedAt, String categoryId, int createdAt
+});
+
+
+
+
+}
+/// @nodoc
+class __$SafeZoneThreatCopyWithImpl<$Res>
+    implements _$SafeZoneThreatCopyWith<$Res> {
+  __$SafeZoneThreatCopyWithImpl(this._self, this._then);
+
+  final _SafeZoneThreat _self;
+  final $Res Function(_SafeZoneThreat) _then;
+
+/// Create a copy of SafeZoneThreat
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? townId = null,Object? startedAt = null,Object? endedAt = null,Object? categoryId = null,Object? createdAt = null,}) {
+  return _then(_SafeZoneThreat(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,townId: null == townId ? _self.townId : townId // ignore: cast_nullable_to_non_nullable
+as String,startedAt: null == startedAt ? _self.startedAt : startedAt // ignore: cast_nullable_to_non_nullable
+as int,endedAt: null == endedAt ? _self.endedAt : endedAt // ignore: cast_nullable_to_non_nullable
+as int,categoryId: null == categoryId ? _self.categoryId : categoryId // ignore: cast_nullable_to_non_nullable
+as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+// dart format on

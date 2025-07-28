@@ -42,4 +42,8 @@ class DonationServiceRepo implements IDonationServiceRepo {
   @override
   Stream<Either<Failure, int>> watchTotalServices() =>
       _service.watchTotalServices();
+
+  @override
+  Stream<Either<Failure, DonationService>> watchService(String id) =>
+      _service.watchService(id);
 }

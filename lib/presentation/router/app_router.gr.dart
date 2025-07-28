@@ -22,8 +22,6 @@ class AdminDashboardRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return WrappedRoute(child: const AdminDashboardPage());
-<<<<<<< HEAD
-=======
     },
   );
 }
@@ -76,6 +74,16 @@ class AdminNewServiceRouteArgs {
   String toString() {
     return 'AdminNewServiceRouteArgs{key: $key}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! AdminNewServiceRouteArgs) return false;
+    return key == other.key;
+  }
+
+  @override
+  int get hashCode => key.hashCode;
 }
 
 /// generated route for
@@ -111,6 +119,16 @@ class AdminNewThreatCategoryRouteArgs {
   String toString() {
     return 'AdminNewThreatCategoryRouteArgs{key: $key}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! AdminNewThreatCategoryRouteArgs) return false;
+    return key == other.key;
+  }
+
+  @override
+  int get hashCode => key.hashCode;
 }
 
 /// generated route for
@@ -145,174 +163,16 @@ class AdminNewThreatRouteArgs {
   String toString() {
     return 'AdminNewThreatRouteArgs{key: $key}';
   }
-}
-
-/// generated route for
-/// [AdminOrgsPage]
-class AdminOrgsRoute extends PageRouteInfo<void> {
-  const AdminOrgsRoute({List<PageRouteInfo>? children})
-    : super(AdminOrgsRoute.name, initialChildren: children);
-
-  static const String name = 'AdminOrgsRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      return WrappedRoute(child: const AdminOrgsPage());
-    },
-  );
-}
-
-/// generated route for
-/// [AdminThreatCategoriesPage]
-class AdminThreatCategoriesRoute extends PageRouteInfo<void> {
-  const AdminThreatCategoriesRoute({List<PageRouteInfo>? children})
-    : super(AdminThreatCategoriesRoute.name, initialChildren: children);
-
-  static const String name = 'AdminThreatCategoriesRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      return WrappedRoute(child: const AdminThreatCategoriesPage());
-    },
-  );
-}
-
-/// generated route for
-/// [AdminUsersPage]
-class AdminUsersRoute extends PageRouteInfo<void> {
-  const AdminUsersRoute({List<PageRouteInfo>? children})
-    : super(AdminUsersRoute.name, initialChildren: children);
-
-  static const String name = 'AdminUsersRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      return WrappedRoute(child: const AdminUsersPage());
->>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392
-    },
-  );
-}
-
-/// generated route for
-/// [AdminDonationServicesPage]
-class AdminDonationServicesRoute extends PageRouteInfo<void> {
-  const AdminDonationServicesRoute({List<PageRouteInfo>? children})
-    : super(AdminDonationServicesRoute.name, initialChildren: children);
-
-  static const String name = 'AdminDonationServicesRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      return WrappedRoute(child: const AdminDonationServicesPage());
-    },
-  );
-}
-
-/// generated route for
-/// [AdminNewServicePage]
-class AdminNewServiceRoute extends PageRouteInfo<AdminNewServiceRouteArgs> {
-  AdminNewServiceRoute({Key? key, List<PageRouteInfo>? children})
-    : super(
-        AdminNewServiceRoute.name,
-        args: AdminNewServiceRouteArgs(key: key),
-        initialChildren: children,
-      );
-
-  static const String name = 'AdminNewServiceRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      final args = data.argsAs<AdminNewServiceRouteArgs>(
-        orElse: () => const AdminNewServiceRouteArgs(),
-      );
-      return WrappedRoute(child: AdminNewServicePage(key: args.key));
-    },
-  );
-}
-
-class AdminNewServiceRouteArgs {
-  const AdminNewServiceRouteArgs({this.key});
-
-  final Key? key;
 
   @override
-  String toString() {
-    return 'AdminNewServiceRouteArgs{key: $key}';
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! AdminNewThreatRouteArgs) return false;
+    return key == other.key;
   }
-}
-
-/// generated route for
-/// [AdminNewThreatCategoryPage]
-class AdminNewThreatCategoryRoute
-    extends PageRouteInfo<AdminNewThreatCategoryRouteArgs> {
-  AdminNewThreatCategoryRoute({Key? key, List<PageRouteInfo>? children})
-    : super(
-        AdminNewThreatCategoryRoute.name,
-        args: AdminNewThreatCategoryRouteArgs(key: key),
-        initialChildren: children,
-      );
-
-  static const String name = 'AdminNewThreatCategoryRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      final args = data.argsAs<AdminNewThreatCategoryRouteArgs>(
-        orElse: () => const AdminNewThreatCategoryRouteArgs(),
-      );
-      return WrappedRoute(child: AdminNewThreatCategoryPage(key: args.key));
-    },
-  );
-}
-
-class AdminNewThreatCategoryRouteArgs {
-  const AdminNewThreatCategoryRouteArgs({this.key});
-
-  final Key? key;
 
   @override
-  String toString() {
-    return 'AdminNewThreatCategoryRouteArgs{key: $key}';
-  }
-}
-
-/// generated route for
-/// [AdminNewThreatPage]
-class AdminNewThreatRoute extends PageRouteInfo<AdminNewThreatRouteArgs> {
-  AdminNewThreatRoute({Key? key, List<PageRouteInfo>? children})
-    : super(
-        AdminNewThreatRoute.name,
-        args: AdminNewThreatRouteArgs(key: key),
-        initialChildren: children,
-      );
-
-  static const String name = 'AdminNewThreatRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      final args = data.argsAs<AdminNewThreatRouteArgs>(
-        orElse: () => const AdminNewThreatRouteArgs(),
-      );
-      return WrappedRoute(child: AdminNewThreatPage(key: args.key));
-    },
-  );
-}
-
-class AdminNewThreatRouteArgs {
-  const AdminNewThreatRouteArgs({this.key});
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'AdminNewThreatRouteArgs{key: $key}';
-  }
+  int get hashCode => key.hashCode;
 }
 
 /// generated route for
@@ -380,22 +240,6 @@ class LandingRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [OrgDashboardPage]
-class OrgDashboardRoute extends PageRouteInfo<void> {
-  const OrgDashboardRoute({List<PageRouteInfo>? children})
-    : super(OrgDashboardRoute.name, initialChildren: children);
-
-  static const String name = 'OrgDashboardRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      return WrappedRoute(child: const OrgDashboardPage());
-    },
-  );
-}
-
-/// generated route for
 /// [OrgDashboardV2Page]
 class OrgDashboardV2Route extends PageRouteInfo<void> {
   const OrgDashboardV2Route({List<PageRouteInfo>? children})
@@ -439,22 +283,6 @@ class SignInOrgRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return WrappedRoute(child: const SignInOrgPage());
-    },
-  );
-}
-
-/// generated route for
-/// [SelectServicesOrgPage]
-class SelectServicesOrgRoute extends PageRouteInfo<void> {
-  const SelectServicesOrgRoute({List<PageRouteInfo>? children})
-    : super(SelectServicesOrgRoute.name, initialChildren: children);
-
-  static const String name = 'SelectServicesOrgRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      return WrappedRoute(child: const SelectServicesOrgPage());
     },
   );
 }
@@ -507,6 +335,16 @@ class UpdateBankDetailsRouteArgs {
   String toString() {
     return 'UpdateBankDetailsRouteArgs{key: $key}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! UpdateBankDetailsRouteArgs) return false;
+    return key == other.key;
+  }
+
+  @override
+  int get hashCode => key.hashCode;
 }
 
 /// generated route for
@@ -541,6 +379,16 @@ class UpdateOrgAddressRouteArgs {
   String toString() {
     return 'UpdateOrgAddressRouteArgs{key: $key}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! UpdateOrgAddressRouteArgs) return false;
+    return key == other.key;
+  }
+
+  @override
+  int get hashCode => key.hashCode;
 }
 
 /// generated route for
@@ -591,6 +439,16 @@ class UpdateUserAddressRouteArgs {
   String toString() {
     return 'UpdateUserAddressRouteArgs{key: $key}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! UpdateUserAddressRouteArgs) return false;
+    return key == other.key;
+  }
+
+  @override
+  int get hashCode => key.hashCode;
 }
 
 /// generated route for
@@ -632,6 +490,16 @@ class UpdateUserRouteArgs {
   String toString() {
     return 'UpdateUserRouteArgs{key: $key, isOnboarding: $isOnboarding}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! UpdateUserRouteArgs) return false;
+    return key == other.key && isOnboarding == other.isOnboarding;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ isOnboarding.hashCode;
 }
 
 /// generated route for

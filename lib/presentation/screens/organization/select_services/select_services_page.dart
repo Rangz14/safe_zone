@@ -49,7 +49,7 @@ class SelectServicesOrgPage extends StatelessWidget
               HGap(gap: 20),
               FilledButton.icon(
                 onPressed:
-                    () => context.router.replaceAll([OrgDashboardRoute()]),
+                    () => context.router.replaceAll([OrgDashboardV2Route()]),
                 label: Text("Done"),
                 icon: const Icon(Icons.check_circle),
               ),

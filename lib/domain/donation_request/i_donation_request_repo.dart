@@ -4,8 +4,7 @@ import 'package:safe_zone/domain/failure/failure.dart';
 
 abstract class IDonationRequestRepo {
   Future<Either<Failure, DonationRequest>> getDonationRequest(String id);
-  Future<Either<Failure, List<DonationRequest>>>
-  getAllDonationRequestsForUser();
+  Stream<Either<Failure, List<DonationRequest>>> watchByCurrentUser();
   Future<Either<Failure, int>> getDonationRequestsCountForService(
     String serviceId,
     String? status, // if null get all except REJECTED_BY_ADMIN

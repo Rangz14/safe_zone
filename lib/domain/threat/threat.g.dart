@@ -6,8 +6,8 @@ part of 'threat.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SafeZoneThreatImpl _$$SafeZoneThreatImplFromJson(Map<String, dynamic> json) =>
-    _$SafeZoneThreatImpl(
+_SafeZoneThreat _$SafeZoneThreatFromJson(Map<String, dynamic> json) =>
+    _SafeZoneThreat(
       id: json['id'] as String,
       townId: json['townId'] as String,
       startedAt: (json['startedAt'] as num).toInt(),
@@ -16,13 +16,12 @@ _$SafeZoneThreatImpl _$$SafeZoneThreatImplFromJson(Map<String, dynamic> json) =>
       createdAt: (json['createdAt'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$SafeZoneThreatImplToJson(
-  _$SafeZoneThreatImpl instance,
-) => <String, dynamic>{
-  'id': instance.id,
-  'townId': instance.townId,
-  'startedAt': instance.startedAt,
-  'endedAt': instance.endedAt,
-  'categoryId': instance.categoryId,
-  'createdAt': instance.createdAt,
-};
+Map<String, dynamic> _$SafeZoneThreatToJson(_SafeZoneThreat instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'townId': instance.townId,
+      'startedAt': instance.startedAt,
+      'endedAt': instance.endedAt,
+      'categoryId': instance.categoryId,
+      'createdAt': instance.createdAt,
+    };

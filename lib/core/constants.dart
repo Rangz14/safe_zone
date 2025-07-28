@@ -10,7 +10,6 @@ enum DonationRequestState {
   const DonationRequestState(this.value);
 }
 
-<<<<<<< HEAD
 enum DonationState {
   pending("Pending"),
   accepted("Accepted"),
@@ -19,9 +18,6 @@ enum DonationState {
   final String value;
   const DonationState(this.value);
 }
-=======
-enum DonationState { pending, accepted, declined }
->>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392
 
 enum UploadImageType { cover, logo }
 
@@ -34,7 +30,6 @@ enum AdminStatsType {
   services,
   threatCategories,
 }
-<<<<<<< HEAD
 
 enum OrgMenuState {
   requests("Requests"),
@@ -43,5 +38,3 @@ enum OrgMenuState {
   final String value;
   const OrgMenuState(this.value);
 }
-=======
->>>>>>> 06cf0e830f53098c42d45cb028fd7934c4138392

@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:safe_zone/core/constants.dart';
+import 'package:safe_zone/core/mock_data/mock_donation_requests.dart';
+import 'package:safe_zone/core/mock_data/mock_donation_services.dart';
+import 'package:safe_zone/core/mock_data/mock_donations.dart';
+import 'package:safe_zone/core/mock_data/mock_organization_details.dart';
+import 'package:safe_zone/core/mock_data/mock_organizations.dart';
+import 'package:safe_zone/domain/organization/address/address.dart';
+import 'package:safe_zone/domain/organization/bank_details/bank_details.dart';
+import 'package:safe_zone/domain/organization/organization.dart';
+import 'package:safe_zone/domain/service/service.dart';
+
+// Your dashboard view enum
 import 'package:safe_zone/presentation/screens/organization/dashboard_v2/dashboard_page_v2.dart';
 
 class LeftSideNav extends StatelessWidget {
+  // The constructor is now simple again
   final DashboardView currentView;
   final ValueChanged<DashboardView> onViewChanged;
 
@@ -13,33 +26,49 @@ class LeftSideNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // --- All data is fetched and prepared right here ---
+    final organization = mockOrganizations.first;
+    final address = mockOrganizationAddresses.firstWhere(
+      (a) => a.organizationId == organization.id,
+    );
+    final bankDetails = mockOrganizationBankDetailsList.firstWhere(
+      (b) => b.organizationId == organization.id,
+    );
+    final services = mockDonationServices.sublist(0, 3); // Limit to 3 services
+    final pendingRequestCount =
+        mockDonationRequests
+            .where((r) => r.state == DonationRequestState.pending)
+            .length;
+    final pendingDonationCount =
+        mockDonations.where((d) => d.state == DonationState.pending).length;
+
     return SizedBox(
       width: 280,
       height: double.infinity,
-      // Removed direct padding to allow ListTile to fill width
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Added padding back here for the top section
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 24.0),
               child: Column(
                 children: [
-                  _buildProfileSection(context),
+                  _buildProfileSection(context, organization),
                   const SizedBox(height: 20),
-                  _buildInfoActions(context),
+                  _buildInfoActions(context, address, bankDetails),
                 ],
               ),
             ),
             const Divider(indent: 20, endIndent: 20, height: 40),
-            // Navigation menu is now its own column to manage padding
-            _buildNavigationMenu(context),
+            _buildNavigationMenu(
+              context,
+              pendingRequestCount,
+              pendingDonationCount,
+            ),
             const Divider(indent: 20, endIndent: 20, height: 40),
-            // Added padding for the bottom section
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 24.0),
-              child: _buildServicesList(context),
+              child: _buildServicesList(context, services),
             ),
           ],
         ),
@@ -47,46 +76,45 @@ class LeftSideNav extends StatelessWidget {
     );
   }
 
-  // Organization Profile (Cover, Logo, Name, Email)
-  Widget _buildProfileSection(BuildContext context) {
+  // Uses the Organization object to display profile info
+  Widget _buildProfileSection(BuildContext context, Organization org) {
     return Column(
       children: [
         Stack(
           clipBehavior: Clip.none,
           alignment: Alignment.bottomCenter,
           children: [
-            // Cover Photo
             Container(
               height: 120,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/cover.jpg'),
+                  image: AssetImage(org.coverImage), // From model
                   fit: BoxFit.cover,
                 ),
               ),
             ),
-            // Organization Logo
             Positioned(
               bottom: -40,
               child: CircleAvatar(
                 radius: 40,
                 backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                child: const CircleAvatar(
+                child: CircleAvatar(
                   radius: 38,
-                  backgroundImage: AssetImage('assets/images/avatar.png'),
+                  backgroundImage: AssetImage(org.logo), // From model
                 ),
               ),
             ),
           ],
         ),
-        const SizedBox(height: 50), // Space for the overlapping logo
-        const Text(
-          "Charity Foundation",
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        const SizedBox(height: 50),
+        Text(
+          org.name, // From model
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          textAlign: TextAlign.center,
         ),
         const SizedBox(height: 4),
         Text(
-          "contact@charityfoundation.org",
+          org.email, // From model
           style: TextStyle(
             fontSize: 14,
             color: Theme.of(context).textTheme.bodySmall?.color,
@@ -96,13 +124,17 @@ class LeftSideNav extends StatelessWidget {
     );
   }
 
-  // Address and Bank Details Icons
-  Widget _buildInfoActions(BuildContext context) {
+  // Uses Address and BankDetails objects to populate dialogs
+  Widget _buildInfoActions(
+    BuildContext context,
+    OrganizationAddress addr,
+    OrganizationBankDetails bank,
+  ) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         IconButton(
-          onPressed: () => _showAddressDialog(context),
+          onPressed: () => _showAddressDialog(context, addr),
           icon: Icon(
             Icons.location_on_outlined,
             color: Theme.of(context).iconTheme.color,
@@ -110,7 +142,7 @@ class LeftSideNav extends StatelessWidget {
           tooltip: 'View Address',
         ),
         IconButton(
-          onPressed: () => _showBankDialog(context),
+          onPressed: () => _showBankDialog(context, bank),
           icon: Icon(
             Icons.account_balance_outlined,
             color: Theme.of(context).iconTheme.color,
@@ -121,9 +153,12 @@ class LeftSideNav extends StatelessWidget {
     );
   }
 
-  /// ## Main Navigation Links (Updated)
-  /// This now passes a `badgeCount` to the items that need a notification badge.
-  Widget _buildNavigationMenu(BuildContext context) {
+  // Uses the calculated pending counts for the badges
+  Widget _buildNavigationMenu(
+    BuildContext context,
+    int requestCount,
+    int donationCount,
+  ) {
     return Column(
       children: [
         _buildNavItem(
@@ -131,16 +166,14 @@ class LeftSideNav extends StatelessWidget {
           icon: Icons.volunteer_activism_outlined,
           title: 'Donation Requests',
           view: DashboardView.donationRequests,
-          // --- Badge Added ---
-          badgeCount: 2,
+          badgeCount: requestCount, // From parameter
         ),
         _buildNavItem(
           context,
           icon: Icons.favorite_border,
           title: 'Donations',
           view: DashboardView.donations,
-          // --- Badge Added ---
-          badgeCount: 5,
+          badgeCount: donationCount, // From parameter
         ),
         _buildNavItem(
           context,
@@ -152,8 +185,7 @@ class LeftSideNav extends StatelessWidget {
     );
   }
 
-  /// ## Reusable Navigation Item Widget (Updated)
-  /// Now includes an optional `badgeCount` parameter to display a badge.
+  // This is your existing navigation item widget, no changes needed here.
   Widget _buildNavItem(
     BuildContext context, {
     required IconData icon,
@@ -184,8 +216,11 @@ class LeftSideNav extends StatelessWidget {
     );
   }
 
-  // List of Services
-  Widget _buildServicesList(BuildContext context) {
+  // Builds the list of services dynamically from the DonationService list
+  Widget _buildServicesList(
+    BuildContext context,
+    List<DonationService> serviceList,
+  ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -201,38 +236,41 @@ class LeftSideNav extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 10),
-        _buildServiceItem(icon: Icons.food_bank_outlined, title: 'Food Drives'),
-        _buildServiceItem(icon: Icons.school_outlined, title: 'Education'),
-        _buildServiceItem(
-          icon: Icons.medical_services_outlined,
-          title: 'Healthcare',
-        ),
+        // Create a list item for each service in the provided list
+        for (var service in serviceList) _buildServiceItem(service),
       ],
     );
   }
 
-  // Reusable Service Item Widget
-  Widget _buildServiceItem({required IconData icon, required String title}) {
+  // Reusable Service Item Widget, now takes a DonationService object
+  Widget _buildServiceItem(DonationService service) {
     return ListTile(
       dense: true,
-      leading: Icon(icon, size: 20, color: Colors.blueGrey),
-      title: Text(title, style: TextStyle(color: Colors.blueGrey)),
-      onTap: () {
-        // Optional: Add logic for service items
-      },
+      // Use Image.asset for the icon
+      leading: Image.asset(
+        service.icon,
+        width: 20,
+        height: 20,
+        color: Colors.blueGrey,
+      ),
+      title: Text(
+        service.title,
+        style: const TextStyle(color: Colors.blueGrey),
+      ),
+      onTap: () {},
     );
   }
 
-  // Dialog for Address
-  void _showAddressDialog(BuildContext context) {
+  // Dialog for Address, now populated from data models
+  void _showAddressDialog(BuildContext context, OrganizationAddress addr) {
+    final fullAddress =
+        "${addr.address}\n${addr.town.city}, ${addr.town.district}\n${addr.town.province}, Sri Lanka";
     showDialog(
       context: context,
       builder:
           (context) => AlertDialog(
             title: const Text('Organization Address'),
-            content: const SelectableText(
-              "123 Charity Lane,\nKindness City, 10100,\nSri Lanka",
-            ),
+            content: SelectableText(fullAddress),
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(context).pop(),
@@ -243,16 +281,16 @@ class LeftSideNav extends StatelessWidget {
     );
   }
 
-  // Dialog for Bank Details
-  void _showBankDialog(BuildContext context) {
+  // Dialog for Bank Details, now populated from the data model
+  void _showBankDialog(BuildContext context, OrganizationBankDetails bank) {
+    final bankInfo =
+        "Bank Name: ${bank.bankName}\nBranch: ${bank.bankBranch}\nAccount Name: ${bank.accountName}\nAccount Number: ${bank.accountNumber}";
     showDialog(
       context: context,
       builder:
           (context) => AlertDialog(
             title: const Text('Bank Details'),
-            content: const SelectableText(
-              "Bank Name: Bank of Kindness\nAccount Name: Charity Foundation\nAccount Number: 123-456-7890",
-            ),
+            content: SelectableText(bankInfo),
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(context).pop(),

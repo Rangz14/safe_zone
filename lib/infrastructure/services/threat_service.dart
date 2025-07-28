@@ -216,4 +216,25 @@ class ThreatService {
       return Stream.value(left(Failure(e.toString())));
     }
   }
+
+  Stream<Either<Failure, SafeZoneThreat>> watchThreat(String id) {
+    try {
+      return _firestore
+          .collection(threatsCollectionName)
+          .doc(id)
+          .snapshots()
+          .map<Either<Failure, SafeZoneThreat>>((snapshot) {
+            if (!snapshot.exists) {
+              return left(Failure('Threat not found'));
+            }
+            final threat = SafeZoneThreat.fromJson(snapshot.data()!);
+            return right(threat);
+          })
+          .handleError((error) {
+            return left(Failure(error.toString()));
+          });
+    } catch (e) {
+      return Stream.value(left(Failure(e.toString())));
+    }
+  }
 }

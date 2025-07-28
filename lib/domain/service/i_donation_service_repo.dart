@@ -5,6 +5,7 @@ import 'package:safe_zone/domain/service/service.dart';
 
 abstract class IDonationServiceRepo {
   Future<Either<Failure, DonationService>> getService(String id);
+  Stream<Either<Failure, DonationService>> watchService(String id);
   Future<Either<Failure, List<DonationService>>> getServices();
   Stream<Either<Failure, List<DonationService>>> watchServices();
   Future<Either<Failure, Unit>> createService(DonationService service);
